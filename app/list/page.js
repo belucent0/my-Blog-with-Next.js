@@ -13,15 +13,19 @@ export default async function List() {
 
     return (
       <div className="list-bg">
-        {result.map((v, i) => (
+        {
+          result.map((v, i) => (
           <div className="list-item" key={i}>
             <Link prefetch={false} href={`/detail/${result[i]._id}`}>
                 <h4>{result[i].title}</h4>
             </Link>
-            {/* <DetailLink/> */}
+            <Link href={`/edit/${result[i]._id}`}>📝수정</Link>
             <p>{result[i].content}</p>
           </div>
         ))}
+
+        <h2><Link href={"/write"}>글작성</Link>
+        </h2>        
 
       </div>
     );

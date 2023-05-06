@@ -2,11 +2,9 @@ export default function Write(req, res){
     return (
         <div>
             <h4>글작성</h4>
-            <form action="/api/test" method="POST">
-                <label for="name">제목:</label>
-                <div><input type="text" name="title"></input></div>
-                <label for="name">내용:</label>
-                <div><input type="text" name="content"></input></div>
+            <form action="/api/post/new" method="POST">
+                <input name="title" placeholder="글제목"/>
+                <input name="content" placeholder="글내용"/>
                 <button type="submit">버튼</button>
             </form>
         </div>
