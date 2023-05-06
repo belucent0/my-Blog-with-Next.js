@@ -19,10 +19,10 @@ export default function ListItme({result}) {
                     const response = await fetch('/api/post/delete', { method: 'POST', body: result[i]._id });
 
                     e.target.parentElement.style.opacity = 0;
+                    alert('삭제 완료');
                     setTimeout(() => {
                       e.target.parentElement.style.display = 'none';
                     }, 1000);
-                    alert('삭제 완료');
                   } catch (error) {
                     console.error('삭제 중 오류 발생:', error);
                     alert('삭제 실패');
