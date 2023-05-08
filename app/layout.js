@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import LoginBtn from './LoginBtn'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,10 +13,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="navbar">
-        <Link href="/" className="logo">방명록</Link>
+      <body> 
+        <div className="navbar">
+        <Link href="/" className="logo">VIVIDNOW의 블로그</Link>
         <Link href="/list">List</Link>
-        {children}</body>
+        <LoginBtn></LoginBtn>
+        </div>
+        </body>
     </html>
   )
 }
