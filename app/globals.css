@@ -45,8 +45,8 @@ body {
   }
 
   .navbar {
-    background: white;
-    padding: 30px;
+    background: rgb(114, 128, 231);
+    padding: 15px;
   }
 
   .navbar a {
