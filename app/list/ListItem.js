@@ -1,10 +1,12 @@
 'use client'
 
+import { getServerSession } from "next-auth";
 import Link from "next/link";
 
-export default function ListItme({result}) {
-
+export default async function ListItme({result}) {
+  
     return (
+
         <div>
             <button><Link href={"/write"}>글작성</Link></button>      
           {
@@ -13,6 +15,9 @@ export default function ListItme({result}) {
               <Link href={`/detail/${result[i]._id}`}>
                   <h4>{result[i].title}</h4>
               </Link>
+              <p>{result[i].content}</p>
+              <p>{result[i].author}</p>
+        
               <Link href={`/edit/${result[i]._id}`}>📝수정</Link>
               <span onClick={async (e) => {
                   try {
@@ -28,7 +33,7 @@ export default function ListItme({result}) {
                     alert('삭제 실패');
                   }
                 }}>🗑삭제</span>
-              <p>{result[i].content}</p>
+              
             </div>
           ))
           }

@@ -3,7 +3,6 @@ import { ObjectId } from "mongodb"
 
 export default async function handler(req, res){
     if (req.method == 'POST'){
-        console.log('2',req.body)
         try {
             const db = (await connectDB).db("forum")
             let result = await db.collection('post').deleteOne(

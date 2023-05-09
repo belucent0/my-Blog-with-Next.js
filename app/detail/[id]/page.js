@@ -5,8 +5,6 @@ export default async function Deatail(props){
     const db = (await connectDB).db("forum")
     let result = await db.collection('post').findOne({_id: new ObjectId(props.params.id)})
 
-    console.log(props)
-
     return (
         <div>
             <h4>상세페이지</h4>

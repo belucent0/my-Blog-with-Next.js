@@ -1,14 +1,8 @@
 import Link from 'next/link'
 import './globals.css'
-import { Inter } from 'next/font/google'
-import LoginBtn from './LoginBtn'
-import LogOutBtn from './LogOutBtn'
-import { SessionProvider } from "next-auth/react";
-import { Children } from 'react';
+import {LoginBtn, LogoutBtn} from './LoginBtn'
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'VIVIDNOW의 블로그',
@@ -17,7 +11,6 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   let session = await getServerSession(authOptions)
-  console.log(session)
   return (
     <html lang="en">
       <body> 
@@ -26,7 +19,7 @@ export default async function RootLayout({ children }) {
         <Link href="/list">List</Link>
         
         {
-          session ? <span>{session.user.name} <LogOutBtn/> </span> : <LoginBtn/> 
+          session ? <span>{session.user.name} <LogoutBtn/> </span> : <LoginBtn/> 
         }
         </div>
         {children}

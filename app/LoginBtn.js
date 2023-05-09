@@ -1,10 +1,16 @@
 'use client'
 
-import { signIn } from 'next-auth/react'
+import { signIn, signOut } from 'next-auth/react'
 
-export default function LoginBtn(){
+export function LoginBtn(){
     return (
         <button onClick={()=> { signIn() }}>로그인</button>
+    )
+}
+
+export function LogoutBtn(){
+    return (
+        <button onClick={()=> { signOut() }}>로그아웃</button>
     )
 }
 
