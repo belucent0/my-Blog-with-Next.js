@@ -1,4 +1,5 @@
 export default function Write(req, res){
+
     return (
         <div>
             <h4>글작성</h4>

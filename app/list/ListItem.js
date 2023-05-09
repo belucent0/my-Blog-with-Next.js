@@ -1,9 +1,8 @@
 'use client'
 
-import { getServerSession } from "next-auth";
 import Link from "next/link";
 
-export default async function ListItme({result}) {
+export default function ListItme({result}) {
   
     return (
 
@@ -21,7 +20,11 @@ export default async function ListItme({result}) {
               <Link href={`/edit/${result[i]._id}`}>📝수정</Link>
               <span onClick={async (e) => {
                   try {
-                    const response = await fetch('/api/post/delete', { method: 'POST', body: result[i]._id });
+                    console.log(result[i]._id);
+                    const response = await fetch('/api/post/delete', { 
+                      method: 'POST',  //Nest.js DELETE 메쏘드 오류로 대체
+                      body: result[i]._id
+                      });
 
                     e.target.parentElement.style.opacity = 0;
                     alert('삭제 완료');
