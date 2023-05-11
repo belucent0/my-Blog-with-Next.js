@@ -45,14 +45,14 @@ body {
   }
 
   .navbar {
-    background: rgb(114, 128, 231);
+    background: rgb(164, 152, 152);
     padding: 15px;
   }
 
   .navbar a {
     margin-right: 10px;
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
   }
 
   .logo {
