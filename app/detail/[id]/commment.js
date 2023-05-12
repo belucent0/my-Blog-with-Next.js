@@ -22,8 +22,8 @@ export default function Comment(props){
             .then(r=>r.json())
             .then((newResult)=>{
                 setData(newResult)
+                setComment('') // 댓글 작성 후 입력란 초기화
             })
-        setComment('') // 댓글 작성 후 입력란 초기화
         alert('작성 완료')
     }
 
@@ -31,7 +31,7 @@ export default function Comment(props){
       <div>
         <hr></hr>
         <div>
-          <input value={comment} onChange={(e)=>{ setComment(e.target.value)}}/> 
+          <input onChange={(e)=>{ setComment(e.target.value)}}/>
 
           <button onClick={addComment}>작성</button>
         </div>

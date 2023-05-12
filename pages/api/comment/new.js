@@ -26,8 +26,8 @@ export default async function handler(req, res){
       const db = (await connectDB).db("forum");
       let result = await db.collection("comment").insertOne(comment);
 
-      let newresult = await db.collection('comment').find({ parent : new ObjectId(req.body._id)}).toArray();
-      return res.status(200).json(newresult, "작성 완료");
+      let newResult = await db.collection('comment').find({ parent : new ObjectId(req.body._id)}).toArray();
+      return res.status(200).json(newResult, "작성 완료");
     } catch (error) {
       return res.status(500).json("작성 실패");
     }
