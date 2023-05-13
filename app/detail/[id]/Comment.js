@@ -4,24 +4,22 @@ import { useEffect, useState } from "react";
 export default function Comment(props){
 
     let [comment, setComment] = useState('')
-    let [data, setData] = useState([])
     let [showComment, updateComment] = useState([])
 
-    useEffect(()=> {
+    useEffect(()=> {  //list.js에서 조회
         fetch('/api/comment/list?id=' + props._id, {method: "GET"})
-        .then(r=>r.json())
+        .then(res=>res.json())
         .then((result)=>{
-            console.log(result)
             updateComment(result)})
-    }, [data]) 
+    }, [showComment]) 
 
     const addComment = () =>{
         fetch('/api/comment/new' , {
             method : 'POST', 
             body : JSON.stringify({comment : comment, _id : props._id })})
-            .then(r=>r.json())
+            .then(res=>res.json())
             .then((newResult)=>{
-                setData(newResult)
+                updateComment(newResult) //새 댓글 목록
             })
         setComment('') // 댓글 작성 후 입력란 초기화
         alert('작성 완료')
