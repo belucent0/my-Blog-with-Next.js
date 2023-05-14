@@ -22,7 +22,6 @@ export default function Comment(props){
                 updateComment(newResult) //새 댓글 목록
             })
         setComment('') // 댓글 작성 후 입력란 초기화
-        alert('작성 완료')
     }
 
     return (

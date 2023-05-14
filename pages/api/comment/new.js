@@ -7,12 +7,13 @@ export default async function handler(req, res){
   let session = await getServerSession(req, res, authOptions);
 
   if (req.method == "POST") {
+    if (!session) {
+      return res.status(401).json("로그인이 필요한 기능입니다")
+  } else { 
     if (req.body.content == "") {
       return res.status(500).json("내용을 입력해주세요.");
     }
-    if (!session) {
-        return res.status(401).json("로그인이 필요한 기능입니다")
-    }
+
     req.body = JSON.parse(req.body)
 
     let comment = {
@@ -32,4 +33,6 @@ export default async function handler(req, res){
       return res.status(500).json("작성 실패");
     }
   }
+  }
+
 }
