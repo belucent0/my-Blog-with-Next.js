@@ -22,15 +22,19 @@ export default async function RootLayout({ children}) {
         ? 'dark-mode' 
         : ''
         }>
-          <div className="navbar">
+          <div className="navbar" style={{margin : "auto"}}>
             <Link href="/" className="logo">VIVIDNOW의 블로그</Link>
-            <Link href="/list">List</Link>
+            <Link href="/list">게시판</Link>
+            <span style={{ 
+              float: "right",
+              margin: "-9px"}}>
             {
             session 
-            ? <span>{session.user.name} <LogoutBtn/> </span>
+            ? <span className='logo'>{session.user.name} <LogoutBtn/> </span>
             : <LoginBtn/>
             }
             <DarkMode />
+            </span>
             </div>
             {children}
             </body>
