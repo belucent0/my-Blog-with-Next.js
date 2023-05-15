@@ -18,24 +18,22 @@ export default async function RootLayout({ children}) {
 
   return (
     <html>
-      <body className={ 
-        res != undefined && res.value == 'dark' 
+      <body className={res != undefined && res.value == 'dark' 
         ? 'dark-mode' 
         : ''
         }>
-        <div className="navbar"> 
-        <Link href="/" className="logo">VIVIDNOW의 블로그</Link>
-        <Link href="/list">List</Link>
-        
-        {
-          session 
-          ? <span>{session.user.name} <LogoutBtn/> </span> 
-          : <LoginBtn/>
-        }
-        <DarkMode />
-        </div>
-        {children}
-      </body>
+          <div className="navbar">
+            <Link href="/" className="logo">VIVIDNOW의 블로그</Link>
+            <Link href="/list">List</Link>
+            {
+            session 
+            ? <span>{session.user.name} <LogoutBtn/> </span>
+            : <LoginBtn/>
+            }
+            <DarkMode />
+            </div>
+            {children}
+            </body>
     </html>
   )
 }
