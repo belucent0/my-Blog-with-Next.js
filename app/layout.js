@@ -3,6 +3,8 @@ import './globals.css'
 import {LoginBtn, LogoutBtn} from './LoginBtn'
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
+import { cookies } from 'next/headers';
+import DarkMode from './DarkMode';
 
 export const metadata = {
   title: 'VIVIDNOW의 블로그',
@@ -11,19 +13,29 @@ export const metadata = {
 
 export default async function RootLayout({ children}) {
   let session = await getServerSession(authOptions)
+
+  let res = cookies().get('mode')
+
   return (
-    <html lang="en">
-      <body> 
-        <div className="navbar">
+    <html>
+      <body className={ 
+        res != undefined && res.value == 'dark' 
+        ? 'dark-mode' 
+        : ''
+        }>
+        <div className="navbar"> 
         <Link href="/" className="logo">VIVIDNOW의 블로그</Link>
         <Link href="/list">List</Link>
         
         {
-          session ? <span>{session.user.name} <LogoutBtn/> </span> : <LoginBtn/> 
+          session 
+          ? <span>{session.user.name} <LogoutBtn/> </span> 
+          : <LoginBtn/>
         }
+        <DarkMode />
         </div>
         {children}
-        </body>
+      </body>
     </html>
   )
 }

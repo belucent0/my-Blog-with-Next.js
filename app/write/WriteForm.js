@@ -11,7 +11,6 @@ export default async function WriteForm() {
     let res = await fetch('/api/post/image?file=' + filename)
     res = await res.json()
 
-            
   //S3 업로드
   const formData = new FormData()
   Object.entries({ ...res.fields, file }).forEach(([key, value]) => {
@@ -35,6 +34,7 @@ export default async function WriteForm() {
         <input name="title" placeholder="글제목" />
         <input name="content" placeholder="글내용" />
         <input type="file" accept="image/*" onChange={fileChange} />
+        <input name="content" placeholder="글내용" />
         <img src={src} />
         <button type="submit">전송</button>
       </form>
