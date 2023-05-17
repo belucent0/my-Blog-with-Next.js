@@ -2,8 +2,8 @@ import aws from 'aws-sdk'
 
 export default async function handler(req, res){
     aws.config.update({
-      accessKeyId: process.env.AWS_ACCESS_KEY,
-      secretAccessKey: process.env.AWS_SECRET_KEY,
+      accessKeyId: process.env.ACCESS_KEY,
+      secretAccessKey: process.env.SECRET_KEY,
       region: 'ap-northeast-2',
       signatureVersion: 'v4',
     })
