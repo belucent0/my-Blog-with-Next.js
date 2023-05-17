@@ -26,6 +26,8 @@ export default function DarkMode() {
         setMode('light')
       }
      }}> {mode === 'light' ? '🌙': '☀️'} </span>
+     
+
 
   return (
     <span>

@@ -1,3 +1,7 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 body {
     margin : 0
 }
@@ -52,15 +56,15 @@ body {
     padding: 30px;
   }
 
-  .navbar a {
+  .navbar a {   /* 라이트 모드일 때의 색상 */
     margin-right: 10px;
     text-decoration: none;
-    color: black;  /* 라이트 모드일 때의 색상 */
+    color: black;  
   }
 
-  .logo {
+  .logo {   /* 라이트 모드일 때의 색상 */
     font-weight: bold;
-    color: black;  /* 라이트 모드일 때의 색상 */
+    color: black;  
   }
 
   .list-item{
@@ -68,8 +72,8 @@ body {
     transition: all 1s;
   }
 
-  /* 다크모드 */
-  .dark-mode .navbar {
+
+  .dark-mode .navbar {   /* 다크모드 */
     background: #222;
   }
 
