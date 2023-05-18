@@ -1,6 +1,5 @@
 "use client";
 
-import DarkModeBtn from "./DarkModeBtn";
 import Animation from "./layout/body/animation";
 import Hero from "./layout/body/hero";
 

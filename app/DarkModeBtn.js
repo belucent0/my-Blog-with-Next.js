@@ -3,7 +3,6 @@
 import { useTheme } from "next-themes";
 
 export default function DarkModeBtn() {
-
   const { theme, setTheme } = useTheme();
 
   return (

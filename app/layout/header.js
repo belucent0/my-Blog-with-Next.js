@@ -1,15 +1,12 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
-import { cookies } from "next/headers";
 import { LoginBtn, LogoutBtn } from "../LoginBtn";
-import DarkMode from "../DarkMode";
 import Link from "next/link";
 import DarkModeBtn from "../DarkModeBtn";
 
 export default async function Header() {
   let session = await getServerSession(authOptions);
 
-  let res = cookies().get("mode");
   return (
     <>
       <header className="text-gray-600 body-font">
@@ -51,11 +48,6 @@ export default async function Header() {
             >
               연락하기
             </Link>
-            <div
-              className={
-                res != undefined && res.value == "dark" ? "dark-mode" : ""
-              }
-            >
               <div>
                 <span>
                   {session ? (
@@ -67,10 +59,8 @@ export default async function Header() {
                   )}
                 </span>
               </div>
-            </div>
-            <DarkModeBtn />
           </nav>
-
+          <DarkModeBtn />
         </div>
       </header>
     </>
