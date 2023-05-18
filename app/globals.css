@@ -1,6 +1,17 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  /* Your default theme */
+  --background: white;
+  --foreground: black;
+}
+
+[data-theme='dark'] {
+  --background: black;
+  --foreground: white;
+}
 
 body {
     margin : 0
@@ -70,13 +81,4 @@ body {
   .list-item{
     opacity: 1;
     transition: all 1s;
-  }
-
-
-  .dark-mode .navbar {   /* 다크모드 */
-    background: #222;
-  }
-
-  .dark-mode .navbar a, .dark-mode .logo {
-    color: white;
   }

@@ -7,32 +7,36 @@ import { cookies } from "next/headers";
 import DarkMode from "./DarkMode";
 import Header from "./layout/header";
 import Footer from "./layout/footer";
+import { Providers } from "./providers";
 
 export const metadata = {
   title: "VIVIDNOW의 블로그",
-  description: "오늘도 열코딩",
+  description: "코딩합시다",
 };
 
 export default async function RootLayout({ children }) {
   let session = await getServerSession(authOptions);
 
-  let res = cookies().get("mode");
-
   return (
-    <html>
+    <html suppressHydrationWarning>
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
       </body>
+    </html>
+  );
+}
 
-      {/* <body>
-        <div className={res != undefined && res.value == "dark" ? "dark-mode" : ""}>
+{
+  /* <div className={res != undefined && res.value == "dark" ? "dark-mode" : ""}>
         <div className="navbar" style={{ margin: "auto" }}>
           <Link href="/" className="logo">
             VIVIDNOW
           </Link>
-          <Link href="/list">게시판</Link>
+          <Link href="/list">게시판</Link
           <span style={{float: "right",margin: "-9px",}}>
             {session ? (
               <span className="logo">
@@ -44,8 +48,5 @@ export default async function RootLayout({ children }) {
             <DarkMode />
           </span>
           </div>
-        </div>
-      </body> */}
-    </html>
-  );
+        </div> */
 }
