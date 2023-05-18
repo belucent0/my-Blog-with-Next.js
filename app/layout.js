@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Providers } from "./providers";
+import { Providers } from "./provider";
 import Header from "./layout/header";
 import Footer from "./layout/footer";
 
