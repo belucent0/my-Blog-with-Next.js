@@ -2,7 +2,7 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import { cookies } from "next/headers";
 import { LoginBtn, LogoutBtn } from "../LoginBtn";
-import DarkMode  from "../DarkMode";
+import DarkMode from "../DarkMode";
 import Link from "next/link";
 import DarkModeBtn from "../DarkModeBtn";
 
@@ -14,7 +14,10 @@ export default async function Header() {
     <>
       <header className="text-gray-600 body-font">
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-          <Link className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href={"/"}>
+          <Link
+            className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
+            href={"/"}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -42,7 +45,10 @@ export default async function Header() {
             <Link className="mr-5 hover:text-gray-900" href={"/list"}>
               방명록
             </Link>
-            <Link className="mr-5 hover:text-gray-900" href={"https://open.kakao.com/o/sXi5AZkf"}>
+            <Link
+              className="mr-5 hover:text-gray-900"
+              href={"https://open.kakao.com/o/sXi5AZkf"}
+            >
               연락하기
             </Link>
             <div
@@ -62,11 +68,10 @@ export default async function Header() {
                 </span>
               </div>
             </div>
+            <DarkModeBtn />
           </nav>
-          {/* <DarkMode /> */}
-          <DarkModeBtn/>
-        </div>
 
+        </div>
       </header>
     </>
   );
