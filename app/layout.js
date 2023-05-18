@@ -29,24 +29,3 @@ export default async function RootLayout({ children }) {
     </html>
   );
 }
-
-{
-  /* <div className={res != undefined && res.value == "dark" ? "dark-mode" : ""}>
-        <div className="navbar" style={{ margin: "auto" }}>
-          <Link href="/" className="logo">
-            VIVIDNOW
-          </Link>
-          <Link href="/list">게시판</Link
-          <span style={{float: "right",margin: "-9px",}}>
-            {session ? (
-              <span className="logo">
-                {session.user.name} <LogoutBtn />{" "}
-              </span>
-            ) : (
-              <LoginBtn />
-            )}
-            <DarkMode />
-          </span>
-          </div>
-        </div> */
-}
