@@ -11,7 +11,6 @@ const useChannelTalk = () => {
       pluginKey: process.env.NEXT_PUBLIC_CHANNEL_TALK_KEY,
     });
   }, [router]);
-
   }
 
 export default useChannelTalk;

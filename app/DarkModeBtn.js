@@ -1,9 +1,12 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import useChannelTalk from "../util/useChannelTalk";
 
 export default function DarkModeBtn() {
   const { theme, setTheme } = useTheme();
+  
+  const channeltalk = useChannelTalk();
 
   return (
     <>
@@ -14,7 +17,7 @@ export default function DarkModeBtn() {
                 focus:outline-none
                 bg-gray-100
                 hover:bg-gray-50
-                hover:text-orange-500
+                hover:text-red-500
                 dark:bg-slate-600
                 dark:text-slate-400
                 dark:hover:bg-slate-700

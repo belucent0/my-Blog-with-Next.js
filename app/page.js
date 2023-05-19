@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
 import Animation from "./layout/body/animation";
 import Hero from "./layout/body/hero";
-import useChannelTalk from "./useChannelTalk";
 
 export default async function Home() {
 

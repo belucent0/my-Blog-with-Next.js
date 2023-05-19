@@ -3,9 +3,19 @@ import { getServerSession } from "next-auth";
 import { LoginBtn, LogoutBtn } from "../LoginBtn";
 import Link from "next/link";
 import DarkModeBtn from "../DarkModeBtn";
+import autoprefixer from "autoprefixer";
 
 export default async function Header() {
   let session = await getServerSession(authOptions);
+
+  let sessionBtn = (
+    <span>
+      {session ? (
+      <span className="logo">{session.user.name} <LogoutBtn />{" "}</span>) 
+      : (<LoginBtn />
+      )}
+    </span>
+  );
 
   return (
     <>
@@ -42,25 +52,13 @@ export default async function Header() {
             <Link className="mr-5 hover:text-gray-900" href={"/list"}>
               방명록
             </Link>
-            <Link
-              className="mr-5 hover:text-gray-900"
-              href={"https://open.kakao.com/o/sXi5AZkf"}
-            >
-              연락하기
-            </Link>
-              <div>
-                <span>
-                  {session ? (
-                    <span className="logo">
-                      {session.user.name} <LogoutBtn />{" "}
-                    </span>
-                  ) : (
-                    <LoginBtn />
-                  )}
-                </span>
-              </div>
           </nav>
-          <DarkModeBtn />
+          <div className="ml-5 hover:text-gray-900">
+           {sessionBtn}
+           </div>
+          <div className="ml-5 hover:text-gray-900">
+            <DarkModeBtn />
+          </div>
         </div>
       </header>
     </>
