@@ -1,13 +1,15 @@
-import { connectDB } from "@/util/database"
+'use client'
 
-export default async function List() {
+import useChannelTalk from "../useChannelTalk"
 
-    const db = (await connectDB).db("forum")
-    let result = await db.collection('post').find().toArray()
-    result = result.map((value)=>{
-      value._id = value._id.toString()
-      return value
-    })
+export default async function about() {
+  
+
+
+  if (typeof window !== "undefined") {
+    useChannelTalk();
+  }
+
 
     return (
       <div className="list-bg">
