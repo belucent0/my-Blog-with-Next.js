@@ -3,7 +3,6 @@ import { getServerSession } from "next-auth";
 import { LoginBtn, LogoutBtn } from "../LoginBtn";
 import Link from "next/link";
 import DarkModeBtn from "../DarkModeBtn";
-import autoprefixer from "autoprefixer";
 
 export default async function Header() {
   let session = await getServerSession(authOptions);
@@ -48,6 +47,9 @@ export default async function Header() {
             </Link>
             <Link className="mr-5 hover:text-gray-900" href={"/works"}>
               프로젝트
+            </Link>
+            <Link className="mr-5 hover:text-gray-900" href={"/works"}>
+              블로그
             </Link>
             <Link className="mr-5 hover:text-gray-900" href={"/list"}>
               방명록
