@@ -8,7 +8,7 @@ export default async function Header() {
   let session = await getServerSession(authOptions);
 
   let sessionBtn = (
-    <span>
+    <span >
       {session ? (
       <span className="logo">{session.user.name} <LogoutBtn />{" "}</span>) 
       : (<LoginBtn />
@@ -25,41 +25,39 @@ export default async function Header() {
             href={"/"}
           >
             <svg
+              width="95"
+              height="94"
+              viewBox="0 0 95 94"
+              class="h-auto w-6 text-indigo-500"
+              fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
-              viewBox="0 0 24 24"
             >
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              <path d="M96 0V47L48 94H0V47L48 0H96Z" />
             </svg>
-            <span className="ml-3 text-xl">VIVIDNOW</span>
+            <span className="ml-3 text-xl font-semibold">VIVIDNOW</span>
           </Link>
           <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <Link className="mr-5 hover:text-gray-900" href={"/"}>
+            <Link className="mr-6 hover:text-gray-900" href={"/"}>
               홈
             </Link>
-            <Link className="mr-5 hover:text-gray-900" href={"/about"}>
+            <Link className="mr-6 hover:text-gray-900" href={"/about"}>
               소개
             </Link>
-            <Link className="mr-5 hover:text-gray-900" href={"/works"}>
+            <Link className="mr-6 hover:text-gray-900" href={"/works"}>
               프로젝트
             </Link>
-            <Link className="mr-5 hover:text-gray-900" href={"/works"}>
+            <Link className="mr-6 hover:text-gray-900" href={"/works"}>
               블로그
             </Link>
-            <Link className="mr-5 hover:text-gray-900" href={"/list"}>
+            <Link className="mr-6 hover:text-gray-900" href={"/list"}>
               방명록
             </Link>
-            <span className="ml-5 hover:text-gray-900">
-           {sessionBtn}
-           </span>
-           <span className="ml-5 hover:text-gray-900">
-            <DarkModeBtn />
-          </span>
+            <span className="ml-24 hover:text-gray-900">
+              {sessionBtn}
+            </span>
+            <span className="ml-8 hover:text-gray-900">
+              <DarkModeBtn />
+            </span>
           </nav>
         </div>
       </header>
