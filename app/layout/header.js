@@ -37,28 +37,26 @@ export default async function Header() {
             <span className="ml-3 text-xl font-semibold">VIVIDNOW</span>
           </Link>
           <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <Link className="mr-6 hover:text-gray-900" href={"/"}>
+            <Link className="mr-4 hover:text-gray-900" href={"/"}>
               홈
             </Link>
-            <Link className="mr-6 hover:text-gray-900" href={"/about"}>
+            <Link className="mr-4 hover:text-gray-900" href={"/about"}>
               소개
             </Link>
-            <Link className="mr-6 hover:text-gray-900" href={"/works"}>
+            <Link className="mr-4 hover:text-gray-900" href={"/works"}>
               프로젝트
             </Link>
-            <Link className="mr-6 hover:text-gray-900" href={"/works"}>
-              블로그
-            </Link>
-            <Link className="mr-6 hover:text-gray-900" href={"/list"}>
+            <Link className="mr-4 hover:text-gray-900" href={"/guestbook"}>
               방명록
             </Link>
-            <span className="ml-24 hover:text-gray-900">
-              {sessionBtn}
-            </span>
-            <span className="ml-8 hover:text-gray-900">
-              <DarkModeBtn />
-            </span>
+            <Link className="mr-4 hover:text-gray-900" href={"/list"}>
+              게시판
+            </Link>
+            <DarkModeBtn className="mr-4"/>
           </nav>
+          <span className="ml-4 hover:text-gray-900">
+              {sessionBtn}
+          </span>
         </div>
       </header>
     </>
