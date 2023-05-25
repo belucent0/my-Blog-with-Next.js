@@ -16,13 +16,12 @@ export default async function GuestbookPage() {
 
   let session = await getServerSession(authOptions);
 
-  let userName = session.user.name
 
   let sessionBtn = (
     <span >
       {session ? (
       <span className="logo">
-      <WriteForm /> {" "}<LogoutBtn /></span>) 
+      <WriteForm /> {" "}<LogoutBtn /> {session.user.name}</span>) 
       : (<LoginBtn />
       )}
     </span>
@@ -32,7 +31,7 @@ export default async function GuestbookPage() {
     <>
     <section>
       {sessionBtn}
-      <ListItme result={result} userName={userName}/>
+      <ListItme result={result}/>
     </section>
     </>
   );

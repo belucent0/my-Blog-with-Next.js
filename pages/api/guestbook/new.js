@@ -17,8 +17,6 @@ export default async function handler(req, res) {
         return res.status(500).json("내용을 입력해주세요.");
       }
 
-      // req.body = JSON.parse(req.body);
-
       let guestbook = {
         content: req.body.content,
         authorEmail: session.user.email,
@@ -28,9 +26,9 @@ export default async function handler(req, res) {
       try {
         const db = (await connectDB).db("forum");
         let result = await db.collection("guestbook").insertOne(guestbook);
-        return res.redirect(302, "/guestbook");
+        res.redirect(302, "/guestbook");
       } catch (error) {
-        return res.status(500).json("작성 실패");
+        res.status(500).json("작성 실패");
       }
     }
   }
