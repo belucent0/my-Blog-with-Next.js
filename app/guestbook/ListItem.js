@@ -5,15 +5,10 @@ import Link from "next/link";
 export default function ListItme({ result }) {
   return (
     <div>
-      <button>
-        <Link href={"/write"}>글작성</Link>
-      </button>
       {result.map((v, i) => (
         <div className="list-item" key={i}>
-          <Link href={`/detail/${result[i]._id}`}>
-            <h4>{result[i].title}</h4>
-          </Link>
-          <p>{result[i].author}</p>
+            <h4>{result[i].content}</h4>
+          <p>{result[i].authorName}</p>
           
           <Link href={`/edit/${result[i]._id}`}>📝수정</Link>
           <span

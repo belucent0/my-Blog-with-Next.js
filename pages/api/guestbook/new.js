@@ -17,12 +17,12 @@ export default async function handler(req, res) {
         return res.status(500).json("내용을 입력해주세요.");
       }
 
-      req.body = JSON.parse(req.body);
+      // req.body = JSON.parse(req.body);
 
       let guestbook = {
-        content: req.body.comment,
-        author_email: session.user.email,
-        author_name: session.user.name,
+        content: req.body.content,
+        authorEmail: session.user.email,
+        authorName: session.user.name,
       };
 
       try {

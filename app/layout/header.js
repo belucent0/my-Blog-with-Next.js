@@ -28,7 +28,7 @@ export default async function Header() {
               width="95"
               height="94"
               viewBox="0 0 95 94"
-              class="h-auto w-6 text-indigo-500"
+              className="h-auto w-6 text-indigo-500"
               fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -54,9 +54,9 @@ export default async function Header() {
             </Link>
             <DarkModeBtn className="mr-4"/>
           </nav>
-          <span className="ml-4 hover:text-gray-900">
+          {/* <span className="ml-4 hover:text-gray-900">
               {sessionBtn}
-          </span>
+          </span> */}
         </div>
       </header>
     </>

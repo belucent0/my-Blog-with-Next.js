@@ -3,10 +3,11 @@ import { LoginBtn, LogoutBtn } from '../LoginBtn';
 import ListItme from './ListItem';
 import { connectDB } from '@/util/database';
 import { getServerSession } from 'next-auth';
+import WriteForm from './WriteForm';
 
 export default async function GuestbookPage() {
   const db = (await connectDB).db("forum")
-  let result = await db.collection('post').find().toArray()
+  let result = await db.collection('guestbook').find().sort({"_id": -1}).toArray()
   result = result.map((value)=>{
     value._id = value._id.toString()
     return value
@@ -18,7 +19,8 @@ export default async function GuestbookPage() {
   let sessionBtn = (
     <span >
       {session ? (
-      <span className="logo">{session.user.name} <LogoutBtn />{" "}</span>) 
+      <span className="logo">
+      <WriteForm /> {" "}닉네임:{session.user.name}<LogoutBtn /></span>) 
       : (<LoginBtn />
       )}
     </span>
@@ -26,7 +28,6 @@ export default async function GuestbookPage() {
 
   return (
     <>
-
     <section>
       {sessionBtn}
       <ListItme result={result}/>
