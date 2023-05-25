@@ -10,11 +10,11 @@ export default function ListItme({ result }) {
             <h4>{result[i].content}</h4>
           <p>{result[i].authorName}</p>
           
-          <Link href={`/edit/${result[i]._id}`}>📝수정</Link>
+          {/* <Link href={`/edit/${result[i]._id}`}>📝수정</Link> */}
           <span
             onClick={async (e) => {
               try {
-                const response = await fetch("/api/post/delete", {
+                const response = await fetch("/api/guestbook/delete", {
                   method: "POST", //Nest.js DELETE 메쏘드 오류로 대체
                   body: result[i]._id,
                 });
@@ -30,7 +30,7 @@ export default function ListItme({ result }) {
               }
             }}
           >
-            🗑삭제
+          🗑삭제
           </span>
         </div>
       ))}
