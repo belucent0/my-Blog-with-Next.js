@@ -33,10 +33,13 @@ export default async function GuestbookPage() {
 
   return (
     <>
-      <section className="ml-3 mr-3">
-        <h1 className="font-bold text-3xl font-serif mb-4">방명록</h1>
-        {sessionBtn}
-        <ListItme result={result} />
+      <section className="flex justify-center items-center">
+        <div className="max-w-[500px] w-full mx-3 ">
+          <h1 className="font-bold text-3xl font-serif mb-4 text-center">방명록</h1>
+          {sessionBtn}
+          <ListItme result={result} />
+
+        </div>
       </section>
     </>
   );

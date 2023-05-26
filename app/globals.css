@@ -39,7 +39,7 @@ p {
 }
 
 
-body {
+/* body {
     margin : 0
 }
 
@@ -58,7 +58,7 @@ body {
 .list-item p {
     color: grey;
     margin : 5px 0px;
-  }
+  } */
 
   /* input {
     box-sizing: border-box;
