@@ -49,11 +49,11 @@ export default async function Header() {
             <Link className="mr-4 hover:text-gray-900" href={"/works"}>
               프로젝트
             </Link>
+            {/* <Link className="mr-4 hover:text-gray-900" href={"/list"}>
+              게시판
+            </Link> */}
             <Link className="mr-4 hover:text-gray-900" href={"/guestbook"}>
               방명록
-            </Link>
-            <Link className="mr-4 hover:text-gray-900" href={"/list"}>
-              게시판
             </Link>
             <DarkModeBtn className="mr-4" />
           </nav>
