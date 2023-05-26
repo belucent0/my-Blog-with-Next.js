@@ -15,7 +15,7 @@ export default async function handler(req, res){
     const db = (await connectDB).db("forum");
     let userId = await db.collection("guestbook").findOne({ _id: new ObjectId(req.body.id) });
 
-    if (userId.authorEmail === session.user.email) {
+    if (userId && userId.authorEmail === session.user.email) {
         let result = await db.collection("guestbook").deleteOne({ _id: new ObjectId(req.body.id) });
   
         if (result.deletedCount > 0) {
