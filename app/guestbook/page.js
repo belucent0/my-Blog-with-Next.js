@@ -20,8 +20,8 @@ export default async function GuestbookPage() {
   let sessionBtn = (
     <span >
       {session ? (
-      <span className="logo">
-      <WriteForm /> {" "}<LogoutBtn /> {session.user.name}</span>) 
+      <span className="logo"> 
+      <WriteForm />{" "}<LogoutBtn /></span>) 
       : (<LoginBtn />
       )}
     </span>

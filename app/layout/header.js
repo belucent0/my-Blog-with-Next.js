@@ -8,10 +8,13 @@ export default async function Header() {
   let session = await getServerSession(authOptions);
 
   let sessionBtn = (
-    <span >
+    <span>
       {session ? (
-      <span className="logo">{session.user.name} <LogoutBtn />{" "}</span>) 
-      : (<LoginBtn />
+        <span className="logo">
+          {session.user.name} <LogoutBtn />{" "}
+        </span>
+      ) : (
+        <LoginBtn />
       )}
     </span>
   );
@@ -34,7 +37,7 @@ export default async function Header() {
             >
               <path d="M96 0V47L48 94H0V47L48 0H96Z" />
             </svg>
-            <span className="ml-3 text-xl font-semibold">VIVIDNOW</span>
+            <span className="ml-3 text-xl font-semibold ">VIVIDNOW</span>
           </Link>
           <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
             <Link className="mr-4 hover:text-gray-900" href={"/"}>
@@ -52,7 +55,7 @@ export default async function Header() {
             <Link className="mr-4 hover:text-gray-900" href={"/list"}>
               게시판
             </Link>
-            <DarkModeBtn className="mr-4"/>
+            <DarkModeBtn className="mr-4" />
           </nav>
           {/* <span className="ml-4 hover:text-gray-900">
               {sessionBtn}
