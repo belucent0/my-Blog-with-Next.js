@@ -5,15 +5,15 @@ import useChannelTalk from "../util/useChannelTalk";
 
 export default function DarkModeBtn() {
   const { theme, setTheme } = useTheme();
-  
+
   const channeltalk = useChannelTalk();
 
   return (
     <>
       <button
         className="
-                    inline-flex items-center
-               border-0 py-1 px-3 rounded text-base mt-4 md:mt-0
+                inline-flex items-center
+                border-0 py-1 px-3 rounded text-base mt-1
                 focus:outline-none
                 bg-gray-100
                 hover:bg-gray-50

@@ -39,7 +39,7 @@ export default async function Header() {
             </svg>
             <span className="ml-3 text-xl font-semibold ">VIVIDNOW</span>
           </Link>
-          <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+          <nav className=" md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
             <Link className="mr-4 hover:text-gray-900" href={"/"}>
               홈
             </Link>
@@ -55,7 +55,7 @@ export default async function Header() {
             <Link className="mr-4 hover:text-gray-900" href={"/guestbook"}>
               방명록
             </Link>
-            <DarkModeBtn className="mr-4" />
+            <span className="mr-4" ><DarkModeBtn  /></span>
           </nav>
           {/* <span className="ml-4 hover:text-gray-900">
               {sessionBtn}
