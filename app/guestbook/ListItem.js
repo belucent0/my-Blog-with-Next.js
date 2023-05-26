@@ -34,9 +34,9 @@ export default function ListItem({ result }) {
   return (
     <div>
       {result.map((v, i) => (
-        <div className="dark:bg-gray-800 rounded-lg p-4 mb-3 shadow-md" key={i}>
+        <div className="rounded-lg p-3 mb-3 shadow-md dark:bg-gray-800" key={i}>
           <h4 className="text-xl font-bold mb-1">{result[i].content}</h4>
-          <p className="text-gray-500 mb-1">{result[i].authorName}</p>
+          <p className="text-gray-500  mb-1">{result[i].authorName}</p>
           <span onClick={(e) => handleDelete(result[i]._id, i, e)}>🗑삭제</span>
         </div>
       ))}
