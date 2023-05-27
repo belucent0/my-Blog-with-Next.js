@@ -55,7 +55,7 @@ export default async function Header() {
             <Link className="mr-4 hover:text-gray-900" href={"/guestbook"}>
               방명록
             </Link>
-            <span className="mr-4" ><DarkModeBtn  /></span>
+            <DarkModeBtn className="mr-4"  />
           </nav>
           {/* <span className="ml-4 hover:text-gray-900">
               {sessionBtn}

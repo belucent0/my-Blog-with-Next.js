@@ -22,8 +22,8 @@ export default async function GuestbookPage() {
   let sessionBtn = (
     <span>
       {session ? (
-        <span className="logo">
-          <WriteForm /> <LogoutBtn />
+        <span>
+          <LogoutBtn/> <WriteForm /> 
         </span>
       ) : (
         <LoginBtn />
@@ -34,10 +34,10 @@ export default async function GuestbookPage() {
   return (
     <>
       <section className="flex justify-center items-center">
-        <div className="max-w-[600px] w-full mx-3 ">
+        <div className="max-w-[600px] w-full mx-3">
           <h1 className="font-bold text-3xl font-serif mb-4 text-center">방명록</h1>
-          {sessionBtn}
-          <ListItme result={result} />
+          <span> {sessionBtn} </span>
+          <ListItme result={result}/>
         </div>
       </section>
     </>
