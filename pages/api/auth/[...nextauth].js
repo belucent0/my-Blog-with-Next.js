@@ -61,12 +61,13 @@ export const authOptions = {
 
   callbacks: {
     //4. jwt 형성시 실행되는 코드 
-    //user변수는 DB의 유저정보담겨있고 token.user에 뭐 저장하면 jwt에 들어갑니다.
+    //user변수는 DB의 유저정보담겨있고 token.user에 뭐 저장하면 jwt에 들어감.
     jwt: async ({ token, user }) => {
       if (user) {
         token.user = {};
         token.user.name = user.name
         token.user.email = user.email
+        token.user.image = user.image
       }
       return token;
     },

@@ -19,21 +19,24 @@ export default async function GuestbookPage() {
 
   let session = await getServerSession(authOptions);
   let userName
+  let userImage
   if (session) {
     userName = session.user.name
+    userImage = session.user.image
   }
 
   let sessionBtn = (
     <span>
       {session ? (
         <span>
-          <LogoutBtn/> <WriteForm userName={userName}/> 
+          <LogoutBtn/> <WriteForm userName={userName} userImage={userImage}/> 
         </span>
       ) : (
         <LoginBtn />
       )}
     </span>
   );
+  console.log(session);
 
   return (
     <>
