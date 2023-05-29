@@ -1,23 +1,7 @@
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import { getServerSession } from "next-auth";
-import { LoginBtn, LogoutBtn } from "../LoginBtn";
 import Link from "next/link";
 import DarkModeBtn from "../DarkModeBtn";
 
 export default async function Header() {
-  let session = await getServerSession(authOptions);
-
-  let sessionBtn = (
-    <span>
-      {session ? (
-        <span className="logo">
-          {session.user.name} <LogoutBtn />{" "}
-        </span>
-      ) : (
-        <LoginBtn />
-      )}
-    </span>
-  );
 
   return (
     <>

@@ -36,8 +36,7 @@ export default async function GuestbookPage() {
       )}
     </span>
   );
-  console.log(session);
-
+  
   return (
     <>
       <section className="flex justify-center items-center">
