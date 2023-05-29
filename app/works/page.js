@@ -52,7 +52,7 @@ export default async function List() {
   ];
 
   return (
-    <div>
+    <>
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap w-full mb-20">
@@ -66,7 +66,6 @@ export default async function List() {
             원대하고, 작고 속에 아름답고 부패를 부패뿐이다. 많이 밥을 것은 운다. 놀이 미인을 심장의 있으랴? 없으면 꽃 같이, 사라지지 힘차게 보이는 광야에서 착목한는 눈에 철환하였는가? 
             </p>
           </div>
-
 
           <div className="flex flex-wrap -m-4">
             {worksList.map((card) => (
@@ -99,7 +98,6 @@ export default async function List() {
           </div>
         </div>
       </section>
-
-    </div>
+    </>
   );
 }
