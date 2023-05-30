@@ -38,25 +38,27 @@ export default async function about() {
       github : "깃헙링크",
       etcLink : "기타링크"
     },
-    {
-      id: 3,
-      src: "https://dummyimage.com/723x403",
-      alt: "Image",
-      width: 723,
-      height: 403,
-      period: "작업기간",
-      title : "제목",
-      content : "내용",
-      tags : "next.js",
-      github : "깃헙링크",
-      etcLink : "기타링크"
-    },
   ];
+
+  <div className="-m-4 flex flex-wrap">
+  <Link
+    className="mr-5 hover:text-gray-900"
+    href={"https://open.kakao.com/o/sXi5AZkf"}
+  >
+    연락하기
+  </Link>
+  <Link
+    className="mr-5 hover:text-gray-900"
+    href={"https://open.kakao.com/o/sXi5AZkf"}
+  >
+    이력서
+  </Link>
+</div>
 
   return (
     <>
       <section className="body-font text-gray-600">
-        <div className="container mx-auto px-5 py-24">
+        <div className="container px-5 py-24 min-h-screen mx-auto">
           <div className="mb-20 flex w-full flex-wrap">
             <div className="mb-6 w-full lg:mb-0 lg:w-1/2">
               <h1 className="title-font mb-2 text-2xl font-medium text-gray-900 sm:text-3xl">
@@ -69,20 +71,6 @@ export default async function about() {
             </p>
           </div>
 
-          <div className="-m-4 flex flex-wrap">
-            <Link
-              className="mr-5 hover:text-gray-900"
-              href={"https://open.kakao.com/o/sXi5AZkf"}
-            >
-              연락하기
-            </Link>
-            <Link
-              className="mr-5 hover:text-gray-900"
-              href={"https://open.kakao.com/o/sXi5AZkf"}
-            >
-              이력서
-            </Link>
-          </div>
           <div className="flex flex-wrap -m-4">
             {worksList.map((card) => (
               <div key={card.id} className="xl:w-1/4 md:w-1/2 p-4">

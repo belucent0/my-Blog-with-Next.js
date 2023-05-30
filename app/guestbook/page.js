@@ -29,7 +29,7 @@ export default async function GuestbookPage() {
     <span>
       {session ? (
         <span>
-          <LogoutBtn/> <WriteForm userName={userName} userImage={userImage}/> 
+          <LogoutBtn/> <WriteForm userName={userName}/> 
         </span>
       ) : (
         <LoginBtn />
@@ -41,7 +41,7 @@ export default async function GuestbookPage() {
     <>
       <section className="flex justify-center items-center">
         <div className="max-w-[600px] w-full mx-3">
-          <h1 className="font-bold text-3xl font-serif mb-4 text-center">방명록</h1>
+          <h1 className="font-bold text-3xl mb-4 text-center">방명록</h1>
           <span> {sessionBtn} </span>
           <ListItme result={result}/>
         </div>
