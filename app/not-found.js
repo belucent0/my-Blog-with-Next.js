@@ -1,4 +1,5 @@
-export default function Loading() {
+export default function NotFound() {
+
   return (
     <>
       <div className="flex px-5 py-24 min-h-screen mx-auto">
@@ -25,9 +26,9 @@ export default function Loading() {
                 
                 메인으로
               </a>
-              <a
+              {/* <a
                 className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-transparent px-4 py-3 text-sm font-semibold text-blue-500 ring-offset-white transition-all hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:ring-offset-slate-900 sm:w-auto"
-                href="history.go(-1);"
+                href="history.back()"
               >
                 <svg
                   className="h-2.5 w-2.5"
@@ -39,12 +40,12 @@ export default function Loading() {
                   <path
                     d="M11.2792 1.64001L5.63273 7.28646C5.43747 7.48172 5.43747 7.79831 5.63273 7.99357L11.2792 13.64"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
                   />
                 </svg>
                 이전 페이지로
-              </a>
+              </a> */}
             </div>
           </div>
 
