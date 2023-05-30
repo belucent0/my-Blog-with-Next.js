@@ -1,10 +1,11 @@
+import Link from "next/link";
+
 export default function NotFound() {
 
   return (
     <>
       <div className="flex px-5 py-24 min-h-screen mx-auto">
         <div className="mx-auto flex h-full w-full max-w-[50rem] flex-col">
-
 
           <div className="px-4 py-10 text-center sm:px-6 lg:px-8">
             <h1 className="block text-7xl font-bold text-gray-800 dark:text-white sm:text-9xl">
@@ -18,14 +19,13 @@ export default function NotFound() {
               다른 페이지로 이동해보는 건 어떨까요?
             </p>
             <div className="mt-5 flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-3">
-              <a
+              <Link
                 className="inline-flex w-full items-center justify-center gap-x-3 rounded-md border border-transparent bg-blue-600 px-4 py-3 text-center text-sm font-medium text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 sm:w-auto"
                 href="/"
                 target="_blank"
               >
-                
                 메인으로
-              </a>
+              </Link>
               {/* <a
                 className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-transparent px-4 py-3 text-sm font-semibold text-blue-500 ring-offset-white transition-all hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:ring-offset-slate-900 sm:w-auto"
                 href="history.back()"
