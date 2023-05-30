@@ -18,10 +18,10 @@ export default async function List() {
       height: 403,
       period: "23.05.18 ~ 진행중",
       title : "나만의 블로그",
-      content : "단독 프로젝트, 기능 : 소개란, 작업이력란, 방명록, 다크모드, 소셜로그인, 블로깅(추후 예정)",
+      content : "소셜로그인, 방명록, 다크모드, 포스팅(추후 예정)",
       tags : "JavaScript, Next.js, MongoDB, tailwindCSS, NextAuth.js, Vercel, 채널톡OpenAPI",
       github : "https://github.com/vividnow/my-Blog-with-Next.js",
-      etcLink : "자세히 보기"
+      etcLink : "/works"
     },
     {
       id: 2,
@@ -31,14 +31,14 @@ export default async function List() {
       height: 403,
       period: "23.02.27~23.03.31(5주)",
       title : "스파르타 커뮤클럽",
-      content : "풀스택 5인 협업 프로젝트, 취준생을 위한 모임매칭 및 행사 메일알림 서비스",
+      content : "개발자 취준생을 위한 모임매칭 및 행사 메일알림 서비스",
       tags : "TypeScript, Nest.js, TypeORM(MySQL), EJS, Linear, Git, ",
-      github : "https://github.com/vividnow/spartasix-23.02.27-23.03.31",
+      github : "https://github.com/miu-null/spartasix",
       etcLink : "https://veams.tistory.com/101"
     },
     {
       id: 3,
-      src: "https://dummyimage.com/723x403",
+      src: "https://blog.kakaocdn.net/dn/cSVRj8/btsh3C10Uym/ukAU336XUNNVulpOaGsXA0/img.png",
       alt: "Image",
       width: 723,
       height: 403,
@@ -46,8 +46,8 @@ export default async function List() {
       title : "오레오 베이커리",
       content : "빵류 주문 웹쇼핑몰, 기능: 상품 구매, 구매 실시간 알림, 관리자 백오피스",
       tags : "JavaScript, Express.js, Sequelize(MySQL), EJS, Git",
-      github : "깃헙링크",
-      etcLink : "기타링크"
+      github : "https://github.com/KimHyungJip/oreo",
+      etcLink : "https://veams.tistory.com/63"
     },
   ];
 
@@ -63,7 +63,7 @@ export default async function List() {
               <div className="h-1 w-20 bg-indigo-500 rounded"></div>
             </div>
             <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">
-            Node.js 환경에서 진행한 웹개발 협업 및 토이 프로젝트 입니다. 
+            Node.js 환경에서 진행한 웹개발 협업 및 토이 프로젝트로, Nest.js, Next.js, Express.js 프레임워크를 활용하여 REST API를 구현하였습니다.
             </p>
           </div>
 
@@ -86,14 +86,15 @@ export default async function List() {
                   <p className="leading-relaxed text-base">
                     {card.tags}
                   </p>
-                  <Link className="leading-relaxed text-indigo-800 text-base" href={card.github}>
-                    Github 저장소 링크
-                  </Link>
                   <p>
                   <Link className="leading-relaxed text-purple-500 text-base" href={card.etcLink}>
-                    자세히 보기
+                  자세히 보기→
                   </Link>
                   </p>
+                  <Link className="leading-relaxed text-indigo-800 text-base" href={card.github}>
+                  GITHUB→
+                  </Link>
+
                 </div>
               </div>
             ))}    
