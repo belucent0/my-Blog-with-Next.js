@@ -1,16 +1,17 @@
 'use client'
-export default async function WriteForm({ userName, userImage }) {
+export default async function WriteForm({ userName}) {
   return (
     <>
-      <div>
-        <form action="/api/guestbook/new" method="POST" className="relative flex items-baseline mb-5">
-          <div className="relative w-full">
-            <input className="bg-gray-100 pl-4 pr-40 py-2 rounded-lg w-full dark:bg-gray-800 text-center" type="text" name="content" placeholder="내용을 입력해주세요" maxLength={100} minLength={2} required/>
+      <form action="/api/guestbook/new" method="POST">
+          <div className="flex mb-3">
+              <span className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button">{userName} </span>
+
+              <div className="relative w-full">
+                  <input type="text" name="content" className="block p-3 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="100자 방명록" maxLength={100} minLength={2} required/>
+                  <button type="submit" className="text-white absolute right-1.5 bottom-1.5 bg-indigo-500 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1.5 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">등록</button>
+              </div>
           </div>
-          <span className="flex item-center justify-center absolute left-1 top-1 h-8 rounded-lg bg-gray-500 px-3 py-1 ml-1 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-gray-600 focus-visible:ring active:bg-indigo-700 md:text-base"><img src= {userImage}/>{userName}</span>
-          <button type="submit" className="flex item-center justify-center absolute right-1 top-1 h-8 rounded-lg bg-indigo-500 px-3 py-1 ml-1 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">등록</button>
-        </form>
-      </div>
+      </form>
     </>
   )
 }

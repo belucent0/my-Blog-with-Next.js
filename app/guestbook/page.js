@@ -18,33 +18,31 @@ export default async function GuestbookPage() {
   });
 
   let session = await getServerSession(authOptions);
-  let userName
-  let userImage
+  let userName;
   if (session) {
-    userName = session.user.name
-    userImage = session.user.image
+    userName = session.user.name;
   }
 
   let sessionBtn = (
     <span>
       {session ? (
         <span>
-          <LogoutBtn/> <WriteForm userName={userName}/> 
+          <LogoutBtn /> <WriteForm userName={userName} />
         </span>
       ) : (
         <LoginBtn />
       )}
     </span>
   );
-  
+
   return (
     <>
-      <section className="flex justify-center items-center">
-        <div className="max-w-[600px] w-full mx-3">
-          <h1 className="font-bold text-3xl mb-4 text-center">방명록</h1>
-          <span> {sessionBtn} </span>
-          <ListItme result={result}/>
-        </div>
+      <section className="flex min-h-screen items-center justify-center mx-auto px-5 py-24">
+          <div className="mx-3 w-full max-w-[600px]">
+            <h1 className="mb-4 text-center text-3xl font-bold">방명록</h1>
+            <span> {sessionBtn} </span>
+            <ListItme result={result} />
+          </div>
       </section>
     </>
   );
