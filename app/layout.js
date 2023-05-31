@@ -2,6 +2,7 @@ import "./globals.css";
 import { Providers } from "./provider";
 import Header from "./layout/header";
 import Footer from "./layout/footer";
+import NotFound from "./not-found";
 
 export const metadata = {
   title: "VIVIDNOW의 블로그",
@@ -16,6 +17,7 @@ export default async function RootLayout({ children }) {
         <Providers>
           <Header />
           {children}
+          <NotFound />
           <Footer />
         </Providers>
       </body>
