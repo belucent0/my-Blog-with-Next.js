@@ -1,6 +1,14 @@
+'use client'
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function NotFound() {
+  const router = useRouter();
+
+  const handleGoBack = () => {
+    router.back();
+  };
   return (
     <> 
         <div className="mx-auto flex min-h-screen px-5 py-24 ">
@@ -11,23 +19,22 @@ export default function NotFound() {
               </h1>
               <h1 className="block text-2xl font-bold text-white"></h1>
               <p className="mt-3 text-gray-600 dark:text-gray-400">
-                죄송합니다, 찾을 수 없는 페이지를 요청 하셨습니다.
+                이런, 페이지를 찾을 수 없습니다.
               </p>
               <p className="text-gray-600 dark:text-gray-400">
                 다른 페이지로 이동해보는 건 어떨까요?
               </p>
               <div className="mt-5 flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-3">
                 <Link
-                  className="inline-flex w-full items-center justify-center gap-x-3 rounded-md border border-transparent bg-blue-600 px-4 py-3 text-center text-sm font-medium text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 sm:w-auto"
+                  className="inline-flex w-full items-center justify-center gap-x-3 rounded-md border border-transparent bg-indigo-600 px-4 py-3 text-center text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 sm:w-auto"
                   href="/"
-                  target="_blank"
                 >
-                  메인으로
+                  홈으로
                 </Link>
-                {/* <a
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-transparent px-4 py-3 text-sm font-semibold text-blue-500 ring-offset-white transition-all hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:ring-offset-slate-900 sm:w-auto"
-                href="history.back()"
-              >
+                <button
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-transparent px-4 py-3 text-sm font-semibold text-blue-500 ring-offset-white transition-all hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:ring-offset-slate-900 sm:w-auto"
+                  onClick={() => handleGoBack()}
+                >
                 <svg
                   className="h-2.5 w-2.5"
                   width="16"
@@ -43,7 +50,7 @@ export default function NotFound() {
                   />
                 </svg>
                 이전 페이지로
-              </a> */}
+              </button>
               </div>
             </div>
           </div>
