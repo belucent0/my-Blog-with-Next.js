@@ -1,6 +1,6 @@
 "use client";
 
-import Animation from "./layout/body/animation";
+import {Animation} from "./layout/body/animation";
 import Hero from "./layout/body/hero";
 
 export default async function Home() {
