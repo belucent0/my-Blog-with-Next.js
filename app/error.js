@@ -3,7 +3,7 @@
 export default function Error({ error, reset }) {
   return (
     <>
-      <section className="bg-white dark:bg-gray-900">
+    <section className="container mx-auto min-h-screen px-5 py-24 bg-white dark:bg-gray-900 ">
         <div className="mx-auto max-w-screen-md px-4 py-8 text-center lg:px-12 lg:py-16">
           <svg
             className="mx-auto mb-4 h-10 w-10 text-gray-400"
@@ -21,10 +21,11 @@ export default function Error({ error, reset }) {
           <p className="font-light text-gray-500 dark:text-gray-400 md:text-lg xl:text-xl">
             관리자에게 문의하세요
           </p>
+          <button onClick={() => reset()}>버튼</button>
         </div>
       </section>
 
-      <button onClick={() => reset()}></button>
+
     </>
   );
 }
