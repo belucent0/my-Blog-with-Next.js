@@ -1,6 +1,5 @@
 "use client";
 
-// import AnimationAbout from "../layout/body/animationAbout";
 import { AnimationAbout } from "../layout/body/animation";
 import Link from "next/link";
 
@@ -14,7 +13,7 @@ export default async function about() {
               <h1 className="title-font mb-2 text-2xl font-medium text-gray-900 sm:text-3xl">
                 소개
               </h1>
-              <div className="h-1 w-20 rounded bg-indigo-500"></div>
+              <div className="h-1 w-20 rounded bg-indigo-700"></div>
             </div>
             <p className="w-full leading-relaxed text-gray-800 lg:w-1/2">
               전직 심리상담사로서, 프로젝트시 팀내 상황파악 및 공유를 중시하며
@@ -44,7 +43,7 @@ export default async function about() {
                 <h2 className="title-font mt-4 text-lg font-medium text-gray-900">
                   김재광
                 </h2>
-                <div className="mb-4 mt-2 h-1 w-12 rounded bg-indigo-500"></div>
+                <div className="mb-4 mt-2 h-1 w-12 rounded bg-indigo-700"></div>
                 <p className="text-base">
                   일신우일신의 마음으로 살고자 합니다.
                 </p>
@@ -65,11 +64,10 @@ export default async function about() {
                 이 관심은 웹을 개발하는 현재에도 변함이 없습니다. 이제
                 개발자라는 새로운 역할을 기반으로, 서비스를 통해 사람들이
                 일상에서 겪는 어려움과 불편을 해결하는 조력자가 되고자 합니다.
-                고객의 마음을 읽어 회사 서비스의 성장에 기여하는 사람으로 살고자
-                합니다.
+                고객의 마음을 읽어 회사 서비스의 성장에 기여하고자 합니다.
               </p>
               <p className="mb-4 text-lg leading-relaxed text-gray-600">
-                Node.js로 개발을 시작했다보니, JavaScript 생태계를 를 좀 더
+                Node.js로 개발을 시작했다보니, JavaScript 생태계를 좀 더
                 이해하는 개발자가 되고 싶은 욕심이 생깁니다. 서버를 개발하는
                 것을 주로 학습하긴했지만, 전체 개발 프로세스를 이해하는 동시에 타
                 직무와의 소통에 더 능숙한 개발자가 되고자 이 블로그를 Next.js로

@@ -61,7 +61,7 @@ export default async function List() {
               <h1 className="title-font mb-2 text-2xl font-medium text-gray-900 sm:text-3xl">
                 프로젝트 목록
               </h1>
-              <div className="h-1 w-20 rounded bg-indigo-500"></div>
+              <div className="h-1 w-20 rounded bg-indigo-700"></div>
             </div>
             <p className="w-full leading-relaxed text-gray-500 lg:w-1/2">
               Node.js 환경에서 진행한 웹개발 협업 및 토이 프로젝트로, Nest.js,
