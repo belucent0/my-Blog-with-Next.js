@@ -38,7 +38,7 @@ export default async function GuestbookPage() {
   return (
     <>
       <section className="flex min-h-screen items-center justify-center mx-auto px-0.5 py-24">
-          <div className="mx-3 w-full max-w-[700px]">
+          <div className="mx-1.5 w-full max-w-[700px]">
             <h1 className="mb-4 text-center text-3xl font-bold">방명록</h1>
             <span> {sessionBtn} </span>
             <ListItme result={result} />
