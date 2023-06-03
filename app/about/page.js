@@ -8,7 +8,7 @@ export default async function about() {
   return (
     <>
       <section className="body-font text-gray-700">
-        <div className="container mx-auto min-h-screen px-5 py-24">
+        <div className="container mx-auto min-h-screen px-5 py-8">
           <div className="mb-20 flex w-full flex-wrap">
             <div className="mb-6 w-full lg:mb-0 lg:w-1/2">
               <h1 className="title-font mb-2 text-2xl font-medium text-gray-900 sm:text-3xl">

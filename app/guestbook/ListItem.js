@@ -1,7 +1,7 @@
 "use client";
 
 export default function ListItem({ result }) {
-  const handleDelete = async (id, index, e) => {
+  const handleDelete = async (id, e) => {
     try {
       const response = await fetch("/api/guestbook/delete", {
         method: "POST",
@@ -34,10 +34,10 @@ export default function ListItem({ result }) {
   return (
     <div>
       {result.map((v, i) => (
-        <div className="listitem rounded-lg p-3 mb-3 shadow-md bg-gray-100 dark:bg-gray-800" key={i}>
-          <h4 className="text-xl font-bold mb-1">{result[i].content}</h4>
-          <p className="text-gray-500  mb-1">{result[i].authorName}</p>
-          <span onClick={(e) => handleDelete(result[i]._id, i, e)}>🗑삭제</span>
+        <div className="listitem rounded-lg p-1.5 sm:p-3 mb-1 sm:mb-3 shadow-md bg-gray-100 dark:bg-gray-800" key={i}>
+          <h4 className="text-base sm:text-lg font-bold sm:mb-1">{result[i].content}</h4>
+          <p className="text-sm sm:text-base text-gray-500 sm:mb-1">{result[i].authorName}</p>
+          <span className="text-xs sm:text-base" onClick={(e) => handleDelete(result[i]._id, i, e)}>🗑삭제</span>
         </div>
       ))}
     </div>
