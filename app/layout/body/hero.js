@@ -11,8 +11,8 @@ export default function Hero() {
           환영합니다.
         </p>
         <div className="flex justify-center">
-          <Link href={"/works"}>
-            <button className="btn-project">프로젝트 보러가기</button>
+          <Link href={"/about"}>
+            <button className="btn-project">소개 보러가기</button>
           </Link>
         </div>
       </div>

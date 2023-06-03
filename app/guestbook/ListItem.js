@@ -1,7 +1,7 @@
 "use client";
 
 export default function ListItem({ result }) {
-  const handleDelete = async (id, e) => {
+  const handleDelete = async (id, index, e) => {
     try {
       const response = await fetch("/api/guestbook/delete", {
         method: "POST",
@@ -20,7 +20,7 @@ export default function ListItem({ result }) {
           alert(data.message);
           setTimeout(() => {
             listItem.style.display = "none";
-          }, 200);
+          }, 300);
         }
       } else {
         throw new Error(data.message);
