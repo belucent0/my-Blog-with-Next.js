@@ -12,7 +12,7 @@ export default async function List() {
   const worksList = [
     {
       id: 1,
-      src: "https://dummyimage.com/723x403",
+      src: "https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80",
       alt: "Image",
       width: 723,
       height: 403,
@@ -31,7 +31,7 @@ export default async function List() {
       height: 403,
       period: "23.02.27~23.03.31(5주)",
       title: "스파르타 커뮤클럽",
-      content: "예비개발자들을 위한 모임매칭 및 행사 메일링",
+      content: "예비개발자들을 위한 커뮤니티, 모임매칭 및 행사 메일링 서비스 제공",
       tags: "TypeScript, Nest.js, TypeORM(MySQL), EJS",
       github: "https://github.com/miu-null/spartasix",
       etcLink: "https://veams.tistory.com/101",
@@ -44,20 +44,6 @@ export default async function List() {
       height: 403,
       period: "2023.02.01. ~ 2023.02.08(7일)",
       title: "오레오 베이커리",
-      content:
-        "빵류 주문 웹쇼핑몰, 기능: 상품 구매, 구매 실시간 알림, 관리자 백오피스",
-      tags: "JavaScript, Express.js, Sequelize(MySQL), EJS",
-      github: "https://github.com/KimHyungJip/oreo",
-      etcLink: "https://veams.tistory.com/63",
-    },
-    {
-      id: 4,
-      src: "https://blog.kakaocdn.net/dn/c2XkKY/btsitTpTRUy/2YZHIEMkRPFAnsyvhPwVS1/img.png",
-      alt: "Image",
-      width: 723,
-      height: 403,
-      period: "2023.02.01. ~ 2023.02.08",
-      title: "오레오",
       content:
         "빵류 주문 웹쇼핑몰, 기능: 상품 구매, 구매 실시간 알림, 관리자 백오피스",
       tags: "JavaScript, Express.js, Sequelize(MySQL), EJS",
@@ -90,17 +76,19 @@ export default async function List() {
               {worksList.map((card) => (
                 <div key={card.id} className="group mb-10 space-y-6">
                   <div className="mb-2 flex h-full flex-col gap-1 overflow-hidden">
-                    <Image
+                    <img
                       className="mb-2 h-80 w-full rounded-3xl object-cover object-top transition-all duration-500 group-hover:rounded-xl"
                       src={card.src}
                       alt={card.alt}
                       width={card.width}
                       height={card.height}
                     />
+                    
                     <span>
-                      <span className="mt-4 inline-block font-medium text-gray-400 dark:text-gray-500 sm:mt-0">
+                      <span className="mt-4 mb-2 inline-block font-medium text-gray-400 dark:text-gray-500 sm:mt-0">
                         {card.period}
                       </span>
+                      
                       <h3 className="mb-4 text-3xl font-semibold text-gray-800 dark:text-white">
                         {card.title}
                       </h3>
@@ -129,63 +117,10 @@ export default async function List() {
                   </div>
                 </div>
               ))}
-
-              <div className="group space-y-6">
-                <img
-                  src="https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80"
-                  alt="art cover"
-                  loading="lazy"
-                  width="1000"
-                  height="667"
-                  className="h-80 w-full rounded-3xl object-cover object-top transition-all duration-500 group-hover:rounded-xl"
-                />
-                <h3 className="text-3xl font-semibold text-gray-800 dark:text-white">
-                  Flipper and JS: why we added JavaScript support to a mobile
-                  debugging platform
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Finding the right open source project for your first
-                  contribution can feel daunting. It took me years to find a
-                  repository that fit my skills and interests.
-                </p>
-                <div className="flex flex-wrap items-center gap-6">
-                  <a
-                    href="#"
-                    className="-ml-1 flex items-center gap-3 rounded-full p-1 hover:bg-gray-50 dark:hover:bg-gray-800"
-                  >
-                    <img
-                      className="h-8 w-8 rounded-full object-cover"
-                      src="images/man.jpg"
-                      alt=""
-                    />
-                    <span className="hidden text-base font-semibold text-gray-600 dark:text-gray-200 sm:block">
-                      Bernard Ng.
-                    </span>
-                  </a>
-                  <span className="block w-max font-light text-gray-500 sm:mt-0">
-                    Aug 27 2022
-                  </span>
-                  <div className="flex items-center gap-2 text-gray-500">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      className="h-5 w-5 text-gray-400 dark:text-gray-600"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    <span>2 min read</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
+
+          
         </div>
       </section>
     </>
