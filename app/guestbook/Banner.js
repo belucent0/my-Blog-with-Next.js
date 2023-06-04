@@ -35,7 +35,7 @@ export default function Banner() {
           <svg viewBox="0 0 2 2" className="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
             <circle cx={1} cy={1} r={1} />
           </svg>
-          현재 소셜 로그인은 깃허브와 카카오톡 로그인만 지원합니다.
+          현재 소셜로그인은 깃허브와 카카오톡만 지원합니다.
         </p>
       </div>
       <div className="flex flex-1 justify-end">

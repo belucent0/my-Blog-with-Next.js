@@ -4,7 +4,7 @@ export default function ListItem({ result }) {
   const handleDelete = async (id, index, e) => {
     try {
       const response = await fetch("/api/guestbook/delete", {
-        method: "POST",
+        method: "POST",  //DELETE 메쏘드 오류로 대체
         headers: {
           "Content-Type": "application/json",
         },
@@ -37,7 +37,7 @@ export default function ListItem({ result }) {
         <div className="listitem rounded-lg p-1.5 sm:p-3 mb-1 sm:mb-3 shadow-md bg-gray-100 dark:bg-gray-800" key={i}>
           <h4 className="text-base sm:text-lg font-bold sm:mb-1">{result[i].content}</h4>
           <p className="text-sm sm:text-base text-gray-500 sm:mb-1">{result[i].authorName}</p>
-          <span className="text-xs sm:text-base" onClick={(e) => handleDelete(result[i]._id, i, e)}>🗑삭제</span>
+          <span className="text-sm sm:text-base" onClick={(e) => handleDelete(result[i]._id, i, e)}>🗑삭제</span>
         </div>
       ))}
     </div>

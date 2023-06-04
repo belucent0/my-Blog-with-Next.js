@@ -22,6 +22,9 @@ export default async function about() {
               역할에 능숙합니다.
             </p>
           </div>
+          <div className="mx-auto w-full max-w-[700px] lg:w-4/6">
+            <AnimationAbout />
+          </div>
 
           <div className="mt-10 flex flex-col sm:flex-row">
             <div className="text-center sm:w-1/3 sm:py-8 sm:pr-8">
@@ -91,9 +94,6 @@ export default async function about() {
                 </svg>
               </Link>
             </div>
-          </div>
-          <div className="mx-auto w-full max-w-[700px] lg:w-4/6">
-            <AnimationAbout />
           </div>
         </div>
       </section>
