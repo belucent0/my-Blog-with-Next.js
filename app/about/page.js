@@ -8,7 +8,7 @@ export default async function about() {
     <>
       <section className="body-font text-gray-700">
         <div className="container mx-auto min-h-screen px-5 py-8">
-          <div className="mb-20 flex w-full flex-wrap">
+          <div className="mb-5 flex w-full flex-wrap">
             <div className="mb-6 w-full lg:mb-0 lg:w-1/2">
               <h1 className="title-font mb-2 text-2xl font-medium text-gray-900 sm:text-3xl">
                 소개
@@ -26,7 +26,7 @@ export default async function about() {
             <AnimationAbout />
           </div>
 
-          <div className="mt-10 flex flex-col sm:flex-row">
+          <div className="mt-3 flex flex-col sm:flex-row">
             <div className="text-center sm:w-1/3 sm:py-8 sm:pr-8">
               <div className="inline-flex h-24 w-24 items-center justify-center rounded-full bg-gray-200 text-gray-400">
                 <svg
@@ -76,23 +76,42 @@ export default async function about() {
                 직무와의 소통에 더 능숙한 개발자가 되고자 이 블로그를 Next.js로
                 개발하였습니다.
               </p>
-              <Link
-                href={"/about"}
-                className="inline-flex items-center text-indigo-500"
-              >
-                이력서 보기
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="ml-2 h-4 w-4"
-                  viewBox="0 0 24 24"
+              <div className="flex justify-around">
+                <Link 
+                  href={"/about"}
+                  className="inline-flex items-center text-indigo-500"
                 >
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </Link>
+                  이력서 보기
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    className="ml-2 h-4 w-4"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </Link>
+                <Link
+                  href={"/works"}
+                  className="inline-flex items-center text-indigo-500"
+                >
+                  프로젝트 보기
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    className="ml-2 h-4 w-4"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

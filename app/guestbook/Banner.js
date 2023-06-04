@@ -1,7 +1,10 @@
 'use client'
 
+import { useState } from "react"
+
 export default function Banner() {
 
+  const [open, setOpen] = useState(true)
 
   return (
     <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
@@ -39,6 +42,16 @@ export default function Banner() {
         </p>
       </div>
       <div className="flex flex-1 justify-end">
+      <div className="absolute left-0 top-0 -ml-8 flex pr-2 pt-4 sm:-ml-10 sm:pr-4">
+                      <button
+                        type="button"
+                        className="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+                        onClick={() => setOpen(false)}
+                      >
+                        <span className="sr-only">Close panel</span>
+                        x
+                      </button>
+                    </div>
       </div>
     </div>
   )
