@@ -57,27 +57,27 @@ export default async function about() {
             </div>
             <div className="mt-4 border-t border-gray-200 pt-4 text-center sm:mt-0 sm:w-2/3 sm:border-l sm:border-t-0 sm:py-8 sm:pl-8 sm:text-left">
               <p className="mb-4 text-lg leading-relaxed text-gray-600">
-                저는 늘 각 개인의 성장을 돕는 것에 관심이 많았습니다. 각자가
-                자신의 라이프스타일 속에서 어떻게 자신의 어려움을 해결하며 삶을
-                성장시켜 나가는지 호기심이 있던 것입니다. 그래서 심리상담 및
-                교육분야에서 경험을 쌓으며 각기 다른 다양한 사람들이 자기 마음을
-                읽고 발전하는데 도움을 줄 수 있을지 고민해왔습니다.
+                저는 늘 각 개인의 성장을 돕는 것에 관심이 많았습니다. 각기 다른
+                사람이 자신의 라이프스타일 속에서 어떻게 자신의 어려움을
+                해결하며 삶을 성장시켜 나가는지 호기심이 있습니다. 그래서
+                심리상담 및 교육분야에서 경험을 쌓으며 각기 다른 다양한 사람들이
+                자기 마음을 읽고 발전하는데 도움을 줄 수 있을지 고민해왔습니다.
               </p>
               <p className="mb-4 text-lg leading-relaxed text-gray-600">
                 이 관심은 웹을 개발하는 현재에도 변함이 없습니다. 이제
-                개발자라는 새로운 역할을 기반으로, 서비스를 통해 사람들이
+                개발자라는 새로운 역할을 기반으로, 서비스를 제공하며 사람들이
                 일상에서 겪는 어려움과 불편을 해결하는 조력자가 되고자 합니다.
                 고객의 마음을 읽어 회사 서비스의 성장에 기여하고자 합니다.
               </p>
-              <p className="mb-4 text-lg leading-relaxed text-gray-600">
-                Node.js로 개발을 시작했다보니, JavaScript 생태계를 좀 더
-                이해하는 개발자가 되고 싶은 욕심이 생깁니다. 서버를 개발하는
-                것을 주로 학습하긴했지만, 전체 개발 프로세스를 이해하는 동시에 타
+              <p className="mb-8 text-lg leading-relaxed text-gray-600">
+                Node.js 환경에서 처음 개발을 시작했다보니, JavaScript 생태계를
+                더욱 이해하고 싶은 욕심이 생깁니다. 그동안 서버를 개발하는 것을
+                주로 학습하긴했지만, 전체 개발 프로세스를 이해하는 동시에 타
                 직무와의 소통에 더 능숙한 개발자가 되고자 이 블로그를 Next.js로
                 개발하였습니다.
               </p>
               <div className="flex justify-around">
-                <Link 
+                <Link
                   href={"/about"}
                   className="inline-flex items-center text-indigo-500"
                 >
