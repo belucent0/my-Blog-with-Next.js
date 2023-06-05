@@ -21,7 +21,7 @@ export default async function List() {
       content: "소셜로그인, 방명록, 다크모드, 포스팅(추후 예정)",
       tags: "JavaScript, Next.js, MongoDB, tailwindCSS, Vercel, 채널톡API",
       github: "https://github.com/vividnow/my-Blog-with-Next.js",
-      etcLink: "/works",
+      etcLink: "https://veams.tistory.com/112",
     },
     {
       id: 2,
