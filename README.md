@@ -1,35 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 프로젝트 소개
+Next.js에 기반하여 개발한 블로그 입니다.
+https://vividnow.vercel.app
 
-## Getting Started
+## 개발 기간 및 인원
+- 23.05.18 ~ 계속 진행
+- 1인(김재광, FullStack)
 
-First, run the development server:
+## 기획의도
+네이버나 티스토리, 브런치 등 이미 안정적인 블로그 서비스는 많습니다. 하지만 다른 누군가가 만든 서비스이지요. 수년 전 막연히 꿈꾸기 시작했던 서비스를 '내가 직접 만든다'는 것, 또 개발뿐만 아니라 서비스를 직접 운영하며 '개발자로서 역량과 세상을 바라보는 안목을 기른다는 것'이 제게 큰 의미가 있습니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+설명 보기 https://veams.tistory.com/112
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 사용 스택 및 서비스
+- Front-End : Next.js, JavaScript, TailwindCSS, Fetch
+- Back-End : Next.js, Node.js
+- DB : MongoDB
+- Infra : Vercel, AWS S3
+- Library :  NextAuth.js, Lottie-player, headlessUI, next-themes
+- OpenAPI : 채널톡 / OAuth : Github, 카카오톡, 네이버(개발용)  
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 서비스 구성
+- 소셜로그인 활용한 방명록 작성 기능
+- 프로젝트 이력 페이지
+- 블로그 운영자 소개 페이지
+- 다크모드
+- 채널톡API 연결
+- Vercel 배포
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# my-Blog-with-Next.js
+### 개발 예정
+- 깃허브 markdown을 활용한 블로그 포스팅
+- 글 조회수 표기
+- 댓글
+- 포스팅 검색
+- Google analytics
