@@ -12,7 +12,7 @@ export default async function List() {
   const worksList = [
     {
       id: 1,
-      src: "https://blog.kakaocdn.net/dn/KCpCY/btsiutq4DXK/PlISJShFsP7ULkLHssyWdk/img.png",
+      src: "https://vividnowblog.s3.ap-northeast-2.amazonaws.com/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B83.png",
       alt: "Image",
       width: 723,
       height: 403,
@@ -25,7 +25,7 @@ export default async function List() {
     },
     {
       id: 2,
-      src: "https://blog.kakaocdn.net/dn/dmahpB/btsitZXJIXP/hkD2oeZa6EwPmWC7SLxepK/img.png",
+      src: "https://vividnowblog.s3.ap-northeast-2.amazonaws.com/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B82.png",
       alt: "Image",
       width: 723,
       height: 403,
@@ -38,7 +38,7 @@ export default async function List() {
     },
     {
       id: 3,
-      src: "https://blog.kakaocdn.net/dn/c2XkKY/btsitTpTRUy/2YZHIEMkRPFAnsyvhPwVS1/img.png",
+      src: "https://vividnowblog.s3.ap-northeast-2.amazonaws.com/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B81.png",
       alt: "Image",
       width: 723,
       height: 403,

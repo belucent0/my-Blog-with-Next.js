@@ -32,7 +32,7 @@ export default async function about() {
               <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-8">
                 <div className="mb-2 h-24 w-24 overflow-hidden rounded-full bg-gray-200 shadow-lg md:mb-4 md:h-32 md:w-32">
                   <img
-                    src="https://blog.kakaocdn.net/dn/b20Vnn/btsivR5Nmv7/0IgIIMi8N9DWB830D62NcK/img.png"
+                    src="https://vividnowblog.s3.ap-northeast-2.amazonaws.com/%ED%94%84%EB%A1%9C%ED%95%84.png"
                     loading="lazy"
                     alt="Photo by christian ferrer"
                     className="h-full w-full object-cover object-center"
