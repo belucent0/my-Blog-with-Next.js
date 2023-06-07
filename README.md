@@ -20,6 +20,7 @@ https://vividnow.vercel.app
 - OpenAPI : 채널톡 / OAuth : Github, 카카오톡, 네이버(개발용)  
 
 ## 서비스 구성
+- PC/모바일 반응형
 - 소셜로그인 활용한 방명록 작성 기능
 - 프로젝트 이력 페이지
 - 블로그 운영자 소개 페이지

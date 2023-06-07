@@ -3,7 +3,10 @@ export default function Loading() {
     <>
       <div className="container mx-auto min-h-screen px-5 py-24">
         <div className="fixed right-0 top-0 z-50 flex h-screen w-screen items-center justify-center">
-          <div className="h-32 w-32 animate-spin rounded-full border-b-2 border-t-2 border-gray-900"></div>
+          <div className="relative">
+            <div className="h-20 w-20 rounded-full border-2 border-indigo-200"></div>
+            <div className="absolute left-0 top-0 h-20 w-20 animate-spin rounded-full border-t-2 border-indigo-800"></div>
+          </div>
         </div>
       </div>
     </>
