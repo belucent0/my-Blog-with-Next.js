@@ -18,7 +18,7 @@ export default async function List() {
       height: 403,
       period: "23.05.18 ~ 진행중",
       title: "나만의 블로그",
-      content: "소셜로그인, 방명록, 다크모드, 포스팅(추후 예정)",
+      content: "반응형 웹, 소셜로그인, 방명록, 다크모드, 포스팅(추후 예정)",
       tags: "JavaScript, Next.js, MongoDB, tailwindCSS, Vercel, 채널톡API",
       github: "https://github.com/vividnow/my-Blog-with-Next.js",
       etcLink: "https://veams.tistory.com/112",

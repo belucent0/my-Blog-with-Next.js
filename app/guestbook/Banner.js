@@ -1,10 +1,24 @@
 "use client";
 
 import { Transition } from "@headlessui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Banner() {
-  const [isShowing, setIsShowing] = useState(true);
+  const [isShowing, setIsShowing] = useState(false);
+
+  useEffect(() => {
+    const isBannerClosed = localStorage.getItem("isBannerClosed");
+    if (!isBannerClosed) {
+      setIsShowing(true);
+    }
+  }, []);
+
+  // 배너 닫을 때 로컬 스토리지에 상태를 저장
+  const handleCloseBanner = () => {
+    localStorage.setItem("isBannerClosed", "true");
+    setIsShowing(false);
+  };
+
 
   return (
     <Transition
@@ -43,7 +57,7 @@ export default function Banner() {
         </div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <p className="text-sm leading-6 text-gray-900">
-            <strong className="font-semibold">네이버 로그인 불가</strong>
+            <strong className="font-semibold">소셜 로그인</strong>
             <svg
               viewBox="0 0 2 2"
               className="mx-2 inline h-0.5 w-0.5 fill-current"
@@ -51,13 +65,13 @@ export default function Banner() {
             >
               <circle cx={1} cy={1} r={1} />
             </svg>
-            현재 소셜로그인은 깃허브와 카카오톡만 지원합니다.
+            간편 로그인을 통해 방명록을 남기실 수 있습니다.
           </p>
         </div>
         <div className="flex flex-1 justify-end">
-        <button type="button" className="-m-3 p-3 focus-visible:outline-offset-[-4px]" onClick={() => setIsShowing((isShowing) => !isShowing)}>
+        <button type="button" className="-m-3 p-3 text-xs focus-visible:outline-offset-[-4px]" onClick={handleCloseBanner}>
           <span className="sr-only">Dismiss</span>
-          X
+          하루 동안 닫기 X
         </button>
       </div>
       </div>

@@ -29,7 +29,7 @@ export default async function about() {
           <div className="mt-3 flex flex-col sm:flex-row">
             <div className="text-center sm:w-1/3 sm:py-8 sm:pr-8">
 
-              <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-8">
+              <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 lg:p-8 dark:bg-gray-800">
                 <div className="mb-2 h-24 w-24 overflow-hidden rounded-full bg-gray-200 shadow-lg md:mb-4 md:h-32 md:w-32">
                   <img
                     src="https://vividnowblog.s3.ap-northeast-2.amazonaws.com/%ED%94%84%EB%A1%9C%ED%95%84.png"
