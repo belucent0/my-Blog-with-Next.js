@@ -4,11 +4,7 @@ import { Providers } from "./provider";
 import Header from "./layout/header";
 import Footer from "./layout/footer";
 import { SessionProvider } from "next-auth/react";
-
-export const metadata = {
-  title: "VIVIDNOW의 블로그",
-  description: "코딩합시다",
-};
+import Head from "next/head";
 
 export default function RootLayout({ children }) {
   return (
@@ -16,6 +12,10 @@ export default function RootLayout({ children }) {
       <body>
         <SessionProvider>
           <Providers>
+            <Head>
+              <title>VIVIDNOW의 블로그</title>
+              <meta name="description" content="코딩합시다" />
+            </Head>
             <Header />
             {children}
             <Footer />
