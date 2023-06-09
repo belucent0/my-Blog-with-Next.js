@@ -8,14 +8,20 @@ export default function Banner() {
 
   useEffect(() => {
     const isBannerClosed = localStorage.getItem("isBannerClosed");
-    if (!isBannerClosed) {
+    const closedTime = localStorage.getItem("closedTime");
+    const currentTime = new Date().getTime();
+
+    if (!isBannerClosed || (closedTime && currentTime - closedTime > 24 * 60 * 60 * 1000)) { //24시간 동안 보지 않기
       setIsShowing(true);
     }
   }, []);
 
   // 배너 닫을 때 로컬 스토리지에 상태를 저장
   const handleCloseBanner = () => {
+    const currentTime = new Date().getTime();
+
     localStorage.setItem("isBannerClosed", "true");
+    localStorage.setItem("closedTime", currentTime.toString());
     setIsShowing(false);
   };
 
@@ -69,9 +75,9 @@ export default function Banner() {
           </p>
         </div>
         <div className="flex flex-1 justify-end">
-        <button type="button" className="-m-3 p-3 text-xs focus-visible:outline-offset-[-4px]" onClick={handleCloseBanner}>
+        <button type="button" className="-m-3 p-3 text-xs focus-visible:outline-offset-[-4px] dark:text-black" onClick={handleCloseBanner}>
           <span className="sr-only">Dismiss</span>
-          하루 동안 닫기 X
+          하루 닫기 X
         </button>
       </div>
       </div>
