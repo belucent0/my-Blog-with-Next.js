@@ -19,9 +19,8 @@ export default function NotFound() {
               </h1>
               <h1 className="block text-2xl font-bold text-white"></h1>
               <p className="mt-3 text-gray-600 dark:text-gray-400">
-                이런, 페이지를 찾을 수 없습니다.
-              </p>
-              <p className="text-gray-600 dark:text-gray-400">
+                이런, 존재하지 않는 페이지입니다.
+              <br/>
                 다른 페이지로 이동해보는 건 어떨까요?
               </p>
               <div className="mt-5 flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-3">

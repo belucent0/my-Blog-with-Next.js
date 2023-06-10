@@ -36,7 +36,7 @@ export default function Banner() {
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
     >
-      <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+      <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 dark:bg-gray-600 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
         <div
           className="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
           aria-hidden="true"
@@ -62,7 +62,7 @@ export default function Banner() {
           />
         </div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <p className="text-sm leading-6 text-gray-900">
+          <div className="text-sm leading-6">
             <strong className="font-semibold">소셜 로그인</strong>
             <svg
               viewBox="0 0 2 2"
@@ -72,10 +72,10 @@ export default function Banner() {
               <circle cx={1} cy={1} r={1} />
             </svg>
             간편 로그인을 통해 방명록을 남기실 수 있습니다.
-          </p>
+          </div>
         </div>
         <div className="flex flex-1 justify-end">
-        <button type="button" className="-m-3 p-3 text-xs focus-visible:outline-offset-[-4px] dark:text-black" onClick={handleCloseBanner}>
+        <button type="button" className="-m-3 p-3 text-xs focus-visible:outline-offset-[-4px]" onClick={handleCloseBanner}>
           <span className="sr-only">Dismiss</span>
           하루 닫기 X
         </button>

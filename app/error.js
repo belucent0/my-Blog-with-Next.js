@@ -19,9 +19,9 @@ export default function Error({ error, reset }) {
             오류 발생!
           </h1>
           <p className="font-light text-gray-500 dark:text-gray-400 md:text-lg xl:text-xl">
-            관리자에게 문의하세요
+            관리자에게 문의해주세요.
           </p>
-          <button onClick={() => reset()}>버튼</button>
+          <button onClick={() => reset()}><p>새로고침 해보기</p></button>
         </div>
       </section>
 
