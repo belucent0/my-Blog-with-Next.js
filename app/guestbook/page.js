@@ -1,5 +1,5 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import { LoginBtn, LogoutBtn } from "../LoginBtn";
+import { LoginBtn, LogoutBtn } from "../components/LoginBtn";
 import ListItme from "./ListItem";
 import { connectDB } from "@/util/database";
 import { getServerSession } from "next-auth";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import useChannelTalk from "../util/useChannelTalk";
+import useChannelTalk from "../../util/useChannelTalk";
 
 export default function DarkModeBtn() {
   const { theme, setTheme } = useTheme();

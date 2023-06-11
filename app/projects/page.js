@@ -32,10 +32,10 @@ export default async function List() {
           <div className="m-auto text-gray-600 xl:container">
             <div className="grid md:grid-cols-2 md:gap-6 lg:gap-12">
               {worksList.map((card) => (
-                <div key={card.id} className="group mb-10 space-y-6">
+                <div key={card._id} className="group mb-10 space-y-6">
                   <div className="mb-2 flex h-full flex-col gap-1 overflow-hidden">
                     <img
-                      className="mb-2 h-80 w-full rounded-3xl object-cover object-top transition-all duration-500 group-hover:rounded-xl"
+                      className="mb-2 h-80 w-full rounded-3xl object-cover object-top transition-all duration-500 group-hover:scale-110"
                       src={card.src}
                       alt={Image}
                       width={723}
