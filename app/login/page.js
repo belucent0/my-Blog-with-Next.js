@@ -3,7 +3,7 @@
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-export default function Login() {
+export default async function Login() {
   const router = useRouter();
   
   const { data: session } = useSession()

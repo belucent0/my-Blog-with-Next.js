@@ -21,6 +21,8 @@ export default async function about() {
               팀내 필요한 작업을 캐치하여 팀내 제약사항을 파악하고 협력하는
               역할에 능숙합니다.
             </p>
+            <p className="w-full leading-relaxed text-gray-800 lg:w-1/2">
+              </p>
           </div>
           <div className="mx-auto w-full max-w-[700px] lg:w-4/6">
             <AnimationAbout />
@@ -107,7 +109,7 @@ export default async function about() {
                   </svg>
                 </Link>
                 <Link
-                  href={"/works"}
+                  href={"/projects"}
                   className="inline-flex items-center text-indigo-500"
                 >
                   프로젝트 보기

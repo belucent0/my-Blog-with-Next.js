@@ -30,7 +30,7 @@ export default async function Header() {
             <Link className="mr-4 hover:text-gray-900" href={"/about"}>
               소개
             </Link>
-            <Link className="mr-4 hover:text-gray-900" href={"/works"}>
+            <Link className="mr-4 hover:text-gray-900" href={"/projects"}>
               프로젝트
             </Link>
             {/* <Link className="mr-4 hover:text-gray-900" href={"/list"}>

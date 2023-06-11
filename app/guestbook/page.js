@@ -8,7 +8,6 @@ import Banner from "./Banner";
 
 export default async function GuestbookPage() {
 
-  
   const db = (await connectDB).db("forum");
   let result = await db
     .collection("guestbook")

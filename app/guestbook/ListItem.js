@@ -1,6 +1,6 @@
 "use client";
 
-export default function ListItem({ result }) {
+export default async function ListItem({ result }) {
   const handleDelete = async (id, index, e) => {
     try {
       const response = await fetch("/api/guestbook/delete", {
@@ -14,7 +14,7 @@ export default function ListItem({ result }) {
       const data = await response.json();
 
       if (response.ok) {
-        const listItem = e.target.closest('.listitem');
+        const listItem = await e.target.closest('.listitem');
         if (listItem) {
           listItem.style.opacity = 0;
           alert(data.message);

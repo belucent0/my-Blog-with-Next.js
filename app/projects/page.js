@@ -1,56 +1,14 @@
+import { connectDB } from "@/util/database";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function List() {
-  // const db = (await connectDB).db("forum");
-  // let result = await db.collection("post").find().toArray();
-  // result = result.map((value) => {
-  //   value._id = value._id.toString();
-  //   return value;
-  // });
-
-  const worksList = [
-    {
-      id: 1,
-      src: "https://vividnowblog.s3.ap-northeast-2.amazonaws.com/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B83.png",
-      alt: "Image",
-      width: 723,
-      height: 403,
-      period: "23.05.18 ~ 진행중",
-      title: "나만의 블로그",
-      content: "반응형 웹, 소셜로그인, 방명록, 다크모드, 포스팅(추후 예정)",
-      tags: "JavaScript, Next.js, MongoDB, tailwindCSS, Vercel, 채널톡API",
-      github: "https://github.com/vividnow/my-Blog-with-Next.js",
-      etcLink: "https://veams.tistory.com/112",
-    },
-    {
-      id: 2,
-      src: "https://vividnowblog.s3.ap-northeast-2.amazonaws.com/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B82.png",
-      alt: "Image",
-      width: 723,
-      height: 403,
-      period: "23.02.27~23.03.31(5주)",
-      title: "스파르타 커뮤클럽",
-      content: "예비개발자들을 위한 커뮤니티, 모임매칭 및 행사 메일링 서비스 제공",
-      tags: "TypeScript, Nest.js, TypeORM(MySQL), EJS",
-      github: "https://github.com/miu-null/spartasix",
-      etcLink: "https://veams.tistory.com/101",
-    },
-    {
-      id: 3,
-      src: "https://vividnowblog.s3.ap-northeast-2.amazonaws.com/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B81.png",
-      alt: "Image",
-      width: 723,
-      height: 403,
-      period: "2023.02.01. ~ 2023.02.08(7일)",
-      title: "오레오 베이커리",
-      content:
-        "빵류 주문 웹쇼핑몰, 기능: 상품 구매, 구매 실시간 알림, 관리자 백오피스",
-      tags: "JavaScript, Express.js, Sequelize(MySQL), EJS",
-      github: "https://github.com/KimHyungJip/oreo",
-      etcLink: "https://veams.tistory.com/63",
-    },
-  ];
+  const db = (await connectDB).db("forum");
+  let worksList = await db.collection("projects").find().toArray();
+  worksList = worksList.map((value) => {
+    value._id = value._id.toString();
+    return value;
+  });
 
   return (
     <>
@@ -65,9 +23,9 @@ export default async function List() {
             </div>
             <span className="w-full leading-relaxed text-gray-500 lg:w-1/2">
               <p>
-                Node.js 환경에서 진행한 웹개발 실전 및 토이 프로젝트 목록입니다.
+                Node.js 환경에서 개발되는 웹서비스에 관심을 가지고 있습니다. 
               </p>
-              <p>Nest.js, Next.js, Express.js 프레임워크를 활용하였습니다.</p>
+              <p>Nest.js, Next.js, Express.js 프레임워크를 활용한 실전 및 토이 프로젝트 목록입니다.</p>
             </span>
           </div>
 
@@ -79,9 +37,9 @@ export default async function List() {
                     <img
                       className="mb-2 h-80 w-full rounded-3xl object-cover object-top transition-all duration-500 group-hover:rounded-xl"
                       src={card.src}
-                      alt={card.alt}
-                      width={card.width}
-                      height={card.height}
+                      alt={Image}
+                      width={723}
+                      height={403}
                     />
                     
                     <span>
