@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Hero from "./components/hero";
+import Hero from "./components/Hero";
 
 export default async function Home() {
   return (
@@ -15,7 +15,7 @@ export default async function Home() {
                 <div className="flex justify-center w-full max-w-2xl gap-2 mx-auto mt-6">
                   <Link href={"/about"}>
                     <div className="mt-3 rounded-lg sm:mt-0">
-                      <button className="px-5 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-indigo-700 lg:px-10 rounded-xl hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">소개 보기가기</button>
+                      <button className="px-5 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-indigo-700 lg:px-10 rounded-xl hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">소개 보러가기</button>
                     </div>
                    </Link>
                    <Link href={"/projects"}>
