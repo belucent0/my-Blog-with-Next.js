@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimationAbout } from "../components/animation";
+import { AnimationAbout } from "../components/Animation";
 import Link from "next/link";
 
 export default async function about() {
