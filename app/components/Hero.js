@@ -8,7 +8,7 @@ export default function Hero() {
   });
   return (
     <>
-      <p className="p-2 font-bold text-indigo-700 sm:text-base md:py-6 md:text-lg">
+      <p className="p-2 font-bold text-indigo-700 sm:text-base md:py-3 md:text-lg">
         Node.js 환경 웹개발에 관심을 가진
       </p>
       <h1 className="text-3xl font-bold sm:text-5xl md:py-6 md:text-6xl">

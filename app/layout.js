@@ -1,10 +1,11 @@
 "use client";
 import "./globals.css";
 import { Providers } from "./provider";
-import Header from "./components/header";
 import Footer from "./components/footer";
+import Header from "./components/header";
 import { SessionProvider } from "next-auth/react";
 import Head from "./head";
+
 
 export default function RootLayout({ children }) {
   return (
@@ -13,7 +14,7 @@ export default function RootLayout({ children }) {
         <SessionProvider>
           <Providers>
             <Head/>
-            <Header />
+            <Header/>
             {children}
             <Footer />
           </Providers>
