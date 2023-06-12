@@ -23,7 +23,7 @@ export default function Hero() {
             <li className="text-gray-500">유지보수성을 고려합니다.</li>
           </ul>
         </div>
-
+        
         <div className="flex items-center justify-center text-indigo-800  dark:text-indigo-400">
         <div className="pl-2 text-xl font-bold sm:text-3xl md:pl-4 md:text-4xl">
           {text}
