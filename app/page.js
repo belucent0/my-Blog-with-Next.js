@@ -15,12 +15,12 @@ export default async function Home() {
                 <div className="flex justify-center w-full max-w-2xl gap-2 mx-auto mt-6">
                   <Link href={"/about"}>
                     <div className="mt-3 rounded-lg sm:mt-0">
-                      <button className="px-5 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-indigo-700 lg:px-10 rounded-xl hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">소개 보러가기</button>
+                      <button className="px-5 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-indigo-700 lg:px-10 rounded-xl hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">소개 보기</button>
                     </div>
                    </Link>
                    <Link href={"/projects"}>
                     <div className="mt-3 rounded-lg sm:mt-0 sm:ml-3">
-                    <button className="items-center block px-5 lg:px-10 py-3.5 text-base font-medium text-center text-indigo-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">프로젝트 보러가기</button>
+                    <button className="items-center block px-5 lg:px-10 py-3.5 text-base font-medium text-center text-indigo-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">프로젝트 보기</button>
                   </div>
                   </Link>
                 </div>

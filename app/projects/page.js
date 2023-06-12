@@ -22,9 +22,6 @@ export default async function List() {
               <div className="h-1 w-20 rounded bg-indigo-700"></div>
             </div>
             <span className="w-full leading-relaxed text-gray-500 lg:w-1/2">
-              <p>
-                Node.js 환경에서 개발되는 웹서비스에 관심을 가지고 있습니다. 
-              </p>
               <p>Nest.js, Next.js, Express.js 프레임워크를 활용한 실전 및 토이 프로젝트 목록입니다.</p>
             </span>
           </div>

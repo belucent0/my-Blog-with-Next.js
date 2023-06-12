@@ -62,7 +62,7 @@ export default function Banner() {
           />
         </div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <div className="text-sm leading-6">
+          <div className="text-xs md:text-sm leading-6">
             <strong className="font-semibold">소셜 로그인</strong>
             <svg
               viewBox="0 0 2 2"
@@ -71,14 +71,14 @@ export default function Banner() {
             >
               <circle cx={1} cy={1} r={1} />
             </svg>
-            간편 로그인을 통해 방명록을 남기실 수 있습니다.
+            간편 로그인으로 방명록을 남길 수 있습니다.
           </div>
         </div>
         <div className="flex flex-1 justify-end">
-        <button type="button" className="-m-3 p-3 text-xs focus-visible:outline-offset-[-4px]" onClick={handleCloseBanner}>
-          <span className="sr-only">Dismiss</span>
-          하루 닫기 X
-        </button>
+          <button type="button" className="-m-3 p-3 text-xs focus-visible:outline-offset-[-4px]" onClick={handleCloseBanner}>
+            <span className="sr-only">Dismiss</span>
+            하루 닫기 X
+          </button>
       </div>
       </div>
     </Transition>
