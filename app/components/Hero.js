@@ -8,14 +8,23 @@ export default function Hero() {
   });
   return (
     <>
-      <p className="p-2 font-bold text-indigo-700 sm:text-base md:py-3 md:text-lg">
-        Node.js 기반 웹개발에 관심을 가진
+      <p className="p-2 font-bold text-indigo-700 sm:text-base md:py-1 md:text-lg">
+        고객과 동료의 <br />
       </p>
-      <h1 className="text-3xl font-bold sm:text-5xl md:py-6 md:text-6xl">
+      <h1 className="text-3xl text-neutral-600 font-bold sm:text-5xl md:py-3 md:text-6xl">
         마음을 읽는 개발자 <br />
         김재광입니다.
       </h1>
-      <div className="flex items-center justify-center text-indigo-800  dark:text-indigo-400">
+
+        <div className="m-6 text-xs md:text-lg">
+          <ul>
+            <li className="text-gray-500">팀내 제약사항을 파악하는데 적극적입니다.</li>
+            <li className="text-gray-500">고객 중심의 서비스를 고민합니다.</li>
+            <li className="text-gray-500">유지보수성을 고려합니다.</li>
+          </ul>
+        </div>
+
+        <div className="flex items-center justify-center text-indigo-800  dark:text-indigo-400">
         <div className="pl-2 text-xl font-bold sm:text-3xl md:pl-4 md:text-4xl">
           {text}
           <Cursor />
@@ -24,10 +33,6 @@ export default function Hero() {
           프로젝트 경험이 있습니다.
         </p>
       </div>
-      <p className="text-xl font-bold text-gray-700 md:text-2xl">
-        일신우일신(日新又日新)의 마음으로 <br className="md:hidden"/> 
-        개발합니다.
-      </p>
     </>
   );
 }
