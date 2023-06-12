@@ -3,10 +3,10 @@ import { getToken } from 'next-auth/jwt'
 
 export async function middleware(req) {
 
-    if (req.nextUrl.pathname.startsWith('/write')){
+    if (req.nextUrl.pathname.startsWith('/login')){
         const session = await getToken({ req })
-        if (!session) {
-            return NextResponse.redirect(new URL('/api/auth/signin', req.url));
+        if (session) {
+            return NextResponse.redirect(new URL('/guestbook', req.url));
     }
     }
   

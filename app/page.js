@@ -20,7 +20,7 @@ export default async function Home() {
                    </Link>
                    <Link href={"/projects"}>
                     <div className="mt-3 rounded-lg sm:mt-0 sm:ml-3">
-                    <button className="items-center block px-5 lg:px-10 py-3.5 text-base font-medium text-center text-indigo-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">프로젝트 보기</button>
+                    <button className="items-center block px-5 lg:px-10 py-3.5 text-base font-medium text-center text-indigo-700 dark:text-indigo-300 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">프로젝트 보기</button>
                   </div>
                   </Link>
                 </div>

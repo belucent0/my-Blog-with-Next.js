@@ -15,7 +15,7 @@ export default function Hero() {
         마음을 읽는 개발자 <br />
         김재광입니다.
       </h1>
-      <div className="flex items-center justify-center text-indigo-800">
+      <div className="flex items-center justify-center text-indigo-800  dark:text-indigo-400">
         <div className="pl-2 text-xl font-bold sm:text-3xl md:pl-4 md:text-4xl">
           {text}
           <Cursor />
