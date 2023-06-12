@@ -11,7 +11,11 @@ export default function Banner() {
     const closedTime = localStorage.getItem("closedTime");
     const currentTime = new Date().getTime();
 
-    if (!isBannerClosed || (closedTime && currentTime - closedTime > 24 * 60 * 60 * 1000)) { //24시간 동안 보지 않기
+    if (
+      !isBannerClosed ||
+      (closedTime && currentTime - closedTime > 24 * 60 * 60 * 1000)
+    ) {
+      //24시간 동안 보지 않기
       setIsShowing(true);
     }
   }, []);
@@ -25,7 +29,6 @@ export default function Banner() {
     setIsShowing(false);
   };
 
-
   return (
     <Transition
       show={isShowing}
@@ -36,7 +39,7 @@ export default function Banner() {
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
     >
-      <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 dark:bg-gray-600 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+      <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 dark:bg-gray-600 sm:px-3.5 sm:before:flex-1">
         <div
           className="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
           aria-hidden="true"
@@ -62,24 +65,21 @@ export default function Banner() {
           />
         </div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <div className="text-xs md:text-sm leading-6">
+          <div className="text-xs leading-6 pl-4 md:text-sm">
             <strong className="font-semibold">소셜 로그인</strong>
-            <svg
-              viewBox="0 0 2 2"
-              className="mx-2 inline h-0.5 w-0.5 fill-current"
-              aria-hidden="true"
-            >
-              <circle cx={1} cy={1} r={1} />
-            </svg>
-            간편 로그인으로 방명록을 남길 수 있습니다.
+            으로 방명록을 남길 수 있습니다.
           </div>
         </div>
-        <div className="flex flex-1 justify-end">
-          <button type="button" className="-m-3 p-3 text-xs focus-visible:outline-offset-[-4px]" onClick={handleCloseBanner}>
+        <div className="flex flex-auto justify-end">
+          <button
+            type="button"
+            className="-m-3 p-3 text-xs focus-visible:outline-offset-[-4px]"
+            onClick={handleCloseBanner}
+          >
             <span className="sr-only">Dismiss</span>
             하루 닫기 X
           </button>
-      </div>
+        </div>
       </div>
     </Transition>
   );
