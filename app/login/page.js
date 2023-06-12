@@ -1,13 +1,6 @@
-'use client'
-
-import { signIn, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 export default async function Login() {
-  const router = useRouter();
-  
-  const { data: session } = useSession()
-
 
   const handleSignIn = async (provider) => {
     await signIn(provider, {callbackUrl: "/guestbook"});
