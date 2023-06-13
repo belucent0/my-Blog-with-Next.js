@@ -65,7 +65,7 @@ export default function Banner() {
           />
         </div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <div className="text-xs leading-6 pl-2 md:text-sm">
+          <div className="text-xs leading-6 pl-2 md:pl-16 md:text-sm">
             <strong className="font-semibold">소셜 로그인 </strong>
             후 방명록을 남길 수 있습니다.
           </div>
