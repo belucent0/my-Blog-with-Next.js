@@ -29,7 +29,6 @@ export default async function Home() {
           </div>
           <section id="intro">
             <div className="flex flex-col items-center justify-center pt-24 mx-auto rounded-lg lg:px-10 max-w-7xl">
-
               <img className="object-cover object-center w-full rounded-xl" alt="hero" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"/>
             </div>
           </section>
