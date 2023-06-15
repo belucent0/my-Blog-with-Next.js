@@ -3,7 +3,7 @@
 export default function Error({ error, reset }) {
   return (
     <>
-    <section className="container mx-auto min-h-screen px-5 py-24 bg-white dark:bg-gray-900 ">
+      <section className="container mx-auto min-h-screen bg-white px-5 py-24 dark:bg-gray-900 ">
         <div className="mx-auto max-w-screen-md px-4 py-8 text-center lg:px-12 lg:py-16">
           <svg
             className="mx-auto mb-4 h-10 w-10 text-gray-400"
@@ -21,11 +21,20 @@ export default function Error({ error, reset }) {
           <p className="font-light text-gray-500 dark:text-gray-400 md:text-lg xl:text-xl">
             관리자에게 문의해주세요.
           </p>
-          <button onClick={() => reset()}><p>새로고침 해보기</p></button>
+          <a
+            className="inline-flex w-full items-center justify-center gap-x-3 rounded-md border border-transparent bg-indigo-700 px-4 py-3 text-center text-sm font-medium text-white transition hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 sm:w-auto"
+            href="/"
+          >
+            홈으로
+          </a>
+          <button
+            onClick={() => reset()}
+            className="transform rounded-xl border-2 border-white px-5 py-3.5 text-center text-base font-medium text-indigo-700 shadow-md transition duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:text-indigo-300 lg:px-10"
+          >
+            새로고침 해보기
+          </button>
         </div>
       </section>
-
-
     </>
   );
 }

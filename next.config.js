@@ -37,7 +37,7 @@ module.exports = withSentryConfig(
     silent: true,
 
     org: "kim-jaegwang",
-    project: "javascript-nextjs",
+    project: "blog-with-nextjs",
   },
   {
     // For all available options, see:

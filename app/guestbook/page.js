@@ -1,10 +1,10 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { LoginBtn, LogoutBtn } from "../components/LoginBtn";
-import ListItme from "./ListItem";
 import { connectDB } from "@/util/database";
 import { getServerSession } from "next-auth";
 import WriteForm from "./WriteForm";
 import Banner from "./Banner";
+import ListItem from "./ListItem";
 
 export default async function GuestbookPage() {
 
@@ -44,7 +44,7 @@ export default async function GuestbookPage() {
           <div className="mx-1.5 w-full max-w-[720px]">
             <h1 className="mb-4 text-center text-3xl font-bold">방명록</h1>
             <span> {sessionBtn} </span>
-            <ListItme result={result} />
+            <ListItem result={result} />
           </div>
       </section>
     </>
