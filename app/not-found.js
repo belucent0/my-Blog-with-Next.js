@@ -25,13 +25,13 @@ export default function NotFound() {
               </p>
               <div className="mt-5 flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-3">
                 <Link
-                  className="inline-flex w-full items-center justify-center gap-x-3 rounded-md border border-transparent bg-indigo-600 px-4 py-3 text-center text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 sm:w-auto"
+                  className="inline-flex w-full items-center justify-center gap-x-3 rounded-md border border-transparent bg-indigo-700 px-4 py-3 text-center text-sm font-medium text-white transition hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 sm:w-auto"
                   href="/"
                 >
                   홈으로
                 </Link>
                 <button
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-transparent px-4 py-3 text-sm font-semibold text-blue-500 ring-offset-white transition-all hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:ring-offset-slate-900 sm:w-auto"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-transparent px-4 py-3 text-sm font-semibold text-indigo-700 ring-offset-white transition-all hover:text-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:ring-offset-slate-900 sm:w-auto"
                   onClick={() => handleGoBack()}
                 >
                 <svg

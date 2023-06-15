@@ -12,21 +12,22 @@ https://vividnow.vercel.app
 설명 보기 https://veams.tistory.com/112
 
 ## 사용 스택 및 서비스
-- Front-End : Next.js, JavaScript, TailwindCSS, Fetch
+- Front-End : Next.js, React, JavaScript, TailwindCSS
 - Back-End : Next.js, Node.js
 - DB : MongoDB
 - Infra : Vercel, AWS S3
 - Library :  NextAuth.js, Lottie-player, headlessUI, next-themes
-- OpenAPI : 채널톡 / OAuth : Github, 카카오톡, 네이버(개발용)  
+- OAuth : Github, 카카오톡, 네이버
+- OpenAPI : 채널톡
 
 ## 서비스 구성
-- PC/모바일 반응형
+- 반응형 웹
 - 소셜로그인 활용한 방명록 작성 기능
 - 프로젝트 이력 페이지
 - 블로그 운영자 소개 페이지
 - 다크모드
 - 채널톡API 연결
-- Vercel 배포
+- Vercel를 통한 배포 자동화
 
 ### 개발 예정
 - 깃허브 markdown을 활용한 블로그 포스팅
