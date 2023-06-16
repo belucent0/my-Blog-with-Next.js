@@ -41,7 +41,7 @@ export default async function List() {
                     
                     <span>
                       <span className="mt-4 mb-2 inline-block font-medium text-gray-400 dark:text-gray-500 sm:mt-0">
-                        {card.period}
+                      🗓️{card.period}
                       </span>
                       
                       <h3 className="mb-4 text-3xl font-semibold text-gray-800 dark:text-white">
@@ -49,7 +49,7 @@ export default async function List() {
                       </h3>
                       <span className="grid gap-2 text-gray-600 dark:text-gray-300">
                         <p>{card.content}</p>
-                        <p>{card.tags}</p>
+                        <span className="flex flex-wrap">{card.tags.map((v, i) =>(<div key={i} className="text-xs m-0.5 w-fit whitespace-nowrap rounded px-2 py-1 bg-zinc-400 text-white dark:bg-slate-700 dark:text-slate-300">{card.tags[i]}</div>))}</span>
                       </span>
                     </span>
 
