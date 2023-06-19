@@ -1,5 +1,4 @@
 import fs from 'fs';
-
 function getPostContent(slug) {
   const folder = "contents/"
   const file = `${folder}${slug}.md`
