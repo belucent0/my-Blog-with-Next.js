@@ -9,7 +9,7 @@ export async function middleware(req) {
     }
   }
 
-  // if (req.nextUrl.pathname.startsWith("/posts")) {
-  //   return NextResponse.redirect(new URL("/error", req.url));
-  // }
+  if (req.nextUrl.pathname.startsWith("/posts")) {
+    return NextResponse.redirect(new URL("/error", req.url));
+  }
 }

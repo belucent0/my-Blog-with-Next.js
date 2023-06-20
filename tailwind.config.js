@@ -18,6 +18,6 @@ module.exports = {
     },
   },
   darkMode:'class',
-  plugins: ['@tailwindcss/typography'],
+  plugins: [require('@tailwindcss/typography')],
 }
 
