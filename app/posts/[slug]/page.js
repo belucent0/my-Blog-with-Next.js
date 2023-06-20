@@ -1,4 +1,6 @@
 import fs from 'fs';
+import Markdown from 'markdown-to-jsx';
+
 function getPostContent(slug) {
   const folder = "contents/"
   const file = `${folder}${slug}.md`
@@ -12,8 +14,10 @@ export default function postDetail(props) {
     return (
       <>
         <div className="container mx-auto min-h-screen px-5 py-8">
-          <h1 className="text-4xl">상세페이지 : {slug}</h1>
-          <div className='text-xl'>내용 : {content} </div> 
+          <h1 className="text-4xl">{slug}</h1>
+          <article className="prose lg:prose-xl">
+            <Markdown>{content}</Markdown>
+          </article>
         </div>
       </>
     );

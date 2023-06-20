@@ -3,7 +3,7 @@
 import { AnimationAbout } from "../components/Animation";
 import Link from "next/link";
 
-export default async function about() {
+export default function about() {
   return (
     <>
       <section className="body-font text-gray-700">
@@ -129,24 +129,7 @@ export default async function about() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="ml-2 h-4 w-4"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                  </svg>
-                </Link>
-                <Link
-                  href={"https://docs.google.com/presentation/d/1n6vGaqg8M-_mqPW_7TbvOpLkNZQy9D1BTK0MyKCA8hs/edit?usp=sharing"}
-                  className="inline-flex items-center text-indigo-500"
-                >
-                  성격프로파일 보기
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="ml-2 h-4 w-4"
+                    className="ml-1 h-4 w-4"
                     viewBox="0 0 24 24"
                   >
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -163,7 +146,7 @@ export default async function about() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="ml-2 h-4 w-4"
+                    className="ml-1 h-4 w-4"
                     viewBox="0 0 24 24"
                   >
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
