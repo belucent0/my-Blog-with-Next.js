@@ -77,7 +77,7 @@ export default function Banner() {
             onClick={handleCloseBanner}
           >
             <span className="sr-only">Dismiss</span>
-            하루 닫기 X
+            닫기 X
           </button>
         </div>
       </div>

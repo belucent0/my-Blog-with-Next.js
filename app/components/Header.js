@@ -21,9 +21,9 @@ export default async function Header() {
             >
               <path d="M96 0V47L48 94H0V47L48 0H96Z" />
             </svg>
-            <span className="ml-3 text-2xl font-semibold dark:text-white ">VIVIDNOW</span>
+            <span className="ml-3 text-2xl font-black dark:text-white ">VIVIDNOW</span>
           </Link>
-          <nav className="gap-x-4 md:gap-x-10 md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+          <nav className="gap-x-4 md:gap-x-5 md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
               <Link href={"/"} className="text-base font-semibold  text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700" >
                   홈
               </Link>
@@ -32,6 +32,9 @@ export default async function Header() {
               </Link>
               <Link href={"/projects"} className="text-base font-semibold  text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700" >
                   프로젝트
+              </Link>
+              <Link href={"/blog"} className="text-base font-semibold  text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700" >
+                  블로그
               </Link>
               <Link href={"/guestbook"} className="text-base font-semibold  text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700" >
                   방명록

@@ -1,3 +1,9 @@
+---
+title: "Blog built with Next.js"
+subtitle: "블로그 개발기록 입니다."
+date: "2023-06-22"
+---
+
 ## 프로젝트 소개
 Next.js에 기반하여 개발한 블로그 입니다.
 https://vividnow.vercel.app
@@ -27,11 +33,12 @@ https://vividnow.vercel.app
 - 블로그 운영자 소개 페이지
 - 다크모드
 - 채널톡API 연결
-- Vercel를 통한 배포 자동화
+- Vercel를 통한 무중단 배포
+- Vercel Analytics
+- 이슈 트래커 Sentry
+- Markdown을 활용한 블로그 포스팅(개발중)
 
 ### 개발 예정
-- 깃허브 markdown을 활용한 블로그 포스팅
 - 글 조회수 표기
 - 댓글
 - 포스팅 검색
-- Google analytics

@@ -8,8 +8,4 @@ export async function middleware(req) {
       return NextResponse.redirect(new URL("/guestbook", req.url));
     }
   }
-
-  if (req.nextUrl.pathname.startsWith("/posts")) {
-    return NextResponse.redirect(new URL("/error", req.url));
-  }
 }
