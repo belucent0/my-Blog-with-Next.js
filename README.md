@@ -13,7 +13,7 @@ https://vividnow.vercel.app
 
 ## 사용 스택 및 서비스
 - Front-End : Next.js, React, JavaScript, TailwindCSS
-- Back-End : Next.js, Node.js
+- Back-End : Node.js, Next.js
 - DB : MongoDB
 - Infra : Vercel, AWS S3
 - Library :  NextAuth.js, Lottie-player, headlessUI, next-themes
@@ -27,11 +27,12 @@ https://vividnow.vercel.app
 - 블로그 운영자 소개 페이지
 - 다크모드
 - 채널톡API 연결
-- Vercel를 통한 배포 자동화
+- Vercel를 통한 무중단 배포
+- Vercel Analytics
+- 이슈 트래커 Sentry
+- Markdown을 활용한 블로그 포스팅(개발중)
 
 ### 개발 예정
-- 깃허브 markdown을 활용한 블로그 포스팅
 - 글 조회수 표기
 - 댓글
 - 포스팅 검색
-- Google analytics
