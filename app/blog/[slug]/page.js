@@ -1,6 +1,7 @@
 import fs from 'fs';
 import ReactMarkdown from 'react-markdown'
 import matter from 'gray-matter';
+import getPostMetadata from '../../components/getPostMetadata';
 
 function getPostContent(slug) {
   const folder = "contents/"
@@ -9,6 +10,13 @@ function getPostContent(slug) {
   const content = fs.readFileSync(decodedSlug, "utf8")
   const matterResult = matter(content)
   return matterResult
+}
+
+export const generateStaticParams = async () => {
+  const posts = getPostMetadata()
+  return posts.map((post) => ({
+    slug: post.slug
+  }))
 }
 
 export default function postDetail(props) {

@@ -1,0 +1,20 @@
+import getPostMetadata from "../components/getPostMetadata";
+import PostPreview from "../components/PostPreview";
+
+export default function postMain() {
+  const postMetadata = getPostMetadata();
+  const postPreview = postMetadata.map((post) => (
+    <PostPreview key={post.slug} {...post}/>
+  ));
+
+  return (
+    <>
+      <div className="container mx-auto min-h-screen px-5 py-8">
+        <div className="mb-10 text-7xl">
+          <h1 className="font-black">Blog.</h1>
+        </div>
+        <h1 className="text-xl">{postPreview}</h1>
+      </div>
+    </>
+  );
+}
