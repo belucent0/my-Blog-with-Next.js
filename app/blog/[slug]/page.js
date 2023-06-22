@@ -24,12 +24,14 @@ export default function postDetail(props) {
   const post = getPostContent(slug)
     return (
       <>
-        <div className="container mx-auto min-h-screen px-5 py-8">
-          <h1 className="text-5xl font-bold mb-16">{post.data.title}</h1>
-          <article className="prose lg:prose-base">
-            <ReactMarkdown>{post.content}</ReactMarkdown>
-          </article>
-        </div>
+        <section className="mx-auto my-10 flex min-h-screen justify-center px-0.5">
+          <div>
+            <h1 className="mb-16 text-5xl font-bold">{post.data.title}</h1>
+            <article className="prose lg:prose-base">
+              <ReactMarkdown>{post.content}</ReactMarkdown>
+            </article>
+          </div>
+        </section>
       </>
     );
 }
