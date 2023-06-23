@@ -12,7 +12,7 @@ https://vividnow.vercel.app
 설명 보기 https://veams.tistory.com/112
 
 ## 사용 스택 및 서비스
-- Front-End : Next.js, React, JavaScript, TailwindCSS
+- Front-End : Next.js, JavaScript, TailwindCSS
 - Back-End : Node.js, Next.js
 - DB : MongoDB
 - Infra : Vercel, AWS S3

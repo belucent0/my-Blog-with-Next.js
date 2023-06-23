@@ -22,7 +22,7 @@ Next.js에 기반하여 개발한 블로그 입니다.
 네이버나 티스토리, 브런치 등 이미 안정적인 블로그 서비스는 많습니다. 하지만 다른 누군가가 만든 서비스이지요. 수년 전 막연히 꿈꾸기 시작했던 서비스를 '내가 직접 만든다'는 것, 또 개발뿐만 아니라 서비스를 직접 운영하며 '개발자로서 역량과 세상을 바라보는 안목을 기른다는 것'이 제게 큰 의미가 있습니다.
 
 ## 사용 스택 및 서비스
-- Front-End : Next.js, React, JavaScript, TailwindCSS
+- Front-End : Next.js, JavaScript, TailwindCSS
 - Back-End : Next.js, Node.js
 - DB : MongoDB
 - Infra : Vercel, AWS S3
