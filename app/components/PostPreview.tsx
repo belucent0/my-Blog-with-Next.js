@@ -10,11 +10,11 @@ export interface PostMetadata {
 const PostPreview = (props : PostMetadata) => {
     return (
       <div key={props.slug}>
-        <div className="border-b-2">
+        <div className="border-b-2 my-2 md:my-4">
           <Link href={`/blog/${props.slug}`}>
-            <h1 className="my-4 text-3xl"> {props.title}</h1>
+            <h1 className="text-xl md:text-3xl">{props.title}</h1>
           </Link>
-          <h1 className="my-2 text-base text-gray-500"> {props.subtitle}</h1>
+          <h1 className="text-sm md:text-base text-gray-500"> {props.subtitle}</h1>
         </div>
       </div>
     );

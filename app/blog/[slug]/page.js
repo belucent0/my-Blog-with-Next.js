@@ -24,12 +24,19 @@ export default function postDetail(props) {
   const post = getPostContent(slug)
     return (
       <>
-        <section className="mx-auto my-10 flex min-h-screen justify-center px-0.5">
-          <div>
-            <h1 className="mb-16 text-5xl font-bold">{post.data.title}</h1>
-            <article className="prose lg:prose-base">
-              <ReactMarkdown>{post.content}</ReactMarkdown>
-            </article>
+        <section className="mx-auto flex min-h-screen justify-center px-0.5">
+          <div className="w-full px-2 py-2 mx-auto lg:px-32">
+              <div className="flex flex-col w-full mx-auto mb-2 prose text-left prose-md">
+                  <div className="mb-5 border-b border-gray-200">
+                      <div className="flex flex-wrap items-baseline -mt-2">
+                          <h5>{post.data.date}</h5>
+                      </div>
+                  </div>
+                  <h1>{post.data.title}</h1>
+                  <article className="prose lg:prose-base">
+                <ReactMarkdown>{post.content}</ReactMarkdown>
+              </article>
+            </div>
           </div>
         </section>
       </>
