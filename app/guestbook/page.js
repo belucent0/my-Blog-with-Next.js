@@ -7,7 +7,6 @@ import Banner from "./Banner";
 import ListItem from "./ListItem";
 
 export default async function GuestbookPage() {
-
   const db = (await connectDB).db("forum");
   let result = await db
     .collection("guestbook")
