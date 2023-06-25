@@ -3,7 +3,7 @@ Next.js에 기반하여 개발한 블로그 입니다.
 https://vividnow.vercel.app
 
 ## 개발 기간 및 인원
-- 23.05.18 ~ 계속 진행
+- 23.05.18 ~ 23.06.22(5주)
 - 1인(김재광, FullStack)
 
 ## 기획의도
@@ -12,7 +12,7 @@ https://vividnow.vercel.app
 설명 보기 https://veams.tistory.com/112
 
 ## 사용 스택 및 서비스
-- Front-End : Next.js, JavaScript, TailwindCSS
+- Front-End : Next.js, TypeScript, TailwindCSS
 - Back-End : Node.js, Next.js
 - DB : MongoDB
 - Infra : Vercel, AWS S3
@@ -30,7 +30,7 @@ https://vividnow.vercel.app
 - Vercel를 통한 무중단 배포
 - Vercel Analytics
 - 이슈 트래커 Sentry
-- Markdown을 활용한 블로그 포스팅(개발중)
+- Markdown을 활용한 블로그 포스팅
 
 ### 개발 예정
 - 글 조회수 표기
