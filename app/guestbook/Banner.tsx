@@ -13,7 +13,7 @@ export default function Banner() {
 
     if (
       !isBannerClosed ||
-      (closedTime && currentTime - closedTime > 24 * 60 * 60 * 1000)
+      (closedTime && currentTime - Number(closedTime) > 24 * 60 * 60 * 1000)
     ) {
       //24시간 동안 보지 않기
       setIsShowing(true);
