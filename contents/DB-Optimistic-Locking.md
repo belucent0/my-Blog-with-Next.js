@@ -1,7 +1,7 @@
 ---
 title: "쇼핑몰 주문 경쟁에서 개발자가 사용할 수 있는 전략, 낙관적 락에 대해서"
 subtitle: "DB 동시 접근을 처리하는 잠금(Lock)-낙관적 락. Wanted pre-onboading"
-date: "2023.06.23"
+date: "2023-06-23"
 ---
 ![images/blackfriday.png](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FboDrv1%2Fbtsk8nnytDb%2FNEqUkKMMlVHEsG9geBeYS0%2Fimg.webp)
 

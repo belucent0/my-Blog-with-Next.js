@@ -1,6 +1,8 @@
 import { MongoClient } from 'mongodb'
+
 const url = process.env.MongoDBUrl
 const options = { useNewUrlParser: true }
+
 let connectDB
 
 if (process.env.NODE_ENV === 'development') {

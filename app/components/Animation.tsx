@@ -1,5 +1,5 @@
 import Lottie from 'react-lottie-player';
-import lottieJsonAbout from '/public/team.json';
+import lottieJsonAbout from '../../public/team.json';
 
 export function AnimationAbout() {
   return (

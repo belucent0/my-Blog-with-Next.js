@@ -1,7 +1,7 @@
 import Link from "next/link";
 import DarkModeBtn from "./DarkModeBtn";
 
-export default async function Header() {
+export default function Header() {
 
   return (
     <>
@@ -39,7 +39,7 @@ export default async function Header() {
               <Link href={"/guestbook"} className="text-base font-semibold  text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700" >
                   방명록
               </Link>
-              <DarkModeBtn className="ml-10"/>
+              <DarkModeBtn/>
           </nav>
         </div>
       </header>

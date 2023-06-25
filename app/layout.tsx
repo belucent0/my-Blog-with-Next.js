@@ -3,7 +3,6 @@ import { Providers } from "./provider";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { Analytics } from '@vercel/analytics/react';
-
 import {Inter} from 'next/font/google'
 
 export const metadata = {
@@ -21,7 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko" suppressHydrationWarning>
       <body>
-        <Providers className={`${inter.variable} font-sans`}>
+        <Providers>
           <Header />
           {children}
           <Analytics/>

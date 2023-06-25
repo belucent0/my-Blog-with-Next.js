@@ -4,7 +4,6 @@ export default function Hero() {
   const [text] = useTypewriter({
     words: ["Next.js", "Nest.js", "Express.js"],
     loop: 0,
-    cursorStyle: "|",
   });
   return (
     <>

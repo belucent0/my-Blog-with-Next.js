@@ -1,6 +1,7 @@
-import { connectDB } from "@/util/database";
 import Image from "next/image";
 import Link from "next/link";
+import { ObjectId } from "mongodb";
+import { connectDB } from "../../util/database";
 
 export default async function List() {
   const db = (await connectDB).db("forum");
@@ -34,7 +35,6 @@ export default async function List() {
                     <img
                       className="mb-2 h-80 w-full rounded-3xl object-cover object-top "
                       src={card.src}
-                      alt={Image}
                       width={723}
                       height={403}
                     />
