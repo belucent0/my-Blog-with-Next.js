@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   let session = await getServerSession(req, res, authOptions)
 
   if (session) {
-    req.body.author = session.user?.name || ""
+    req.body.author = session.user?.name || "";
   }
 
   if (req.method == "POST") {

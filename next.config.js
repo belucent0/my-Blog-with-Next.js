@@ -19,14 +19,9 @@ const nextConfig = {
 
 }
 
+
 module.exports = nextConfig
 
-module.exports = {
-  webpack(config) {
-    config.resolve.extensions.push('.ts', '.tsx');
-    return config;
-  }
-};
 
 // Injected content via Sentry wizard below
 

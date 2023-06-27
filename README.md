@@ -33,6 +33,7 @@ https://vividnow.vercel.app
 - Markdown을 활용한 블로그 포스팅
 
 ### 개발 예정
+- JavaScript -> TypeScript 마이그레이션 중(06.25~)
 - 글 조회수 표기
 - 댓글
 - 포스팅 검색
