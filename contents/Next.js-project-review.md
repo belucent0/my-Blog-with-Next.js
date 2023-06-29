@@ -22,8 +22,30 @@ Next.js에 기반하여 개발한 블로그 입니다.
 네이버나 티스토리, 브런치 등 이미 안정적인 블로그 서비스는 많습니다. 하지만 다른 누군가가 만든 서비스이지요. 수년 전 막연히 꿈꾸기 시작했던 서비스를 '내가 직접 만든다'는 것, 또 개발뿐만 아니라 서비스를 직접 운영하며 '개발자로서 역량과 세상을 바라보는 안목을 기른다는 것'이 제게 큰 의미가 있습니다.
 
 ## 사용 스택 및 서비스
-- Front-End : Next.js, JavaScript, TailwindCSS
-- Back-End : Next.js, Node.js
+- Front-End : Next.js, TypeScript, TailwindCSS
+- Back-End : Node.js, Next.js
+- DB : MongoDB
+- Infra : Vercel, AWS S3
+- Library :  NextAuth.js, Lottie-player, headlessUI, next-themes 등
+- OAuth : Github, 카카오톡, 네이버
+- OpenAPI : 채널톡
+
+## 프로젝트 소개
+Next.js에 기반하여 개발한 블로그 입니다.
+https://vividnow.vercel.app
+
+## 개발 기간 및 인원
+- 23.05.18 ~ 23.06.22(5주)
+- 1인(김재광, FullStack)
+
+## 기획의도
+네이버나 티스토리, 브런치 등 이미 안정적인 블로그 서비스는 많습니다. 하지만 다른 누군가가 만든 서비스이지요. 수년 전 막연히 꿈꾸기 시작했던 서비스를 '내가 직접 만든다'는 것, 또 개발뿐만 아니라 서비스를 직접 운영하며 '개발자로서 역량과 세상을 바라보는 안목을 기른다는 것'이 제게 큰 의미가 있습니다.
+
+설명 보기 https://veams.tistory.com/112
+
+## 사용 스택 및 서비스
+- Front-End : Next.js, TypeScript, TailwindCSS
+- Back-End : Node.js, Next.js
 - DB : MongoDB
 - Infra : Vercel, AWS S3
 - Library :  NextAuth.js, Lottie-player, headlessUI, next-themes 등
@@ -40,12 +62,13 @@ Next.js에 기반하여 개발한 블로그 입니다.
 - Vercel를 통한 무중단 배포
 - Vercel Analytics
 - 이슈 트래커 Sentry
-- Markdown을 활용한 블로그 포스팅(개발중)
+- Markdown을 활용한 블로그 포스팅
 
 ### 개발 예정
+- JavaScript -> TypeScript 로 마이그레이션(06.23~)
+- NginX 도입
 - 포스팅 카테고리 분류
 - 글 조회수 표기
 - 댓글 
 - 포스팅 검색
-- JavaScript -> TypeScript 로 전환(06.22~)
 - gsap 애니메이션 라이브러리 적용해보기

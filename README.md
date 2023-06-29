@@ -16,7 +16,7 @@ https://vividnow.vercel.app
 - Back-End : Node.js, Next.js
 - DB : MongoDB
 - Infra : Vercel, AWS S3
-- Library :  NextAuth.js, Lottie-player, headlessUI, next-themes
+- Library :  NextAuth.js, Lottie-player, headlessUI, next-themes 등
 - OAuth : Github, 카카오톡, 네이버
 - OpenAPI : 채널톡
 
@@ -33,7 +33,10 @@ https://vividnow.vercel.app
 - Markdown을 활용한 블로그 포스팅
 
 ### 개발 예정
-- JavaScript -> TypeScript 마이그레이션 중(06.25~)
+- JavaScript -> TypeScript 로 마이그레이션(06.23~)
+- NginX 도입
+- 포스팅 카테고리 분류
 - 글 조회수 표기
-- 댓글
+- 댓글 
 - 포스팅 검색
+- gsap 애니메이션 라이브러리 적용해보기
