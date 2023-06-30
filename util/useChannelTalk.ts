@@ -8,9 +8,9 @@ const useChannelTalk = () => {
   const router = useRouter();
   useEffect(() => {
     ChannelService.boot({
-      pluginKey: process.env.NEXT_PUBLIC_CHANNEL_TALK_KEY,
+      pluginKey: process.env.NEXT_PUBLIC_CHANNEL_TALK_KEY || "",
     });
   }, [router]);
-  }
+}
 
 export default useChannelTalk;

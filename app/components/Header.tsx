@@ -11,16 +11,6 @@ export default function Header() {
             className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
             href={"/"}
           >
-            <svg
-              width="95"
-              height="94"
-              viewBox="0 0 95 94"
-              className="h-auto w-6 text-indigo-700"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M96 0V47L48 94H0V47L48 0H96Z" />
-            </svg>
             <span className="ml-3 text-2xl font-black dark:text-white ">VIVIDNOW</span>
           </Link>
           <nav className="gap-x-4 md:gap-x-5 md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
