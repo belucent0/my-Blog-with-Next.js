@@ -30,27 +30,8 @@ Next.js에 기반하여 개발한 블로그 입니다.
 - OAuth : Github, 카카오톡, 네이버
 - OpenAPI : 채널톡
 
-## 프로젝트 소개
-Next.js에 기반하여 개발한 블로그 입니다.
-https://vividnow.vercel.app
-
-## 개발 기간 및 인원
-- 23.05.18 ~ 23.06.22(5주)
-- 1인(김재광, FullStack)
-
-## 기획의도
-네이버나 티스토리, 브런치 등 이미 안정적인 블로그 서비스는 많습니다. 하지만 다른 누군가가 만든 서비스이지요. 수년 전 막연히 꿈꾸기 시작했던 서비스를 '내가 직접 만든다'는 것, 또 개발뿐만 아니라 서비스를 직접 운영하며 '개발자로서 역량과 세상을 바라보는 안목을 기른다는 것'이 제게 큰 의미가 있습니다.
-
-설명 보기 https://veams.tistory.com/112
-
-## 사용 스택 및 서비스
-- Front-End : Next.js, TypeScript, TailwindCSS
-- Back-End : Node.js, Next.js
-- DB : MongoDB
-- Infra : Vercel, AWS S3
-- Library :  NextAuth.js, Lottie-player, headlessUI, next-themes 등
-- OAuth : Github, 카카오톡, 네이버
-- OpenAPI : 채널톡
+## 서비스 아키텍쳐
+![images](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb9BuM5%2FbtsmJidgB5J%2FRUn1M7EKSey6Abgqxfa830%2Fimg.png)
 
 ## 서비스 구성
 - 반응형 웹
