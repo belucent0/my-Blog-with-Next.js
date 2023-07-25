@@ -13,7 +13,7 @@ Next.js에 기반하여 개발한 블로그 입니다.
 - 23.05.18 ~ 23.06.22(5주)
 - 1인(김재광, FullStack)
 
-![images](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FMNFj3%2FbtsmQfWssVB%2Fvagr0aaPdHlnmGkeuZmXe0%2Fimg.png)
+![images](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbpe9QR%2Fbtsm4C3eYzZ%2FvWuJShOv9RXEagm7pbVCGK%2Fimg.png)
 
 ## 기획의도
 2018년, 우연히 제 손에 들어온 <해커와 화가>라는 책이 있습니다. 책의 저자는 에어비엔비 등을 배출해서 유명한 미국의 스타트업 엑셀러레이터 'Y Combinator'의 공동창업자인 폴 그레이엄(Paul Graham)입니다. 그가 여러 해 동안 작성해 온 에세이를 묶어서 낸 결과물이 <해커와 화가>인 것입니다. 신선한 책의 제목만큼이나 내용도 흥미롭답니다. 세상을 바라보는 그만의 통찰력과 새로운 관점이 많이 담겨있어 즐겨 읽을 수 있었습니다. 프로그래밍에 지식이 없던 당시였음에도, '무엇이 좋은 프로그래밍 언어인가?'를 논하면서 LISP에 대한 그의 애정을 드러내는 내용 역시도, 제 마음을 사로 잡았습니다. 인터프리터니, 어셈블러니 외계어처럼 등장하는 키워드들도 손수 찾아볼 정도로요.
@@ -56,11 +56,3 @@ Next.js에 기반하여 개발한 블로그 입니다.
 - Next.js - 서비스 특성 고려, SSR 장점+리액트 훅+서버 제작도 가능한 풀스택 프레임워크 선택
 - MongoDB - 단계별 서비스 구현, 배포 전략(작업이력→포스팅→상담 관련), 기능 추가에 따른 DB 유연성 확보
 - Vercel - 배포 및 HTTPS 적용 용이, SSR로 페이지 생성시 서버리스로 동작하여 인스턴스 관리 부담 감소
-
-### 개발 예정
-- NginX 도입
-- 포스팅 카테고리 분류
-- 글 조회수 표기
-- 댓글 
-- 포스팅 검색
-- gsap 애니메이션 라이브러리 적용

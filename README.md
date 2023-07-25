@@ -7,7 +7,7 @@ Next.js에 기반하여 개발한 블로그 입니다.
 - 23.05.18 ~ 23.06.22(5주)
 - 1인(김재광, FullStack)
 
-![images](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FMNFj3%2FbtsmQfWssVB%2Fvagr0aaPdHlnmGkeuZmXe0%2Fimg.png)
+![images](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbpe9QR%2Fbtsm4C3eYzZ%2FvWuJShOv9RXEagm7pbVCGK%2Fimg.png)
 
 ## 기획의도
 네이버나 티스토리, 브런치 등 이미 안정적인 블로그 서비스는 많습니다. 하지만 다른 누군가가 만든 서비스이지요. 

@@ -24,6 +24,11 @@ export default function getPostMetadata(): PostMetadata[] {
         slug: fileName.replace(".md", ""),
       };
     });
+
+    //최신순 정렬
+    posts.sort((a: PostMetadata, b: PostMetadata) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
   
     return posts;
   }
