@@ -1,11 +1,31 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 
-export async function middleware(req) {
+export const config = {
+  matcher: ['/api-docs'],
+}
+
+export async function middleware(req : NextRequest) {
   if (req.nextUrl.pathname.startsWith("/login")) {
     const session = await getToken({ req });
     if (session) {
       return NextResponse.redirect(new URL("/guestbook", req.url));
     }
   }
+
+  // if (req.nextUrl.pathname.startsWith("/api-docs")) {
+  const basicAuth = req.headers.get('authorization')
+  const url = req.nextUrl
+
+  if (basicAuth) {
+    const authValue = basicAuth.split(' ')[1]
+    const [user, pwd] = atob(authValue).split(':')
+
+    if (user === 'admin' && pwd === '1234') {
+      return NextResponse.next()
+    }
+  }
+  url.pathname = '/api/auth/auth'
+
+  return NextResponse.rewrite(url)
 }

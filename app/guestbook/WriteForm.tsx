@@ -16,3 +16,31 @@ export default async function WriteForm({ userName }) {
     </>
   )
 }
+
+/**
+ * @swagger
+ *
+ * /api/guestbook/new:
+ *  post:
+ *    summary: "방명록 등록"
+ *    description: "POST 방식으로 방명록을 등록합니다."
+ *    tags: [Guestbook]
+ *    requestBody:
+ *      description: 사용자가 서버로 전달하는 값에 따라 결과 값은 다릅니다.(방명록 등록)
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            properties:
+ *              _id:
+ *                type: string
+ *                description: "방명록 고유아이디"
+ *              content:
+ *                type: string
+ *                description: "방명록 내용"
+ *              authorName:
+ *                type: string
+ *                description: "유저 이름"
+ *              
+ */
