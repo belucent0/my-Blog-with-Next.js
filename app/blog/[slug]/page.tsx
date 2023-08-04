@@ -18,7 +18,7 @@ export const generateStaticParams = async () => {
     slug: post.slug
   }))
 }
-
+//블로그 게시글 상세 페이지
 export default function postDetail(props) {
   const slug = props.params.slug
   const post = getPostContent(slug)

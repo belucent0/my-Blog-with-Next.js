@@ -13,7 +13,7 @@ export async function middleware(req : NextRequest) {
     }
   }
 
-  // if (req.nextUrl.pathname.startsWith("/api-docs")) {
+  // '/api-docs' 진입시 로그인 요구하기
   const basicAuth = req.headers.get('authorization')
   const url = req.nextUrl
 

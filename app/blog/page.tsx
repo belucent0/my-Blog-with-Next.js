@@ -1,8 +1,34 @@
+import Link from "next/link";
 import getPostMetadata from "../components/getPostMetadata";
-import PostPreview from "../components/PostPreview";
 
+export interface PostMetadata {
+  title: string;
+  date: string;
+  subtitle: string;
+  slug : string;
+}
+
+//블로그 목록 정보
 export default function postMain() {
   const postMetadata = getPostMetadata();
+
+  const PostPreview = (props: PostMetadata) => {
+    return (
+      <div key={props.slug}>
+        <div className="my-2 border-b-2 md:my-4">
+          <h1 className="text-xs text-gray-400 md:text-sm"> {props.date}</h1>
+          <Link href={`/blog/${props.slug}`}>
+            <h1 className="text-xl md:text-3xl">{props.title}</h1>
+          </Link>
+          <h1 className="text-sm text-gray-500 md:text-base">
+            {" "}
+            {props.subtitle}
+          </h1>
+        </div>
+      </div>
+    );
+  };
+  
   const postPreview = postMetadata.map((post) => (
     <PostPreview key={post.slug} {...post}/>
   ));

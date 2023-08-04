@@ -7,7 +7,7 @@ export interface PostMetadata {
   subtitle: string;
   slug: string;
 }
-
+// app/contents 경로 내 .md 파일 목록 정렬
 export default function getPostMetadata(): PostMetadata[] {
     const folder = "contents/";
     const files = fs.readdirSync(folder);

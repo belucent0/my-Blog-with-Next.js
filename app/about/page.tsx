@@ -1,7 +1,7 @@
-"use client";
-
+import { Suspense } from "react";
 import { AnimationAbout } from "../components/Animation";
 import Link from "next/link";
+import Loading from "../loading";
 
 export default function about() {
   return (
@@ -23,9 +23,11 @@ export default function about() {
             </p>
             <p className="w-full leading-relaxed text-gray-800 lg:w-1/2"></p>
           </div>
+        <Suspense fallback={<Loading/>}>
           <div className="mx-auto w-full max-w-[700px] lg:w-4/6">
             <AnimationAbout />
           </div>
+        </Suspense>
 
           <div className="mt-3 flex flex-col sm:flex-row">
             <div className="text-center sm:w-1/3 sm:py-8 sm:pr-8">

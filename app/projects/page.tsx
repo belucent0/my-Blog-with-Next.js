@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ObjectId } from "mongodb";
 import { connectDB } from "../../util/database";
 
 export default async function List() {
