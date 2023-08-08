@@ -1,5 +1,6 @@
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 
+//홈페이지 메인
 export default function Hero() {
   const [text] = useTypewriter({
     words: ["Next.js", "Nest.js", "Express.js"],

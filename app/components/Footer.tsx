@@ -1,3 +1,4 @@
+//레이아웃 - footer
 export default function Footer() {
   return (
     <>

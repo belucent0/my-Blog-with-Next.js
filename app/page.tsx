@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Hero from "./components/Hero";
 
+// 홈 뼈대
 export default async function Home() {
   return (
     <>

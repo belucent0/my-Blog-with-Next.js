@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import matter from 'gray-matter';
 import getPostMetadata from '../../components/getPostMetadata';
 
+// 마크다운 게시글 내용 불러오기
 function getPostContent(slug) {
   const folder = "contents/"
   const file = `${folder}${slug}.md`

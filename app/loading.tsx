@@ -1,3 +1,4 @@
+//페이지 이동시 필요한 로딩 스피너
 export default function Loading() {
   return (
     <>

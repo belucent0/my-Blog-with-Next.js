@@ -2,6 +2,7 @@
 
 import { signIn } from "next-auth/react";
 
+//로그인 페이지
 export default async function Login() {
 
   const handleSignIn = async (provider) => {

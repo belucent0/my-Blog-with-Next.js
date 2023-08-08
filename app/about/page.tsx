@@ -3,6 +3,7 @@ import { AnimationAbout } from "../components/Animation";
 import Link from "next/link";
 import Loading from "../loading";
 
+// about 페이지 소개란
 export default function about() {
   return (
     <>

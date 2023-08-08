@@ -3,9 +3,11 @@
 import { useTheme } from "next-themes";
 import useChannelTalk from "../../util/useChannelTalk";
 
+// 다크모드 버튼 기능
 export default function DarkModeBtn() {
   const { theme, setTheme } = useTheme();
 
+  // 채널톡 버튼 플롯팅
   const channeltalk = useChannelTalk();
 
   return (

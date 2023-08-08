@@ -1,8 +1,8 @@
 import Link from "next/link";
 import DarkModeBtn from "./DarkModeBtn";
 
+//레이아웃 - header 네이베이션바 카테고리
 export default function Header() {
-
   return (
     <>
     <header className="text-gray-600 body-font">

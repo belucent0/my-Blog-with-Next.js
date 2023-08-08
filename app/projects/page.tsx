@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { connectDB } from "../../util/database";
 
+// 프로젝트- 작업이력란
 export default async function List() {
   const db = (await connectDB).db("forum");
   let worksList = await db.collection("projects").find().toArray();
@@ -25,6 +26,7 @@ export default async function List() {
             </span>
           </div>
 
+          {/* 이하 카드 형식 작업 목록 */}
           <div className="m-auto text-gray-600 xl:container">
             <div className="grid md:grid-cols-2 md:gap-6 lg:gap-12">
               {worksList.map((card) => (

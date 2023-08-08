@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+// 존재하지 않는 페이지 접속시
 export default function NotFound() {
   const router = useRouter();
 

@@ -6,6 +6,8 @@ export const config = {
 }
 
 export async function middleware(req : NextRequest) {
+  
+  //로그인 완료시 방명록 페이지로 리다이렉트
   if (req.nextUrl.pathname.startsWith("/login")) {
     const session = await getToken({ req });
     if (session) {

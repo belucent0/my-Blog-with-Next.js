@@ -54,3 +54,30 @@ export default async function GuestbookPage() {
   );
 }
 
+/**
+ * @swagger
+ * paths:
+ *  /api/guestbook:
+ *    get:
+ *      summary: "방명록 페이지 조회"
+ *      description: "서버에 데이터를 보내지 않고 Get방식으로 요청합니다"
+ *      tags: [Guestbook]
+ *      responses:
+ *        "200":
+ *          description: 전체 방명록 목록
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                    ok:
+ *                      type: boolean
+ *                    guestbook:
+ *                      type: object
+ *                      example:
+ *                          [
+ *                            { "_id": 1, "content": "반갑습니다", "authorName" : 유저1},
+ *                            { "_id": 2, "content": "안녕하세요", "authorName" : 유저2},
+ *                            { "_id": 3, "content": "하이요", "authorName" : 유저3},
+ *                          ]
+ */

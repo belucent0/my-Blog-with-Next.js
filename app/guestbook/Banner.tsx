@@ -3,6 +3,7 @@
 import { Transition } from "@headlessui/react";
 import { useEffect, useState } from "react";
 
+//방명록페이지 배너 버튼 기능
 export default function Banner() {
   const [isShowing, setIsShowing] = useState(false);
 

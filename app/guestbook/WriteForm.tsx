@@ -1,5 +1,6 @@
 'use client'
 
+// 방명록 페이지 내 방명록 작성폼
 export default async function WriteForm({ userName }) {
   return (
     <>
