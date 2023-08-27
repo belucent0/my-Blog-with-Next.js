@@ -8,7 +8,6 @@ export default async function Login() {
   const handleSignIn = async (provider) => {
     await signIn(provider, {callbackUrl: "/guestbook"});
   };
-
   return (
     <>
       <div className="container mx-auto min-h-screen px-5 py-8">
@@ -67,7 +66,6 @@ export default async function Login() {
                       </span>
                     </button>
                   </div>
-
                   <div className="mt-32 space-y-4 text-center text-gray-600 dark:text-gray-400 sm:-mb-8"></div>
                 </div>
               </div>

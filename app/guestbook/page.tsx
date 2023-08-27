@@ -5,6 +5,7 @@ import { getServerSession } from "next-auth";
 import WriteForm from "./WriteForm";
 import Banner from "./Banner";
 import ListItem from "./ListItem";
+import LoginModal from "./Modal";
 
 export default async function GuestbookPage() {
   const db = (await connectDB).db("forum");
@@ -31,7 +32,8 @@ export default async function GuestbookPage() {
           <LogoutBtn /> <WriteForm userName={userName} />
         </span>
       ) : (
-        <LoginBtn />
+        // <LoginBtn />
+        <LoginModal />
       )}
     </span>
   );
