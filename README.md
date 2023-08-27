@@ -7,7 +7,7 @@ Next.js에 기반하여 개발한 블로그 입니다.
 - 23.05.18 ~ 23.06.22(5주)
 - 1인(김재광, FullStack)
 
-![images](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbpe9QR%2Fbtsm4C3eYzZ%2FvWuJShOv9RXEagm7pbVCGK%2Fimg.png)
+![images](https://vividnowblog.s3.ap-northeast-2.amazonaws.com/%EB%B8%94%EB%A1%9C%EA%B7%B8+%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98.png)
 
 ## 기획의도
 네이버나 티스토리, 브런치 등 이미 안정적인 블로그 서비스는 많습니다. 하지만 다른 누군가가 만든 서비스이지요. 
@@ -43,12 +43,12 @@ Next.js에 기반하여 개발한 블로그 입니다.
 - 배너 구현시, 닫힌 배너가 새로고침 시 잠시 등장 후 사라짐 → useState(true) 값을 false로 변경하여 해결 [→링크](https://veams.tistory.com/113)
 
 ## 기술적 의사결정
-- Next.js - 서비스 특성 고려, SSR 장점+리액트 훅+서버 제작도 가능한 풀스택 프레임워크 선택
-- MongoDB - 단계별 서비스 구현, 배포 전략(작업이력→포스팅→상담 관련), 기능 추가에 따른 DB 유연성 확보
-- Vercel - 배포 및 HTTPS 적용 용이, SSR로 페이지 생성시 서버리스로 동작하여 인스턴스 관리 부담 감소
+- Next.js - 서비스 특성 고려, SSR/SSG + React Hook + 서버 제작도 가능한 풀스택 프레임워크 선택
+- MongoDB - 단계별 개발 전략 (작업이력→포스팅→상담 관련), 기능 추가에 따른 DB 유연성 확보
+- Vercel - 무중단 배포 및 HTTPS 적용 편의, 서버리스로 동작하여 인스턴스 비용 부담 감소
 
 ## Swagger를 이용한 API Docs 
-- Restful API의 문서를 자동으로 구성해주는 Swagger 프레임워크를 사용해서 작성했습니다.
+- Restful API의 문서를 자동으로 구성해주는 Swagger 프레임워크를 사용해서 작했습니다.
 - API 문서 URL : [블로그 API Docs.](https://vividnow.vercel.app/api-docs)
 - 외부 이용자의 접근을 방지하고자 로그인 계정을 설정했습니다. admin / 1234
 
