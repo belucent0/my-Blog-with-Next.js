@@ -1,7 +1,7 @@
 import fs from 'fs';
 import ReactMarkdown from 'react-markdown'
 import matter from 'gray-matter';
-import getPostMetadata from '../../components/getPostMetadata';
+import getPostMetadata from '../getPostMetadata';
 
 // 마크다운 게시글 내용 불러오기
 function getPostContent(slug) {

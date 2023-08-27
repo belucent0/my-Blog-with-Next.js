@@ -1,6 +1,5 @@
 "use client";
 
-
 import { useState } from "react";
 import { signIn, signOut } from "next-auth/react";
 
@@ -32,7 +31,6 @@ function LoadingSpinner() {
 export function LoginBtn() {
   const [isLoading, setIsLoading] = useState(false);
 
-
   const handleSignIn = async () => {
     setIsLoading(true);
     await signIn();
@@ -46,7 +44,6 @@ export function LoginBtn() {
         isLoading ? (<LoadingSpinner />) : ('로그인')}</button>
   );
 }
-
 //로그아웃 버튼 작동
 export function LogoutBtn() {
   return (

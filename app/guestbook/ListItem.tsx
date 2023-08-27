@@ -1,5 +1,6 @@
 "use client";
-// 방명록 페이지 게시글 목록
+
+// 방명록 목록 조회
 export default async function ListItem({ result }) {
   // 방명록 삭제
   const handleDelete = async (id, index, e) => {
