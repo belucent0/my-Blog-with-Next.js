@@ -1,54 +1,100 @@
 "use client";
 
-import { useState } from "react";
+import React from "react";
 import { signIn, signOut } from "next-auth/react";
+import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
 
-//로그인시 로딩스피너
-function LoadingSpinner() {
-  return (
-    <div role="status">
-      <svg
-        aria-hidden="true"
-        className="w-7 h-6 mx-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-700"
-        viewBox="0 0 100 101"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-          fill="currentColor"
-        />
-        <path
-          d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-          fill="currentFill"
-        />
-      </svg>
-      <span className="sr-only">Loading...</span>
-    </div>
-  );
-}
-//로그인버튼 작동
-export function LoginBtn() {
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSignIn = async () => {
-    setIsLoading(true);
-    await signIn();
-    setTimeout(() => setIsLoading(false), 5000) 
-  };
-
-  return (
-    <button
-      className="mb-2 inline-block rounded-lg bg-indigo-700 px-3 py-2 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-500 focus-visible:ring active:bg-indigo-500 md:text-base"
-      onClick={handleSignIn}>{
-        isLoading ? (<LoadingSpinner />) : ('로그인')}</button>
-  );
-}
 //로그아웃 버튼 작동
 export function LogoutBtn() {
   return (
     <button
       className="mb-2 inline-block rounded-lg bg-indigo-700 px-3 py-2 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-500 focus-visible:ring active:bg-indigo-500 md:text-base"
       onClick={() => {signOut();}}>로그아웃</button>
+  );
+}
+
+export function LoginModal() {
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
+
+  const handleSignIn = async (provider) => {
+    await signIn(provider, {callbackUrl: "/guestbook"});
+  };
+  return (
+    <>
+      <Button onPress={onOpen} className="mb-2 inline-block rounded-lg bg-indigo-700 px-3 py-2 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-500 focus-visible:ring active:bg-indigo-500 md:text-base">
+        로그인
+      </Button>
+
+      <Modal placement={"center"} size={"md"} isOpen={isOpen} onOpenChange={onOpenChange}>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1"></ModalHeader>
+              <ModalBody>
+                <div className="rounded-3xl border border-gray-100 bg-white shadow-2xl shadow-gray-600/10 dark:border-gray-700 dark:bg-gray-800 dark:shadow-none">
+                  <div className="p-8 py-12 sm:p-16">
+                    <div className="space-y-4">
+                      <h2 className="mb-8 text-2xl font-bold text-gray-800 dark:text-white">
+                        방명록 작성을 위한 <br />
+                        간편로그인
+                      </h2>
+                    </div>
+                    <div className="mt-16 grid space-y-4">
+                      <button
+                        onClick={() => handleSignIn("naver")}
+                        className="group relative flex h-11 items-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-green-500 before:duration-300 before:transition hover:before:scale-105 active:duration-75 active:before:scale-95 disabled:before:scale-100 disabled:before:bg-gray-300 dark:before:border-gray-600 dark:before:bg-gray-700"
+                      >
+                        <span className="relative flex w-full items-center justify-center gap-3 text-base font-medium text-white dark:text-gray-200">
+                          <img
+                            src="https://blog.kakaocdn.net/dn/bU1uVm/btqGsLHK8Ha/ndkom6FPH3Ld5BXtGd7pt0/img.png"
+                            className="absolute left-0 w-6"
+                            alt="네이버"
+                          />
+                          <span>네이버로 시작</span>
+                        </span>
+                      </button>
+                      <button
+                        onClick={() => handleSignIn("kakao")}
+                        className="group relative flex h-11 items-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-yellow-400 before:duration-300 before:transition hover:before:scale-105 active:duration-75 active:before:scale-95 disabled:before:scale-100 disabled:before:bg-gray-300 dark:before:border-gray-600 dark:before:bg-gray-700"
+                      >
+                        <span className="relative flex w-full items-center justify-center gap-3 text-base font-medium text-white dark:text-gray-200">
+                          <img
+                            src="https://cdn.imweb.me/upload/S20210304872ba49a108a8/6285350df01af.png"
+                            className="absolute left-0 w-6"
+                            alt="카카오"
+                          />
+                          <span>카카오로 시작</span>
+                        </span>
+                      </button>
+                      <button
+                        onClick={() => handleSignIn("github")}
+                        className="group relative flex h-11 items-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-gray-700 before:duration-300 before:transition hover:before:scale-105 active:duration-75 active:before:scale-95 disabled:before:scale-100 disabled:before:bg-gray-300 dark:before:border-gray-600 dark:before:bg-gray-700"
+                      >
+                        <span className="relative flex w-full items-center justify-center gap-3 text-base font-medium text-white dark:text-gray-200">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            className="absolute left-0 h-5 w-5"
+                            viewBox="0 0 16 16"
+                          >
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                          </svg>
+                          <span>Github로 시작</span>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </ModalBody>
+              <ModalFooter className="bg-transparent">
+                <Button className="mb-1 inline-block rounded-lg bg-indigo-700 px-2 py-1 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-500 focus-visible:ring active:bg-indigo-500 md:text-base" onPress={onClose}>
+                  닫기
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
+    </>
   );
 }
