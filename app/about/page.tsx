@@ -138,7 +138,7 @@ export default function about() {
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                   </svg>
                 </Link>
-                <Link
+                <a
                   href={"/projects"}
                   className="inline-flex items-center text-indigo-500"
                 >
@@ -154,7 +154,7 @@ export default function about() {
                   >
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                   </svg>
-                </Link>
+                </a>
               </div>
             </div>
           </div>

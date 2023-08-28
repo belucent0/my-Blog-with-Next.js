@@ -1,6 +1,5 @@
 'use client'
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 // 존재하지 않는 페이지 접속시
@@ -25,12 +24,12 @@ export default function NotFound() {
                 다른 페이지로 이동해보는 건 어떨까요?
               </p>
               <div className="mt-5 flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-3">
-                <Link
+                <a
                   className="inline-flex w-full items-center justify-center gap-x-3 rounded-md border border-transparent bg-indigo-700 px-4 py-3 text-center text-sm font-medium text-white transition hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 sm:w-auto"
                   href="/"
                 >
                   홈으로
-                </Link>
+                </a>
                 <button
                   className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-transparent px-4 py-3 text-sm font-semibold text-indigo-700 ring-offset-white transition-all hover:text-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:ring-offset-slate-900 sm:w-auto"
                   onClick={() => handleGoBack()}

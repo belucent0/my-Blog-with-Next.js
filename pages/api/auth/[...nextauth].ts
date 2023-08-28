@@ -28,7 +28,6 @@ export const authOptions : NextAuthOptions = {
     maxAge: 24 * 60 * 60 //1일
   },
 
-
   callbacks: {
     // jwt 형성시 실행되는 코드 
     //user변수는 DB의 유저정보담겨있고 token.user에 뭐 저장하면 jwt에 들어감.

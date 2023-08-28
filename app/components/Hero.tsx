@@ -1,3 +1,5 @@
+"use client";
+
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 
 //홈페이지 메인
