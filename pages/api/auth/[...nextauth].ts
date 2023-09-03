@@ -25,7 +25,7 @@ export const authOptions : NextAuthOptions = {
   // jwt 선택 + jwt 만료일설정
   session: {
     strategy: 'jwt',
-    maxAge: 24 * 60 * 60 //1일
+    maxAge: 1 * 60 * 60 //1시간
   },
 
   callbacks: {
