@@ -1,4 +1,4 @@
-import { connectDB } from "../../../util/database";
+import { connectDB } from "../../../utils/database";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]";
 
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
       try {
         const db = (await connectDB).db("forum");
         let result = await db.collection("guestbook").insertOne(guestbook);
-        res.redirect(302, "/guestbook");
+        res.status(200).json({result});
       } catch (error) {
         res.status(500).json("작성 실패");
       }

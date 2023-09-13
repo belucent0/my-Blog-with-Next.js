@@ -1,7 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import useChannelTalk from "../../util/useChannelTalk";
+import useChannelTalk from "../../utils/useChannelTalk";
 
 // 다크모드 버튼 기능
 export default function DarkModeBtn() {

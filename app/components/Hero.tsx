@@ -21,6 +21,8 @@ export default function Hero() {
 
       <div className="m-6 text-xs md:text-lg">
         <ul className="">
+          <li className="text-gray-500">스스로 학습하는 개발자</li>
+          <li className="text-gray-500">요청 받지 않아도, 필요 작업을 처리합니다. </li>
           <li className="text-gray-500">팀내 제약사항을 파악하는데 적극적입니다.</li>
           <li className="text-gray-500">고객 중심의 서비스를 고민합니다.</li>
           <li className="text-gray-500">유지보수성을 고려합니다.</li>

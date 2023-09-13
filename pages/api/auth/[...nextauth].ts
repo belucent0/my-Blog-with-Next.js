@@ -1,4 +1,4 @@
-import { connectDB } from "../../../util/database";
+import { connectDB } from "../../../utils/database";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import NextAuth from "next-auth";
 import type { NextAuthOptions } from 'next-auth'
@@ -30,7 +30,7 @@ export const authOptions : NextAuthOptions = {
 
   callbacks: {
     // jwt 형성시 실행되는 코드 
-    //user변수는 DB의 유저정보담겨있고 token.user에 뭐 저장하면 jwt에 들어감.
+    //user변수는 DB의 유저정보담겨있고 token.user에 정보 저장하면 jwt으로.
     jwt: async ({ token, user }) => {
       if (user) {
         token.user = {

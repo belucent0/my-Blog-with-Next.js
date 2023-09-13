@@ -1,6 +1,6 @@
 import { authOptions } from "../../pages/api/auth/[...nextauth]";
 import { LoginModal, LogoutBtn } from "./LoginBtn";
-import { connectDB } from "../../util/database";
+import { connectDB } from "../../utils/database";
 import { getServerSession } from "next-auth";
 import WriteForm from "./WriteForm";
 import Banner from "./Banner";
@@ -15,11 +15,11 @@ export default async function GuestbookPage() {
     .toArray();
   result = result.map((value) => {
     value._id = value._id.toString();
-    return value;
+    return value
   });
 
   let session = await getServerSession(authOptions);
-  let userName;
+  let userName
   if (session) {
     userName = session?.user?.name;
   }
