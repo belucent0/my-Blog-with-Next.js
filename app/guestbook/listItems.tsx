@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { LoginModal, LogoutBtn } from "./LoginBtn";
 import WriteForm from "./WriteForm";
+import Loading from "./loading";
 
 type GuestBookItem = {
   _id: string;
@@ -34,7 +35,7 @@ export default function ListItem({userName, session}) {
       } catch (error) {
         console.error('목록 조회 실패', error);
         alert(error.message);
-    }
+      }
     }
 
     let sessionBtn = (
@@ -84,7 +85,8 @@ export default function ListItem({userName, session}) {
     <div>
       <div>
         {sessionBtn}
-      </div>
+      </div> 
+      <Suspense fallback={<Loading/>} >
       {guestbookList.map((v, i) => (
         <div key={i} className="listitem rounded-lg p-1.5 sm:p-3 mb-2 sm:mb-3 shadow-md bg-gray-100 dark:bg-gray-800">
           <h4 className="text-base sm:text-lg font-bold sm:mb-1">{guestbookList[i].content}</h4>
@@ -93,6 +95,7 @@ export default function ListItem({userName, session}) {
         </div>
       ))
       }
+      </Suspense>
     </div>
   );
 }

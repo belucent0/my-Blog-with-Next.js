@@ -1,7 +1,5 @@
-import { Suspense } from "react";
 import { AnimationAbout } from "../components/Animation";
 import Link from "next/link";
-import Loading from "../loading";
 
 // about 페이지 소개란
 export default function about() {
@@ -24,12 +22,9 @@ export default function about() {
             </p>
             <p className="w-full leading-relaxed text-gray-800 lg:w-1/2"></p>
           </div>
-        <Suspense fallback={<Loading/>}>
           <div className="mx-auto w-full max-w-[700px] lg:w-4/6">
             <AnimationAbout />
           </div>
-        </Suspense>
-
           <div className="mt-3 flex flex-col sm:flex-row">
             <div className="text-center sm:w-1/3 sm:py-8 sm:pr-8">
               <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 dark:bg-gray-800 lg:p-8">

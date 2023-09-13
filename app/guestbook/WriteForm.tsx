@@ -9,7 +9,7 @@ export default function WriteForm({ userName, fetchGuestbookList}) {
 
   useEffect(() => {
     (async () => {
-      fetchGuestbookList();
+      await fetchGuestbookList();
     })();
   }, [refreshkey]);
 
