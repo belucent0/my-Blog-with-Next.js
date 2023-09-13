@@ -26,10 +26,14 @@ export default async function handler(req, res) {
       try {
         const db = (await connectDB).db("forum");
         let result = await db.collection("guestbook").insertOne(guestbook);
-        res.status(200).json({result});
+
+        res.writeHead(307, {Location: '/guestbook'})
+        res.end()
+        // res.status(200).json(result)
       } catch (error) {
         res.status(500).json("작성 실패");
       }
     }
+
   }
 }
