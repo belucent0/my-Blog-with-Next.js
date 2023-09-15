@@ -9,31 +9,38 @@ export default async function handler(req, res) {
     req.body.author = session.user?.name || "";
   }
 
-  if (req.method == "POST") {
-    if (!session) {
-      return res.status(401).json("로그인이 필요한 기능입니다");
-    } else {
-      if (req.body.content == "") {
-        return res.status(500).json("내용을 입력해주세요.");
-      }
+  try {
 
-      let guestbook = {
-        content: req.body.content,
-        authorEmail: session.user?.email,
-        authorName: session.user?.name,
-      };
+    if (req.method == "POST") {
+      if (!session) {
+        return res.status(401).json("로그인이 필요한 기능입니다");
+      } else {
+        if (req.body.content == "") {
+          return res.status(500).json("내용을 입력해주세요.");
+        }
+        
+        let guestbook = {
+          content: req.body.content,
+          authorEmail: session.user?.email,
+          authorName: session.user?.name,
+        };
+        
+        try {
+          const db = (await connectDB).db("forum");
+          let result = await db.collection("guestbook").insertOne(guestbook);
 
-      try {
-        const db = (await connectDB).db("forum");
-        let result = await db.collection("guestbook").insertOne(guestbook);
-
-        res.writeHead(307, {Location: '/guestbook'})
-        res.end()
-        // res.status(200).json(result)
-      } catch (error) {
-        res.status(500).json("작성 실패");
+          res.status(200).json(result)
+        } catch (error) {
+          res.status(500).json("작성 실패");
+        }
       }
     }
 
+    // res.writeHead(404);
+    // res.end('NOT FOUND');
+  } catch (error) {
+    console.error(error);
+    // res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
+    // res.end(error.message);
   }
 }

@@ -13,6 +13,7 @@ type GuestBookItem = {
 
 export default function ListItem({userName, session}) {
   const [guestbookList, setGuestbookList] = useState<GuestBookItem[]>([]);
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     (async () => {
@@ -22,8 +23,8 @@ export default function ListItem({userName, session}) {
 
     // 방명록 목록 조회
     async function fetchGuestbookList() {
+      setIsLoading(true);
       try {
-  
         const response = await fetch('/api/guestbook/getList')
         
         if (response.ok) {
@@ -36,6 +37,7 @@ export default function ListItem({userName, session}) {
         console.error('목록 조회 실패', error);
         alert(error.message);
       }
+      setIsLoading(false);
     }
 
     let sessionBtn = (
@@ -49,6 +51,7 @@ export default function ListItem({userName, session}) {
         )}
       </span>
     );
+
 
   // 방명록 삭제
   const handleDelete = async (id, index, e) => {
@@ -82,22 +85,25 @@ export default function ListItem({userName, session}) {
   };
 
   return (    
-    <div>
+    <>
       <div>
         {sessionBtn}
-      </div> 
-      <Suspense fallback={<Loading/>} >
+      </div>
+      {!guestbookList ? <Loading/> : ''}
       {guestbookList.map((v, i) => (
-        <div key={i} className="listitem rounded-lg p-1.5 sm:p-3 mb-2 sm:mb-3 shadow-md bg-gray-100 dark:bg-gray-800">
-          <h4 className="text-base sm:text-lg font-bold sm:mb-1">{guestbookList[i].content}</h4>
-          <p className="text-sm sm:text-base text-gray-500 sm:mb-1">{guestbookList[i].authorName}</p>
-          <span className="text-sm sm:text-base" onClick={(e) => handleDelete(guestbookList[i]._id, i, e)}>🗑삭제</span>
+        <div key={i} className="listitem rounded-lg p-1.5 sm:p-3 mb-2 sm:mb-3 shadow-md bg-gray-100 dark:bg-gray-800 flex justify-between items-center">
+          <div>
+            <h4 className="text-base sm:text-lg font-bold sm:mb-1">{guestbookList[i].content}</h4>
+            <p className="text-sm sm:text-base text-gray-500 sm:mb-1">{guestbookList[i].authorName}</p>
+          </div>
+          {session && userName === guestbookList[i].authorName && (
+            <button className="text-sm sm:text-base" onClick={(e) => handleDelete(guestbookList[i]._id, i, e)}>🗑삭제</button>
+          )}
         </div>
-      ))
-      }
-      </Suspense>
-    </div>
-  );
+      ))}
+
+      </>
+    );
 }
 
 
