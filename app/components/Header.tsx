@@ -11,7 +11,7 @@ export default function Header() {
             className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
             href={"/"}
           >
-            <span className="ml-3 text-2xl font-black dark:text-white ">VIVIDNOW</span>
+            <span className="ml-3 text-2xl font-black dark:text-white font-sans">VIVIDNOW</span>
           </a>
           <nav className="gap-x-4 md:gap-x-5 md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
               <a href={"/"} className="text-base font-semibold  text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700" >
