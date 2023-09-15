@@ -1,9 +1,9 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { LoginModal, LogoutBtn } from "./LoginBtn";
 import WriteForm from "./WriteForm";
-import Loading from "./loading";
+import Loading from "../loading";
 
 type GuestBookItem = {
   _id: string;
@@ -13,12 +13,10 @@ type GuestBookItem = {
 
 export default function ListItem({userName, session}) {
   const [guestbookList, setGuestbookList] = useState<GuestBookItem[]>([]);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    (async () => {
-      await fetchGuestbookList();
-    })();
+      fetchGuestbookList();
   }, []);
 
     // 방명록 목록 조회
@@ -39,18 +37,6 @@ export default function ListItem({userName, session}) {
       }
       setIsLoading(false);
     }
-
-    let sessionBtn = (
-      <span>
-        {session ? (
-          <span>
-            <LogoutBtn /> <WriteForm userName={userName} fetchGuestbookList={fetchGuestbookList}/>
-          </span>
-        ) : (
-          <LoginModal />
-        )}
-      </span>
-    );
 
 
   // 방명록 삭제
@@ -84,12 +70,25 @@ export default function ListItem({userName, session}) {
     }
   };
 
+  let sessionBtn = (
+    <span>
+      {session ? (
+        <span>
+          <LogoutBtn /> <WriteForm userName={userName} fetchGuestbookList={fetchGuestbookList}/>
+        </span>
+      ) : (
+        <LoginModal />
+      )}
+    </span>
+  );
+
   return (    
     <>
       <div>
         {sessionBtn}
       </div>
-      {!guestbookList ? <Loading/> : ''}
+      {isLoading ? <Loading/> : 
+      <>
       {guestbookList.map((v, i) => (
         <div key={i} className="listitem rounded-lg p-1.5 sm:p-3 mb-2 sm:mb-3 shadow-md bg-gray-100 dark:bg-gray-800 flex justify-between items-center">
           <div>
@@ -99,9 +98,10 @@ export default function ListItem({userName, session}) {
           {session && userName === guestbookList[i].authorName && (
             <button className="text-sm sm:text-base" onClick={(e) => handleDelete(guestbookList[i]._id, i, e)}>🗑삭제</button>
           )}
-        </div>
-      ))}
-
+          </div>
+          ))}
+          </>
+          }
       </>
     );
 }
@@ -110,7 +110,7 @@ export default function ListItem({userName, session}) {
 /**
  * @swagger
  * paths:
- *  /api/guestbook:
+ *  /api/guestbook/getList:
  *    get:
  *      summary: "방명록 페이지 조회"
  *      description: "서버에 데이터를 보내지 않고 Get방식으로 요청합니다"

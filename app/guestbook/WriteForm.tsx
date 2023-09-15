@@ -7,11 +7,9 @@ export default function WriteForm({ userName, fetchGuestbookList}) {
   const [text, setText] = useState('')
   const [refreshkey, setRefreshkey] = useState(0)
 
-  useEffect(() => {
-    (async () => {
-      await fetchGuestbookList();
-    })();
-  }, [refreshkey]);
+useEffect(() => {
+  fetchGuestbookList()
+}, [refreshkey])
 
 
   // 작성폼 제출 기능
@@ -29,16 +27,22 @@ export default function WriteForm({ userName, fetchGuestbookList}) {
       
       if (!response.ok) throw new Error('서버 오류');
       
-      alert('성공적으로 등록되었습니다!');
+
+      const data = await response.json();
+
+      if (data.message) {
+        alert(data.message);
+      }
+      
       
     } catch (error) {
       alert(error.message);
     }
     setText('');
-    setRefreshkey(oldkey => oldkey + 1)
+    await setRefreshkey(oldkey => oldkey + 1)
   };
 
-  //event 발생한 DOM의 value 값을 e.target이 가리키게 함. 그것으로 상태저장
+  //방명록 input 태그, event 발생한 DOM의 value 값을 e.target이 가리키게 함. 그것으로 상태저장
   const onChange = (e) => {
     setText(e.target.value);
   };
