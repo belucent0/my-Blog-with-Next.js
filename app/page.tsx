@@ -11,14 +11,14 @@ export default async function Home() {
               <div className="text-center">
                 <Hero />
                 <div className="mx-auto mt-6 flex w-full max-w-2xl justify-center gap-2">
-                  <a href={"/about"}>
+                  <a href="/about">
                     <div className="mt-3 rounded-lg sm:mt-0">
                       <button className="transform rounded-xl bg-indigo-700 px-5 py-4 text-center text-base font-medium text-white transition duration-500 ease-in-out hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 lg:px-10">
                         소개 보기
                       </button>
                     </div>
                   </a>
-                  <a href={"/projects"}>
+                  <a href="/projects">
                     <div className="mt-3 rounded-lg sm:ml-3 sm:mt-0">
                       <button className="block transform items-center rounded-xl border-2 border-white px-5 py-3.5 text-center text-base font-medium text-indigo-700 shadow-md transition duration-500 ease-in-out hover:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:text-indigo-300 lg:px-10">
                         프로젝트 보기

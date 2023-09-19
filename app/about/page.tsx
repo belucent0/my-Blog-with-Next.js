@@ -114,9 +114,7 @@ export default function about() {
               </p>
               <div className="flex justify-around">
                 <Link
-                  href={
-                    "https://veams.notion.site/c4a07422aaa24976808a1f80ead8aff2?pvs=4"
-                  }
+                  href="https://veams.notion.site/c4a07422aaa24976808a1f80ead8aff2?pvs=4"
                   className="inline-flex items-center text-indigo-500"
                   target="_blank"
                 >
@@ -134,7 +132,7 @@ export default function about() {
                   </svg>
                 </Link>
                 <a
-                  href={"/projects"}
+                  href="/projects"
                   className="inline-flex items-center text-indigo-500"
                 >
                   프로젝트 보기

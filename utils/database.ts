@@ -1,5 +1,4 @@
 import { MongoClient } from 'mongodb'
-
 const url = process.env.MONGODB_URL
 const options = { }
 
@@ -13,4 +12,5 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   connectDB = new MongoClient(url!, options).connect()
 }
+
 export { connectDB }

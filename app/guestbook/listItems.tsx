@@ -19,7 +19,7 @@ export default function ListItem({userName, session}) {
       fetchGuestbookList();
   }, []);
 
-    // 방명록 목록 조회
+    //방명록 목록 조회
     async function fetchGuestbookList() {
       setIsLoading(true);
       try {
@@ -37,7 +37,6 @@ export default function ListItem({userName, session}) {
       }
       setIsLoading(false);
     }
-
 
   // 방명록 삭제
   const handleDelete = async (id, index, e) => {

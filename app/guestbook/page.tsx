@@ -2,6 +2,7 @@ import { authOptions } from "../../pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import ListItem from "./listItems";
 import Popup from "./Popup";
+import { connectDB } from "../../utils/database";
 
 export default async function GuestbookPage() {
 
@@ -10,6 +11,18 @@ export default async function GuestbookPage() {
   if (session) {
     userName = session?.user?.name;
   }
+
+  const db = (await connectDB).db("forum");
+  let guestbookList = await db
+    .collection("guestbook")
+    .find()
+    .sort({ _id: -1 })
+    .toArray();
+    guestbookList = guestbookList.map((value) => {
+    value._id = value._id.toString();
+    return value
+  });
+
 
   return (
     <>
