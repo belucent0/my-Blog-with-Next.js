@@ -1,3 +1,4 @@
+import Link from "next/link";
 import getPostMetadata from "./getPostMetadata";
 
 export interface PostMetadata {
@@ -16,9 +17,9 @@ export default function postMain() {
       <div key={props.slug}>
         <div className="my-2 border-b-2 md:my-4">
           <h1 className="text-xs text-gray-400 md:text-sm">{props.date}</h1>
-          <a href={`/blog/${props.slug}`}>
+          <Link href={`/blog/${props.slug}`}>
             <h1 className="text-xl md:text-3xl">{props.title}</h1>
-          </a>
+          </Link>
           <h1 className="text-sm text-gray-500 md:text-base">
             {" "}
             {props.subtitle}

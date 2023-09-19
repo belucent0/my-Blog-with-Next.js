@@ -1,16 +1,12 @@
 'use client'
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import { useRouter } from 'next/navigation'
 
 // 방명록 페이지 내 방명록 작성폼
-export default function WriteForm({ userName, fetchGuestbookList}) {
+export default function WriteForm({ userName}) {
   const [text, setText] = useState('')
-  const [refreshkey, setRefreshkey] = useState(0)
-
-useEffect(() => {
-  fetchGuestbookList()
-}, [refreshkey])
-
+  const router = useRouter()
 
   // 작성폼 제출 기능
   const handleSubmit = async (event) => {
@@ -27,24 +23,22 @@ useEffect(() => {
       
       if (!response.ok) throw new Error('서버 오류');
       
-
       const data = await response.json();
 
       if (data.message) {
         alert(data.message);
       }
-      
-      
+
     } catch (error) {
       alert(error.message);
     }
     setText('');
-    await setRefreshkey(oldkey => oldkey + 1)
+    router.refresh()
   };
 
-  //방명록 input 태그, event 발생한 DOM의 value 값을 e.target이 가리키게 함. 그것으로 상태저장
-  const onChange = (e) => {
-    setText(e.target.value);
+  //방명록 input 태그, event 발생한 DOM의 value 값을 event.target이 가리키게 함. 그것으로 상태저장
+  const onChange = (event) => {
+    setText(event.target.value);
   };
 
   return (

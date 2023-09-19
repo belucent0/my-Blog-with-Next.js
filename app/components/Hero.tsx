@@ -1,9 +1,20 @@
 "use client";
 
 import { Cursor, useTypewriter } from "react-simple-typewriter";
+import {useRouter} from 'next/navigation'
+import {useEffect} from 'react'
 
 //홈페이지 메인
 export default function Hero() {
+  const router = useRouter()
+
+  useEffect(() => {
+    router.prefetch('/about')
+    router.prefetch('/blog')
+    router.prefetch('/projests')
+    router.prefetch('/guestbook')
+  }, [])
+
   const [text] = useTypewriter({
     words: ["Next.js", "Nest.js", "Express.js"],
     loop: 0,
