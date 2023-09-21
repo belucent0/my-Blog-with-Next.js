@@ -27,15 +27,15 @@ export default function WriteForm({ userName}) {
 
       if (data.message) {
         alert(data.message);
+        setText('');
+        router.refresh()
       }
-
     } catch (error) {
       alert(error.message);
     }
-    setText('');
-    router.refresh()
   };
 
+  
   //방명록 input 태그, event 발생한 DOM의 value 값을 event.target이 가리키게 함. 그것으로 상태저장
   const onChange = (event) => {
     setText(event.target.value);

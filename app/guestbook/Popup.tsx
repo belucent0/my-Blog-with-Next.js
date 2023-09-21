@@ -35,7 +35,7 @@ export default function Popup() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 flex justify-center items-center p-7">
-      <div className="max-w-xs md:max-w-md transform overflow-hidden rounded-2xl bg-white p-4 md:p-6 text-left align-middle shadow-xl flex flex-col justify-between items-center">
+      <div className="max-w-xs md:max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-slate-700 p-4 md:p-6 text-left align-middle shadow-xl flex flex-col justify-between items-center">
         <div className="w-full text-center">
           <h3 className="text-md mb-3 font-medium leading-6 text-gray-900 md:text-lg inline-block">
             소셜로그인 후 방명록을 남길 수 있습니다.
@@ -43,7 +43,7 @@ export default function Popup() {
         </div>
         <button
           type="button"
-          className="self-end inline-flex justify-center rounded-md border border-transparent text-xs md:text-sm font-medium px-2.5 py-1.5 md:px-4 md:py-2 bg-blue-100 text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-offset-blue"
+          className="self-end inline-flex justify-center rounded-md border border-transparent text-xs md:text-sm font-medium px-2.5 py-1.5 md:px-4 md:py-2 bg-blue-100 text-blue-900 dark:bg-slate-400 hover:bg-blue-200 focus:outline-none focus-visible:ring-offset-blue"
           onClick={closePopup}
         >
           하루 동안 닫기

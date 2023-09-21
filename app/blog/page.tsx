@@ -36,8 +36,9 @@ export default function postMain() {
   return (
     <>
       <div className="container mx-auto min-h-screen px-3 py-3 md:px-24">
-        <div className="mb-10 text-4xl md:text-6xl">
-          <h1 className="font-black">Blog.</h1>
+        <div className="mb-10 text-4xl md:text-6xl flex justify-between w-full">
+          <h1 className="font-black ">Blog.</h1>
+          <Link href='/playground' className="font-black text-lg text-purple-700 hover:text-purple-500">👉Playground🎨</Link>
         </div>
         <h1 className="text-sm md:text-xl">{postPreview}</h1>
       </div>

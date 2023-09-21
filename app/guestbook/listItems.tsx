@@ -2,11 +2,14 @@
 
 import { LoginModal, LogoutBtn } from "./LoginBtn";
 import WriteForm from "./WriteForm";
+import { useRouter } from 'next/navigation'
 
 export default function ListItem({userName, session, guestbookListItems}) {
-
+  const router = useRouter()
+  
   // 방명록 삭제
   const handleDelete = async (id, index, e) => {
+
     try {
       const response = await fetch("/api/guestbook/delete", {
         method: "POST",  //DELETE 메쏘드 오류로 대체
@@ -21,11 +24,8 @@ export default function ListItem({userName, session, guestbookListItems}) {
       if (response.ok) {
         const listItem = await e.target.closest('.listitem');
         if (listItem) {
-          listItem.style.opacity = 0;
           alert(data.message);
-          setTimeout(() => {
-            listItem.style.display = "none";
-          }, 300);
+          router.refresh()
         }
       } else {
         throw new Error(data.message);

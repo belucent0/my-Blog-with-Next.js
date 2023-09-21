@@ -30,7 +30,7 @@ export default async function handler(req, res) {
         try {
           const db = (await connectDB).db("forum");
           let result = await db.collection("guestbook").insertOne(guestbook);
-          res.status(200).json({revalidated: true, message : '작성 완료!', result});
+          res.status(200).json({message : '작성 완료!', result});
         } catch (error) {
           res.status(500).json("작성 실패");
         } 
