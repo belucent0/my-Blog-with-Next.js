@@ -1,6 +1,5 @@
 import Link from "next/link";
 import getPostMetadata from "./getPostMetadata";
-
 export interface PostMetadata {
   title: string;
   date: string;

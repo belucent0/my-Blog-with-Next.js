@@ -38,7 +38,7 @@ export default function Popup() {
       <div className="max-w-xs md:max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-slate-700 p-4 md:p-6 text-left align-middle shadow-xl flex flex-col justify-between items-center">
         <div className="w-full text-center">
           <h3 className="text-md mb-3 font-medium leading-6 text-gray-900 md:text-lg inline-block">
-            소셜로그인 후 방명록을 남길 수 있습니다.
+            소셜로그인 후 방명록 작성 및 삭제가 가능합니다.
           </h3>
         </div>
         <button

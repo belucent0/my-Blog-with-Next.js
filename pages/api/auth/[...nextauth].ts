@@ -54,4 +54,8 @@ export const authOptions : NextAuthOptions = {
     signIn:"/login",
   }
 };
-export default NextAuth(authOptions); 
+
+const authHandler = NextAuth(authOptions);
+export default async function handler(...params: any[]) {
+  await authHandler(...params);
+}

@@ -4,8 +4,7 @@ import { authOptions } from "../auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 
 export default async function handler(req, res) {
-  if (req.method == "POST") {
-    //Next.js DELETE 메쏘드 오류로 대체
+  if (req.method == "POST") {  //Next.js DELETE 메쏘드 오류로 대체
     let session = await getServerSession(req, res, authOptions);
 
     if (!session || !session.user) {
