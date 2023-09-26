@@ -1,36 +1,14 @@
+
 import Link from "next/link";
-import { connectDB } from "../../utils/database";
 
 // 프로젝트- 작업이력란
-export default async function List() {
-
-  const db = (await connectDB).db("forum");
-  let worksList = await db.collection("projects").find().toArray();
-  worksList = worksList.map((value) => {
-    value._id = value._id.toString();
-    return value;
-  });
+export default async function ProjectList({worksList}) {
 
   return (
     <>
-      <section className="body-font text-gray-600">
-        <div className="container mx-auto min-h-screen px-5 py-8">
-          <div className="mb-20 flex w-full flex-wrap">
-            <div className="mb-6 w-full lg:mb-0 lg:w-1/2">
-              <h1 className="title-font mb-2 text-2xl font-medium text-gray-900 sm:text-3xl">
-                프로젝트 목록
-              </h1>
-              <div className="h-1 w-20 rounded bg-indigo-700"></div>
-            </div>
-            <span className="w-full leading-relaxed text-gray-500 lg:w-1/2">
-              <p>Node.js 환경에서 Nest.js, Next.js, Express.js 프레임워크를 활용한 실전 및 토이 프로젝트 목록입니다.</p>
-            </span>
-          </div>
-
-          {/* 이하 카드 형식 작업 목록 */}
-          <div className="m-auto text-gray-600 xl:container">
-            <div className="grid md:grid-cols-2 md:gap-6 lg:gap-12">
-              {worksList.map((card) => (
+     <div className="m-auto text-gray-600 xl:container">
+        <div className="grid md:grid-cols-2 md:gap-6 lg:gap-12">
+            {worksList.map((card) => (
                 <div key={card._id} className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 group mb-10 space-y-6">
                   <div className="mb-2 flex h-full flex-col gap-1 overflow-hidden">
                     <img
@@ -76,9 +54,6 @@ export default async function List() {
             </div>
           </div>
 
-          
-        </div>
-      </section>
     </>
   );
 }

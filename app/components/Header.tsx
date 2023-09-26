@@ -20,9 +20,6 @@ export default function Header() {
               <Link href="/about" className="text-base font-semibold  text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700" >
                   소개
               </Link>
-              <Link href="/projects" className="text-base font-semibold  text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700" >
-                  프로젝트
-              </Link>
               <Link href="/blog" className="text-base font-semibold  text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700" >
                   블로그
               </Link>

@@ -33,7 +33,7 @@ Next.js에 기반하여 개발한 블로그 입니다.
 - OpenAPI : 채널톡, Swagger
 
 ## 서비스 아키텍쳐
-![images](https://vividnowblog.s3.ap-northeast-2.amazonaws.com/%EB%B8%94%EB%A1%9C%EA%B7%B8+%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98.png)
+![images](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb9BuM5%2FbtsmJidgB5J%2FRUn1M7EKSey6Abgqxfa830%2Fimg.png)
 
 ## 서비스 구성
 - 반응형 웹

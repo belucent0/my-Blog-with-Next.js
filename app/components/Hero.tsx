@@ -11,7 +11,7 @@ export default function Hero() {
   useEffect(() => {
     router.prefetch('/about')
     router.prefetch('/blog')
-    router.prefetch('/projests')
+    router.prefetch('/playground')
     router.prefetch('/guestbook')
   }, [])
 
