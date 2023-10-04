@@ -36,3 +36,11 @@ next-env.d.ts
 
 # Sentry Auth Token
 .sentryclirc
+
+# github
+/.github
+
+# docker
+dockerfile
+
+
