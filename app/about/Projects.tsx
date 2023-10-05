@@ -1,11 +1,10 @@
-import Link from "next/link";
 import { connectDB } from "../../utils/database";
 import ProjectList from "./ProjectsList";
 
 // 프로젝트- 작업이력란
 export default async function Projects() {
 
-  const db = (await connectDB).db("forum");
+  const db = (await connectDB()).db("forum");
   let worksList = await db.collection("projects").find().toArray();
   worksList = worksList.map((value) => {
     value._id = value._id.toString();

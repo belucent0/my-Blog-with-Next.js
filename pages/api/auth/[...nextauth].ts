@@ -49,7 +49,7 @@ export const authOptions : NextAuthOptions = {
   },
 
   secret : process.env.OAuth_SECRET,
-  adapter : MongoDBAdapter(connectDB),
+  adapter : MongoDBAdapter(connectDB()),
   pages: {
     signIn:"/login",
   }

@@ -12,7 +12,8 @@ export default async function GuestbookPage() {
     userName = session?.user?.name;
   }
 
-  const db = (await connectDB).db("forum");
+  const client = await connectDB()
+  const db = client.db("forum");
   let guestbookList = await db
     .collection("guestbook")
     .find()

@@ -1,16 +1,33 @@
-import { MongoClient } from 'mongodb'
-const url = process.env.MONGODB_URL
-const options = { }
+import { MongoClient, ServerApiVersion } from 'mongodb';
+const uri = process.env.MONGODB_URL
 
-let connectDB
-
-if (process.env.NODE_ENV === 'development') {
-  if (!global._mongo) {
-    global._mongo = new MongoClient(url!, options).connect()
+const client = new MongoClient(uri!, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
   }
-  connectDB = global._mongo
-} else {
-  connectDB = new MongoClient(url!, options).connect()
+});
+
+let cachedClient
+
+async function connectDB() {
+  if (cachedClient) {
+      return cachedClient;
+  }
+
+  try {
+      await client.connect();
+      await client.db("admin").command({ ping: 1 });
+      console.log("Connected to MongoDB!");
+
+      cachedClient = client;
+      
+      return cachedClient;
+  } catch (err) {
+      console.error(err);
+      throw err;
+  }
 }
 
-export { connectDB }
+export { connectDB };

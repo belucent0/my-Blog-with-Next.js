@@ -4,7 +4,7 @@ export default async function guestbookhandler(req, res) {
   if (req.method == "GET") {
 
     try {
-      const db = (await connectDB).db("forum");
+      const db = (await connectDB()).db("forum");
       let result = await db
         .collection("guestbook")
         .find()

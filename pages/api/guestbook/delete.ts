@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 
     try {
 
-      const db = (await connectDB).db("forum");
+      const db = (await connectDB()).db("forum");
       let userId = await db
         .collection("guestbook")
         .findOne({ _id: new ObjectId(req.body.id) });
