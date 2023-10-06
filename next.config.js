@@ -18,6 +18,8 @@ const nextConfig = {
     ],
   },
 
+  output: 'standalone',  // dockerize시 standalone 폴더를 사용(빌드 파일 용량 측소)
+
 }
 
 
