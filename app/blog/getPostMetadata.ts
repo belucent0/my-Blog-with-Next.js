@@ -1,12 +1,7 @@
 import fs from "fs";
 import matter from "gray-matter";
+import { PostMetadata } from "./postTypes";
 
-export interface PostMetadata {
-  title: string;
-  date: string;
-  subtitle: string;
-  slug: string;
-}
 // 블로그 게시글 목록- app/contents 경로 내 .md 파일 목록 정렬
 export default function getPostMetadata(): PostMetadata[] {
     const folder = "contents/";

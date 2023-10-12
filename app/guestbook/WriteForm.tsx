@@ -3,9 +3,13 @@
 import { useState } from "react"
 import { useRouter } from 'next/navigation'
 
+type WriteFormProps = {
+  userName: string;
+};
+
 // 방명록 페이지 내 방명록 작성폼
-export default function WriteForm({ userName}) {
-  const [text, setText] = useState('')
+export default function WriteForm({ userName } : WriteFormProps) {
+  const [text, setText] = useState<string>('')
   const router = useRouter()
 
   // 작성폼 제출 기능

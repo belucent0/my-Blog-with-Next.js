@@ -1,8 +1,23 @@
 
 import Link from "next/link";
 
+type Card = {
+  _id: string;
+  src: string;
+  period: string;
+  title: string;
+  content: string;
+  tags: string[];
+  etcLink: string;
+  github: string;
+};
+
+type ProjectListProps = {
+  worksList: Card[];
+};
+
 // 프로젝트- 작업이력란
-export default async function ProjectList({worksList}) {
+export default async function ProjectList({worksList}: ProjectListProps) {
 
   return (
     <>
