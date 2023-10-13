@@ -3,12 +3,13 @@
 import { LoginModal, LogoutBtn } from "./LoginBtn";
 import WriteForm from "./WriteForm";
 import { useRouter } from 'next/navigation'
+import { ListItemProps } from "./guestbookTypes";
 
-export default function ListItem({userName, session, guestbookListItems}) {
+export default function ListItem({session, userName, guestbookList} : ListItemProps) {
   const router = useRouter()
   
   // 방명록 삭제
-  const handleDelete = async (id, index, e) => {
+  const handleDelete = async (id: string, index, e) => {
 
     try {
       const response = await fetch("/api/guestbook/delete", {
@@ -38,7 +39,7 @@ export default function ListItem({userName, session, guestbookListItems}) {
 
   let sessionBtn = (
     <span>
-      {session ? (
+      {session && userName ? (
         <span>
           <LogoutBtn /> <WriteForm userName={userName}/>
         </span>
@@ -54,14 +55,14 @@ export default function ListItem({userName, session, guestbookListItems}) {
         {sessionBtn}
       </div>
       <>
-      {guestbookListItems.map((v, i) => (
+      {guestbookList.map((v, i) => (
         <div key={i} className="listitem rounded-lg p-1.5 sm:p-3 mb-2 sm:mb-3 shadow-md bg-gray-100 dark:bg-gray-800 flex justify-between items-center">
           <div>
-            <h4 className="text-base sm:text-lg font-bold sm:mb-1">{guestbookListItems[i].content}</h4>
-            <p className="text-sm sm:text-base text-gray-500 sm:mb-1">{guestbookListItems[i].authorName}</p>
+            <h4 className="text-base sm:text-lg font-bold sm:mb-1">{guestbookList[i].content}</h4>
+            <p className="text-sm sm:text-base text-gray-500 sm:mb-1">{guestbookList[i].authorName}</p>
           </div>
-          {session && userName === guestbookListItems[i].authorName && (
-            <button className="text-sm sm:text-base" onClick={(e) => handleDelete(guestbookListItems[i]._id, i, e)}>🗑삭제</button>
+          {session && userName === guestbookList[i].authorName && (
+            <button className="text-sm sm:text-base" onClick={(e) => handleDelete(guestbookList[i]._id, i, e)}>🗑삭제</button>
           )}
           </div>
           ))}

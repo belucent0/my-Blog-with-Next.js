@@ -19,13 +19,6 @@ export default async function Home() {
                       </button>
                     </div>
                   </Link>
-                  {/* <Link href="/projects">
-                    <div className="mt-3 rounded-lg sm:ml-3 sm:mt-0">
-                      <button className="block transform items-center rounded-xl border-2 border-white px-5 py-3.5 text-center text-base font-medium text-indigo-700 shadow-md transition duration-500 ease-in-out hover:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:text-indigo-300 lg:px-10">
-                        프로젝트 보기
-                      </button>
-                    </div>
-                  </Link> */}
                 </div>
               </div>
             </div>

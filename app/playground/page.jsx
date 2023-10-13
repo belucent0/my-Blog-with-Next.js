@@ -31,8 +31,6 @@ export default function ExcalidrawPage() {
           <h1 className="font-black ">Playground.</h1>
           <h1 className="font-black text-lg ">실험기능 모음입니다</h1>
         </div>
-        
-        
 
         <div className="mx-auto h-full px-5">
         <div className="h-[82vh] sm:h-[85vh] md:h-[88vh]">
