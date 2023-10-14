@@ -3,13 +3,7 @@ import { getServerSession } from "next-auth";
 import ListItem from "./listItems";
 import Popup from "./Popup";
 import { connectDB } from "../../utils/database";
-import { Session } from "./guestbookTypes";
-
-interface GuestbookList {
-  _id : string;
-  content: string;
-  authorName: string;
-}
+import { GuestbookList, Session } from "./guestbookTypes";
 
 export default async function GuestbookPage() {
 
