@@ -14,8 +14,8 @@ export interface GuestbookList {
     authorName: string;
   }
   
-export type ListItemProps = {
-    session : Session;
-    userName: string;
+export interface ListItemProps {
+    session : Session | null;
+    userName: string | undefined | null
     guestbookList: GuestbookList[];
   };

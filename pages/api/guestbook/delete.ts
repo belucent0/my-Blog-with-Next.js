@@ -4,7 +4,7 @@ import { authOptions } from "../auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 
 export default async function handler(req, res) {
-  if (req.method == "POST") {  //Next.js DELETE 메쏘드 오류로 대체
+  if (req.method == "DELETE") {
     let session = await getServerSession(req, res, authOptions);
 
     if (!session || !session.user) {
@@ -15,11 +15,11 @@ export default async function handler(req, res) {
     try {
 
       const db = (await connectDB()).db("forum");
-      let userId = await db
+      let guestbookId = await db
         .collection("guestbook")
         .findOne({ _id: new ObjectId(req.body.id) });
 
-      if (userId && userId.authorEmail === session.user.email) {
+      if (guestbookId && guestbookId.authorEmail === session.user.email) {
         let result = await db
           .collection("guestbook")
           .deleteOne({ _id: new ObjectId(req.body.id) });

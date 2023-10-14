@@ -13,7 +13,7 @@ export default function ListItem({session, userName, guestbookList} : ListItemPr
 
     try {
       const response = await fetch("/api/guestbook/delete", {
-        method: "POST",  //DELETE 메쏘드 오류로 대체
+        method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
@@ -39,7 +39,7 @@ export default function ListItem({session, userName, guestbookList} : ListItemPr
 
   let sessionBtn = (
     <span>
-      {session ? (
+      {session && userName ? (
         <span>
           <LogoutBtn /> <WriteForm userName={userName}/>
         </span>
