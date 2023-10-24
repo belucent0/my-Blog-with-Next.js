@@ -19,12 +19,19 @@ export const generateStaticParams = async () => {
     slug: post.slug
   }))
 }
+
 //블로그 게시글 상세 페이지
 export default function postDetail(props) {
   const slug = props.params.slug
   const post = getPostContent(slug)
+
     return (
       <>
+      <head>
+        <title>
+          {post.data.title+" | VIVIDNOW의 블로그"}
+        </title>
+      </head>
         <section className="mx-auto flex min-h-screen justify-center px-0.5">
           <div className="w-full px-2 py-2 mx-auto lg:px-32">
               <div className="flex flex-col w-full mx-auto mb-2 prose text-left prose-md">

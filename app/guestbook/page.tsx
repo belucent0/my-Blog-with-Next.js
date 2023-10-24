@@ -5,6 +5,11 @@ import Popup from "./Popup";
 import { connectDB } from "../../utils/database";
 import { GuestbookList, Session } from "./guestbookTypes";
 
+export const metadata = {
+  title: "[방명록]|VIVIDNOW의 블로그",
+  description: "마음을 읽는 개발자 김재광입니다",
+};
+
 export default async function GuestbookPage() {
 
   let session : Session | null = await getServerSession(authOptions);

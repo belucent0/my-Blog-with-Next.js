@@ -89,8 +89,10 @@ SSH 접속은 데이터 전송이나, 원격제어에 활용됩니다.
 ![images](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FFcFUW%2FbtssN2wLrMC%2FqYcFc1qZpHYQVBIIUntOJ1%2Fimg.png)
 자 이제 생성한 가상 머신으로 접속해서 기본적인 정보들을 확인해봅니다.
 ![images](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb5Rdbd%2FbtssS1xyu9l%2Fk2kICrbZ7OpUO6ISzcLBx1%2Fimg.png)
-Azure의 공용 IP는 AWS의 elastic IP(고정 IP)에 대응 됩니다.
-이 주소를 브라우저에 URL 위치에 입력하면, 
+Azure의 공용 IP는 우리가 자주 사용하는 IPv4형태입니다.
+Azure의 VM은 AWS EC2와 달리 인스턴스를 중지한 뒤 다시 시작해도 IP 주소가 바뀌지 않습니다.
+
+이제 이 주소를 브라우저에 URL 위치에 입력하면, 
 인터넷을 통해 해당 Azure 가상머신(AWS의 인스턴스)에 접속할 수도 있습니다. 
 ![images](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FDzw3D%2FbtssNvTvsE7%2Fsn9r1sNmRDAhojIXX8DTn0%2Fimg.png)
 여담이지만 브라우저 URL 입력창에 www.naver.com  와 같은 URL을 입력하면,

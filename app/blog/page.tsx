@@ -2,6 +2,11 @@ import Link from "next/link";
 import getPostMetadata from "./getPostMetadata";
 import { PostMetadata } from "./postTypes";
 
+export const metadata = {
+  title: "[블로그]|VIVIDNOW의 블로그",
+  description: "마음을 읽는 개발자 김재광입니다",
+};
+
 //블로그 목록 정보
 export default function postMain() {
   const postMetadata = getPostMetadata();
