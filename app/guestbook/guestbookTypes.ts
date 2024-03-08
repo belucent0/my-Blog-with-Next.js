@@ -1,21 +1,13 @@
-export interface User {
-    name?: string;
-    email?: string;
-    image?: string;
-}
-  
-export interface Session {
-    user: User | undefined;
-}
+import { Session } from "next-auth";
 
 export interface GuestbookList {
-    _id : string;
-    content: string;
-    authorName: string;
-  }
-  
+  _id: string;
+  content: string;
+  authorName: string;
+}
+
 export interface ListItemProps {
-    session : Session | null;
-    userName: string | undefined | null
-    guestbookList: GuestbookList[];
-  };
+  session: Session | null;
+  userName: string | undefined | null;
+  guestbookList: GuestbookList[];
+}

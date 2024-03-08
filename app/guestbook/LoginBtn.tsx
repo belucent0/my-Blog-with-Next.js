@@ -36,16 +36,23 @@ export function LoginModal() {
     await signIn(provider, { callbackUrl: "/guestbook" });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = new FormData(e.target);
-    const loginId = form.get("loginId") as string;
-    const password = form.get("password") as string;
-    await signIn("credentials", {
-      loginId,
-      password,
-      callbackUrl: "/guestbook",
-    });
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    try {
+      const form = new FormData(event.target as HTMLFormElement);
+      const loginId = form.get("loginId") as string;
+      const password = form.get("password") as string;
+      console.log(loginId, password, "로그인 정보");
+      await signIn("credentials", {
+        loginId,
+        password,
+        callbackUrl: "/guestbook",
+      });
+    } catch (error) {
+      console.error(error);
+      alert("로그인에 실패했습니다.");
+    }
   };
 
   return (
@@ -76,12 +83,14 @@ export function LoginModal() {
                         로그인
                       </h2>
                       <div>
-                        <form>
+                        <form onSubmit={handleSubmit}>
                           <div className="flex flex-col space-y-1.5">
                             <Label htmlFor="loginId">아이디</Label>
                             <Input
                               id="loginId"
-                              placeholder="테스트계정: test123"
+                              name="loginId"
+                              // placeholder="테스트계정: test123"
+                              type="text"
                               required
                             />
                           </div>
@@ -90,16 +99,15 @@ export function LoginModal() {
                             <Label htmlFor="password">비밀번호</Label>
                             <Input
                               id="password"
-                              placeholder="테스트계정: 1234qwer!!"
+                              name="password"
+                              // placeholder="테스트계정: qwer1234!"
+                              type="password"
                               required
                             />
                           </div>
 
                           <div className="mt-4 flex justify-center">
-                            <Button2
-                              onClick={() => handleSubmit}
-                              className="w-full  bg-indigo-700 hover:bg-indigo-500"
-                            >
+                            <Button2 className="w-full  bg-indigo-700 hover:bg-indigo-500">
                               로그인
                             </Button2>
                           </div>

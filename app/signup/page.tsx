@@ -19,7 +19,7 @@ export default function signupPage() {
   const [loginId, setId] = useState("");
   const [password, setPassword] = useState("");
   const [checkingPassword, setCheckingPassword] = useState("");
-  const [userName, setUserName] = useState("");
+  const [name, setName] = useState("");
   const router = useRouter();
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function signupPage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ loginId, password, userName }),
+        body: JSON.stringify({ loginId, password, name, role: "guest" }),
       });
 
       if (response.status === 400) {
@@ -114,14 +114,14 @@ export default function signupPage() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="userName">이름</Label>
+                    <Label htmlFor="name">이름</Label>
                     <Input
-                      id="userName"
+                      id="name"
                       placeholder="ex) 홍길동"
                       required
                       type="text"
-                      value={userName}
-                      onChange={(e) => setUserName(e.target.value.trim())}
+                      value={name}
+                      onChange={(e) => setName(e.target.value.trim())}
                     />
                   </div>
                 </div>
