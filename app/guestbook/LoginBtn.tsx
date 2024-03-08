@@ -2,30 +2,67 @@
 
 import React from "react";
 import { signIn, signOut } from "next-auth/react";
-import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+} from "@nextui-org/react";
+import { Input } from "../components/ui/input";
+import { Label } from "../components/ui/label";
+import { Button as Button2 } from "../components/ui/button";
 
 //로그아웃 버튼 작동
 export function LogoutBtn() {
   return (
     <button
-      className="mb-2 inline-block rounded-lg bg-indigo-700 px-3 py-2 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-500 focus-visible:ring active:bg-indigo-500 md:text-base"
-      onClick={() => {signOut();}}>로그아웃</button>
+      className="mb-2 inline-block rounded-lg bg-indigo-700 px-3 py-2 text-center text-sm font-semibold text-white outline-none ring-indigo-300 duration-100 transition hover:bg-indigo-500 focus-visible:ring active:bg-indigo-500 md:text-base"
+      onClick={() => {
+        signOut();
+      }}
+    >
+      로그아웃
+    </button>
   );
 }
 
 export function LoginModal() {
-  const {isOpen, onOpen, onOpenChange} = useDisclosure();
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const handleSignIn = async (provider) => {
-    await signIn(provider, {callbackUrl: "/guestbook"});
+    await signIn(provider, { callbackUrl: "/guestbook" });
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = new FormData(e.target);
+    const loginId = form.get("loginId") as string;
+    const password = form.get("password") as string;
+    await signIn("credentials", {
+      loginId,
+      password,
+      callbackUrl: "/guestbook",
+    });
+  };
+
   return (
     <>
-      <Button onPress={onOpen} className="mb-2 inline-block rounded-lg bg-indigo-700 px-3 py-2 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-500 focus-visible:ring active:bg-indigo-500 md:text-base">
+      <Button
+        onPress={onOpen}
+        className="mb-2 inline-block rounded-lg bg-indigo-700 px-3 py-2 text-center text-sm font-semibold text-white outline-none ring-indigo-300 duration-100 transition hover:bg-indigo-500 focus-visible:ring active:bg-indigo-500 md:text-base"
+      >
         로그인
       </Button>
 
-      <Modal placement={"center"} size={"md"} isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal
+        placement={"center"}
+        size={"md"}
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+      >
         <ModalContent>
           {(onClose) => (
             <>
@@ -36,9 +73,50 @@ export function LoginModal() {
                     <div className="space-y-4">
                       <h2 className="mb-8 text-2xl font-bold text-gray-800 dark:text-white">
                         방명록 작성을 위한 <br />
-                        간편로그인
+                        로그인
                       </h2>
+                      <div>
+                        <form>
+                          <div className="flex flex-col space-y-1.5">
+                            <Label htmlFor="loginId">아이디</Label>
+                            <Input
+                              id="loginId"
+                              placeholder="테스트계정: test123"
+                              required
+                            />
+                          </div>
+                          <div className="my-3" />
+                          <div className="flex flex-col space-y-1.5">
+                            <Label htmlFor="password">비밀번호</Label>
+                            <Input
+                              id="password"
+                              placeholder="테스트계정: 1234qwer!!"
+                              required
+                            />
+                          </div>
+
+                          <div className="mt-4 flex justify-center">
+                            <Button2
+                              onClick={() => handleSubmit}
+                              className="w-full  bg-indigo-700 hover:bg-indigo-500"
+                            >
+                              로그인
+                            </Button2>
+                          </div>
+                          <div className="mt-4 flex justify-center text-sm">
+                            회원이 아니신가요?
+                            <div className="mr-2" />
+                            <a
+                              href="signup"
+                              className=" text-indigo-500 hover:underline"
+                            >
+                              회원가입하기
+                            </a>
+                          </div>
+                        </form>
+                      </div>
                     </div>
+
                     <div className="mt-16 grid space-y-4">
                       <button
                         onClick={() => handleSignIn("naver")}
@@ -87,7 +165,10 @@ export function LoginModal() {
                 </div>
               </ModalBody>
               <ModalFooter className="bg-transparent">
-                <Button className="mb-1 inline-block rounded-lg bg-indigo-700 px-2 py-1 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-500 focus-visible:ring active:bg-indigo-500 md:text-base" onPress={onClose}>
+                <Button
+                  className="mb-1 inline-block rounded-lg bg-indigo-700 px-2 py-1 text-center text-sm font-semibold text-white outline-none ring-indigo-300 duration-100 transition hover:bg-indigo-500 focus-visible:ring active:bg-indigo-500 md:text-base"
+                  onPress={onClose}
+                >
                   닫기
                 </Button>
               </ModalFooter>
