@@ -4,15 +4,15 @@ import bcrypt from "bcrypt";
 export default async function handler(req, res) {
   if (req.method == "POST") {
     try {
-      let { loginId, password } = req.body;
+      let { email, password } = req.body;
 
-      // loginId 6~15자리이어야 하고 영문과 숫자가 모두 조합되어야함
-      let loginIdRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,15}$/;
+      // email 규칙 확인
+      let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-      if (!loginIdRegex.test(loginId)) {
-        return res.status(400).json({
-          message: "아이디는 6~15자리의 영문과 숫자 조합으로 입력해주세요.",
-        });
+      if (!emailRegex.test(email)) {
+        return res
+          .status(400)
+          .json({ message: "이메일 형식이 올바르지 않습니다." });
       }
 
       // password 8~15자리, 영문과 숫자, 특수문자 조합
@@ -29,9 +29,7 @@ export default async function handler(req, res) {
       const db = (await connectDB()).db("forum");
 
       // 아이디 중복 확인
-      let result = await db
-        .collection("guest_credentials")
-        .findOne({ loginId });
+      let result = await db.collection("guest_credentials").findOne({ email });
 
       if (result) {
         return res.status(400).json({ message: "이미 존재하는 아이디입니다." });

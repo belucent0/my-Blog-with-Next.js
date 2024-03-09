@@ -19,18 +19,22 @@ export default async function GuestbookPage() {
     userName = session?.user?.name;
   }
 
-  const client = await connectDB();
-  const db = client.db("forum");
-  let guestbookList: GuestbookList[] = await db
-    .collection("guestbook")
-    .find()
-    .sort({ _id: -1 })
-    .toArray();
+  let guestbookList: GuestbookList[] = [];
 
-  guestbookList = guestbookList.map((value) => {
-    value._id = value._id.toString();
-    return value;
-  });
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/guestbook/list`
+    );
+
+    if (!response.ok) {
+      throw new Error("서버 오류");
+    }
+    const result = await response.json();
+
+    guestbookList = result.data;
+  } catch (error) {
+    console.error("방명록 조회 중 오류 발생:", error);
+  }
 
   return (
     <>

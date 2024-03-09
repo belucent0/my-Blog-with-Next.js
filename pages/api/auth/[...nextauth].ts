@@ -23,34 +23,36 @@ export const authOptions: AuthOptions = {
     }),
 
     CredentialsProvider({
+      type: "credentials",
       credentials: {
-        loginId: { label: "아이디", type: "text" },
+        email: { label: "이메일", type: "email" },
         password: { label: "비밀번호", type: "password" },
       },
 
-      //2. 로그인시 실행
-      async authorize(credentials: { loginId: string; password: string }, req) {
-        const { loginId, password } = credentials;
-        console.log("credentials", credentials);
+      //로그인시 실행
+      async authorize(credentials: { email: string; password: string }, req) {
+        try {
+          const { email, password } = credentials;
 
-        const db = (await connectDB()).db("forum");
-        let user = await db
-          .collection("guest_credentials")
-          .findOne({ loginId });
+          const db = (await connectDB()).db("forum");
+          let user = await db
+            .collection("guest_credentials")
+            .findOne({ email });
 
-        if (!user) {
-          console.log("존재하지 않는 아이디입니다.");
-          return null;
+          if (!user) {
+            throw new Error("해당 이메일로 가입된 유저가 없습니다.");
+          }
+
+          const isPasswordVaild = await bcrypt.compare(password, user.password);
+
+          if (!isPasswordVaild) {
+            throw new Error("비밀번호가 일치하지 않습니다.");
+          }
+
+          return user;
+        } catch (error) {
+          throw new Error("이메일 혹은 비밀번호가 정확하지 않습니다.");
         }
-
-        const isPasswordVaild = await bcrypt.compare(password, user.password);
-
-        if (!isPasswordVaild) {
-          console.log("비밀번호가 일치하지 않습니다.");
-          return null;
-        }
-
-        return user;
       },
     }),
   ],
@@ -67,8 +69,8 @@ export const authOptions: AuthOptions = {
     jwt: async ({ token, user }) => {
       if (user) {
         token.user = {
-          name: user.name,
           email: user.email,
+          name: user.name,
           image: user.image,
         };
       }
@@ -78,10 +80,8 @@ export const authOptions: AuthOptions = {
     session: async ({ session, token }) => {
       session.user = token.user as
         | {
-            loginId?: string;
-            passowrd?: string;
-            name?: string;
             email?: string;
+            passowrd?: string;
             image?: string;
             role?: string;
           }
@@ -93,7 +93,9 @@ export const authOptions: AuthOptions = {
   secret: process.env.OAuth_SECRET,
   adapter: MongoDBAdapter(connectDB()),
   pages: {
-    signIn: "/login",
+    signIn: "/guestbook",
+    error: "/guestbook",
+    signOut: "/guestbook",
   },
 };
 

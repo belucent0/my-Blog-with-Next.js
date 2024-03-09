@@ -20,17 +20,12 @@ async function connectDB() {
     await client.connect();
     await client.db("admin").command({ ping: 1 });
 
-    // 디비를 연결한 뒤에 시간이 흐른 뒤에 디비 연결을 닫음 시간은 1분
-    setTimeout(() => {
-      client.close();
-    }, 1000 * 60);
-
     cachedClient = client;
 
     return cachedClient;
   } catch (err) {
     console.error(err);
-    throw err;
+    throw new Error("DB 연결에 실패했습니다.");
   }
 }
 

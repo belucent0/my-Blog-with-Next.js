@@ -16,7 +16,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "../components/ui/button";
 
 export default function signupPage() {
-  const [loginId, setId] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [checkingPassword, setCheckingPassword] = useState("");
   const [name, setName] = useState("");
@@ -42,7 +42,7 @@ export default function signupPage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ loginId, password, name, role: "guest" }),
+        body: JSON.stringify({ email, password, name, role: "guest" }),
       });
 
       if (response.status === 400) {
@@ -79,14 +79,14 @@ export default function signupPage() {
               <CardContent>
                 <div className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="loginId">아이디</Label>
+                    <Label htmlFor="email">이메일</Label>
                     <Input
-                      id="loginId"
-                      placeholder="영문+숫자 조합 6~15자리"
+                      id="email"
+                      placeholder="example@vividnow.com"
                       required
-                      type="text"
-                      value={loginId}
-                      onChange={(e) => setId(e.target.value.trim())}
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value.trim())}
                     />
                   </div>
                   <div className="space-y-2">
@@ -114,13 +114,15 @@ export default function signupPage() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="name">이름</Label>
+                    <Label htmlFor="name">닉네임</Label>
                     <Input
                       id="name"
-                      placeholder="ex) 홍길동"
+                      placeholder="2~10자리의 닉네임"
                       required
                       type="text"
                       value={name}
+                      minLength={2}
+                      maxLength={10}
                       onChange={(e) => setName(e.target.value.trim())}
                     />
                   </div>

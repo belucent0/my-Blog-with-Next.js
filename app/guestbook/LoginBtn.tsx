@@ -14,12 +14,13 @@ import {
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { Button as Button2 } from "../components/ui/button";
+import { useRouter } from "next/navigation";
 
 //로그아웃 버튼 작동
 export function LogoutBtn() {
   return (
     <button
-      className="mb-2 inline-block rounded-lg bg-indigo-700 px-3 py-2 text-center text-sm font-semibold text-white outline-none ring-indigo-300 duration-100 transition hover:bg-indigo-500 focus-visible:ring active:bg-indigo-500 md:text-base"
+      className="mb-2 inline-block rounded-lg bg-indigo-700 px-3 py-2 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-500 focus-visible:ring active:bg-indigo-500 md:text-base"
       onClick={() => {
         signOut();
       }}
@@ -32,6 +33,8 @@ export function LogoutBtn() {
 export function LoginModal() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
+  const router = useRouter();
+
   const handleSignIn = async (provider) => {
     await signIn(provider, { callbackUrl: "/guestbook" });
   };
@@ -41,14 +44,22 @@ export function LoginModal() {
 
     try {
       const form = new FormData(event.target as HTMLFormElement);
-      const loginId = form.get("loginId") as string;
+      const email = form.get("email") as string;
       const password = form.get("password") as string;
-      console.log(loginId, password, "로그인 정보");
-      await signIn("credentials", {
-        loginId,
+
+      const res = await signIn("credentials", {
+        email,
         password,
-        callbackUrl: "/guestbook",
+        redirect: false,
       });
+
+      if (res?.status === 200) {
+        router.refresh();
+      } else if (res?.error) {
+        alert(res.error);
+      } else {
+        throw new Error("로그인에 실패");
+      }
     } catch (error) {
       console.error(error);
       alert("로그인에 실패했습니다.");
@@ -59,7 +70,7 @@ export function LoginModal() {
     <>
       <Button
         onPress={onOpen}
-        className="mb-2 inline-block rounded-lg bg-indigo-700 px-3 py-2 text-center text-sm font-semibold text-white outline-none ring-indigo-300 duration-100 transition hover:bg-indigo-500 focus-visible:ring active:bg-indigo-500 md:text-base"
+        className="mb-2 inline-block rounded-lg bg-indigo-700 px-3 py-2 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-500 focus-visible:ring active:bg-indigo-500 md:text-base"
       >
         로그인
       </Button>
@@ -85,11 +96,11 @@ export function LoginModal() {
                       <div>
                         <form onSubmit={handleSubmit}>
                           <div className="flex flex-col space-y-1.5">
-                            <Label htmlFor="loginId">아이디</Label>
+                            <Label htmlFor="email">이메일</Label>
                             <Input
-                              id="loginId"
-                              name="loginId"
-                              // placeholder="테스트계정: test123"
+                              id="email"
+                              name="email"
+                              // placeholder="테스트계정: test123@vividnow.com"
                               type="text"
                               required
                             />
@@ -128,7 +139,7 @@ export function LoginModal() {
                     <div className="mt-16 grid space-y-4">
                       <button
                         onClick={() => handleSignIn("naver")}
-                        className="group relative flex h-11 items-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-green-500 before:duration-300 before:transition hover:before:scale-105 active:duration-75 active:before:scale-95 disabled:before:scale-100 disabled:before:bg-gray-300 dark:before:border-gray-600 dark:before:bg-gray-700"
+                        className="group relative flex h-11 items-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-green-500 before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 disabled:before:scale-100 disabled:before:bg-gray-300 dark:before:border-gray-600 dark:before:bg-gray-700"
                       >
                         <span className="relative flex w-full items-center justify-center gap-3 text-base font-medium text-white dark:text-gray-200">
                           <img
@@ -141,7 +152,7 @@ export function LoginModal() {
                       </button>
                       <button
                         onClick={() => handleSignIn("kakao")}
-                        className="group relative flex h-11 items-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-yellow-400 before:duration-300 before:transition hover:before:scale-105 active:duration-75 active:before:scale-95 disabled:before:scale-100 disabled:before:bg-gray-300 dark:before:border-gray-600 dark:before:bg-gray-700"
+                        className="group relative flex h-11 items-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-yellow-400 before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 disabled:before:scale-100 disabled:before:bg-gray-300 dark:before:border-gray-600 dark:before:bg-gray-700"
                       >
                         <span className="relative flex w-full items-center justify-center gap-3 text-base font-medium text-white dark:text-gray-200">
                           <img
@@ -154,7 +165,7 @@ export function LoginModal() {
                       </button>
                       <button
                         onClick={() => handleSignIn("github")}
-                        className="group relative flex h-11 items-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-gray-700 before:duration-300 before:transition hover:before:scale-105 active:duration-75 active:before:scale-95 disabled:before:scale-100 disabled:before:bg-gray-300 dark:before:border-gray-600 dark:before:bg-gray-700"
+                        className="group relative flex h-11 items-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-gray-700 before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 disabled:before:scale-100 disabled:before:bg-gray-300 dark:before:border-gray-600 dark:before:bg-gray-700"
                       >
                         <span className="relative flex w-full items-center justify-center gap-3 text-base font-medium text-white dark:text-gray-200">
                           <svg
@@ -174,7 +185,7 @@ export function LoginModal() {
               </ModalBody>
               <ModalFooter className="bg-transparent">
                 <Button
-                  className="mb-1 inline-block rounded-lg bg-indigo-700 px-2 py-1 text-center text-sm font-semibold text-white outline-none ring-indigo-300 duration-100 transition hover:bg-indigo-500 focus-visible:ring active:bg-indigo-500 md:text-base"
+                  className="mb-1 inline-block rounded-lg bg-indigo-700 px-2 py-1 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-500 focus-visible:ring active:bg-indigo-500 md:text-base"
                   onPress={onClose}
                 >
                   닫기

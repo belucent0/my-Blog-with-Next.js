@@ -2,15 +2,18 @@
 
 import { LoginModal, LogoutBtn } from "./LoginBtn";
 import WriteForm from "./WriteForm";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 import { ListItemProps } from "./guestbookTypes";
 
-export default function ListItem({session, userName, guestbookList} : ListItemProps) {
-  const router = useRouter()
-  
+export default function ListItem({
+  session,
+  userName,
+  guestbookList,
+}: ListItemProps) {
+  const router = useRouter();
+
   // 방명록 삭제
   const handleDelete = async (id: string, index, e) => {
-
     try {
       const response = await fetch("/api/guestbook/delete", {
         method: "DELETE",
@@ -23,10 +26,10 @@ export default function ListItem({session, userName, guestbookList} : ListItemPr
       const data = await response.json();
 
       if (response.ok) {
-        const listItem = await e.target.closest('.listitem');
+        const listItem = await e.target.closest(".listitem");
         if (listItem) {
           alert(data.message);
-          router.refresh()
+          router.refresh();
         }
       } else {
         throw new Error(data.message);
@@ -41,7 +44,7 @@ export default function ListItem({session, userName, guestbookList} : ListItemPr
     <span>
       {session && userName ? (
         <span>
-          <LogoutBtn /> <WriteForm userName={userName}/>
+          <LogoutBtn /> <WriteForm userName={userName} />
         </span>
       ) : (
         <LoginModal />
@@ -49,28 +52,37 @@ export default function ListItem({session, userName, guestbookList} : ListItemPr
     </span>
   );
 
-  return (    
+  return (
     <>
-      <div>
-        {sessionBtn}
-      </div>
+      <div>{sessionBtn}</div>
       <>
-      {guestbookList.map((v, i) => (
-        <div key={i} className="listitem rounded-lg p-1.5 sm:p-3 mb-2 sm:mb-3 shadow-md bg-gray-100 dark:bg-gray-800 flex justify-between items-center">
-          <div>
-            <h4 className="text-base sm:text-lg font-bold sm:mb-1">{guestbookList[i].content}</h4>
-            <p className="text-sm sm:text-base text-gray-500 sm:mb-1">{guestbookList[i].authorName}</p>
+        {guestbookList.map((v, i) => (
+          <div
+            key={i}
+            className="listitem mb-2 flex items-center justify-between rounded-lg bg-gray-100 p-1.5 shadow-md dark:bg-gray-800 sm:mb-3 sm:p-3"
+          >
+            <div>
+              <h4 className="text-base font-bold sm:mb-1 sm:text-lg">
+                {guestbookList[i].content}
+              </h4>
+              <p className="text-sm text-gray-500 sm:mb-1 sm:text-base">
+                {guestbookList[i].authorName}
+              </p>
+            </div>
+            {session && userName === guestbookList[i].authorName && (
+              <button
+                className="text-sm sm:text-base"
+                onClick={(e) => handleDelete(guestbookList[i]._id, i, e)}
+              >
+                🗑삭제
+              </button>
+            )}
           </div>
-          {session && userName === guestbookList[i].authorName && (
-            <button className="text-sm sm:text-base" onClick={(e) => handleDelete(guestbookList[i]._id, i, e)}>🗑삭제</button>
-          )}
-          </div>
-          ))}
-          </>
+        ))}
       </>
-    );
+    </>
+  );
 }
-
 
 /**
  * @swagger
@@ -99,8 +111,6 @@ export default function ListItem({session, userName, guestbookList} : ListItemPr
  *                            { "_id": 3, "content": "하이요", "authorName" : 유저3},
  *                          ]
  */
-
-
 
 /**
  * @swagger

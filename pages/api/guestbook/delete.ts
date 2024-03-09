@@ -12,9 +12,8 @@ export default async function handler(req, res) {
       return;
     }
 
+    const db = (await connectDB()).db("forum");
     try {
-
-      const db = (await connectDB()).db("forum");
       let guestbookId = await db
         .collection("guestbook")
         .findOne({ _id: new ObjectId(req.body.id) });
@@ -29,15 +28,13 @@ export default async function handler(req, res) {
         } else {
           res.status(500).json({ message: "삭제 실패" });
         }
-
       } else {
         res.status(403).json({ message: "자신의 글만 삭제할 수 있습니다" });
       }
-
     } catch (error) {
       console.log(error);
-    } 
-    
+      throw new Error("삭제 중 오류");
+    }
   } else {
     res.status(405).end();
   }
