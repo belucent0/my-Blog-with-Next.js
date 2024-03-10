@@ -32,7 +32,7 @@ export default async function handler(req, res) {
       let result = await db.collection("guest_credentials").findOne({ email });
 
       if (result) {
-        return res.status(400).json({ message: "이미 존재하는 아이디입니다." });
+        return res.status(400).json({ message: "이미 사용중인 이메일입니다." });
       }
 
       req.body.password = await bcrypt.hash(req.body.password, 10);

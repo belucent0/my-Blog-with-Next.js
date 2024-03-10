@@ -15,7 +15,7 @@ export default async function handler(req, res) {
         return res.status(401).json("로그인이 필요한 기능입니다");
       } else {
         if (req.body.content == "") {
-          return res.status(500).json("내용을 입력해주세요.");
+          return res.status(400).json("내용을 입력해주세요.");
         }
 
         let guestbook = {

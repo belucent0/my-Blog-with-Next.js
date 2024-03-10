@@ -42,3 +42,71 @@ export default async function GuestbookPage() {
     </>
   );
 }
+
+// 방명록 리스트 조회 api. 응답은 200, 500으로 나뉜다.
+/**
+ * @swagger
+ * paths:
+ *  /api/guestbook/list:
+ *    get:
+ *      summary: "방명록 조회"
+ *      description: "서버에 Body 데이터를 보내지 않고 Get방식으로 요청합니다"
+ *      tags: [Guestbook]
+ *      responses:
+ *        "200":
+ *          description: 전체 방명록 목록
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                    status:
+ *                      type: string
+ *                    message:
+ *                     type: string
+ *                    data:
+ *                      type: array
+ *                      items:
+ *                        type: object
+ *                        properties:
+ *                          _id:
+ *                            type: string
+ *                          content:
+ *                            type: string
+ *                          authorName:
+ *                            type: string
+ *                example:
+ *                  status: "success"
+ *                  message: "방명록 조회 성공"
+ *                  data: [
+ *                    {
+ *                      _id: "60f3e3e3e3e3e3e3e3e3e3e1",
+ *                      content: "방명록 내용",
+ *                      authorName: "작성자 이름"
+ *                    },
+ *                    {
+ *                      _id: "60f3e3e3e3e3e3e3e3e3e3e2",
+ *                      content: "방명록 내용",
+ *                      authorName: "작성자 이름"
+ *                    },
+ *                    {
+ *                      _id: "60f3e3e3e3e3e3e3e3e3e3e3",
+ *                      content: "방명록 내용",
+ *                      authorName: "작성자 이름"
+ *                    }
+ *                  ]
+ *        "500":
+ *          description: 서버 오류
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  status:
+ *                    type: string
+ *                  message:
+ *                    type: string
+ *                example:
+ *                  status: "error"
+ *                  message: "서버 오류"
+ */

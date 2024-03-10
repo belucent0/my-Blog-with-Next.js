@@ -143,3 +143,76 @@ export default function signupPage() {
     </>
   );
 }
+// 회원가입 api 문서화 body값에 이메일, 비밀번호, 이름, 역할을 보내준다.
+/**
+ * @swagger
+ * /api/auth/signup:
+ *   post:
+ *     summary: "회원가입"
+ *     description: "회원가입을 위한 정보를 서버에 보냅니다."
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *               name:
+ *                 type: string
+ *               role:
+ *                 type: string
+ *                 example: "guest"
+ *             example:
+ *              email: "example@vividnow.com"
+ *              password: "qweqwe123!"
+ *              name: "아무개"
+ *              role: "guest"
+ *     responses:
+ *       "200":
+ *         description: 회원가입 성공
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                 message:
+ *                   type: string
+ *               example:
+ *                status: "success"
+ *                message: "회원가입 성공"
+ *       "400":
+ *         description: 회원가입 실패
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                 message:
+ *                   type: string
+ *               example:
+ *                status: "fail"
+ *                message: "회원가입 실패"
+ *       "500":
+ *         description: 처리 중 서버 에러
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: boolean
+ *                 message:
+ *                   type: string
+ *               example:
+ *                status: "error"
+ *                message: "회원가입 처리 중 서버 에러"
+ */

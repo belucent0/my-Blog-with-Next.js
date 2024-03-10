@@ -24,12 +24,18 @@ export default async function handler(req, res) {
           .deleteOne({ _id: new ObjectId(req.body.id) });
 
         if (result.deletedCount > 0) {
-          res.status(200).json({ message: "삭제 완료" });
+          return res
+            .status(200)
+            .json({ status: "success", message: "삭제 완료" });
         } else {
-          res.status(500).json({ message: "삭제 실패" });
+          return res
+            .status(500)
+            .json({ status: "error", message: "삭제 실패" });
         }
       } else {
-        res.status(403).json({ message: "자신의 글만 삭제할 수 있습니다" });
+        res
+          .status(403)
+          .json({ status: "fail", message: "자신의 글만 삭제할 수 있습니다" });
       }
     } catch (error) {
       console.log(error);

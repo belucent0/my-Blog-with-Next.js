@@ -91,14 +91,106 @@ export default function WriteForm({ userName }) {
  *          schema:
  *            type: object
  *            properties:
- *              _id:
- *                type: string
- *                description: "방명록 고유아이디"
- *              content:
- *                type: string
- *                description: "방명록 내용"
  *              authorName:
  *                type: string
  *                description: "유저 이름"
- *
+ *              content:
+ *                type: string
+ *                description: "방명록 내용"
+ *            example:
+ *              authorName: "작성자 이름"
+ *              content: "방명록 내용"
+ *    responses:
+ *      "200":
+ *        description: 방명록 등록 성공
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                status:
+ *                  type: string
+ *                message:
+ *                  type: string
+ *                data:
+ *                  type: array
+ *                  items:
+ *                    type: object
+ *                    properties:
+ *                      content:
+ *                        type: string
+ *                      authorName:
+ *                        type: string
+ *              example:
+ *                status: "success"
+ *                message: "방명록 등록 성공"
+ *      "400":
+ *        description: 방명록 내용이 없을 때
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                status:
+ *                  type: string
+ *                message:
+ *                  type: string
+ *                data:
+ *                  type: array
+ *                  items:
+ *                    type: object
+ *                    properties:
+ *                      content:
+ *                        type: string
+ *                      authorName:
+ *                        type: string
+ *              example:
+ *                status: "fail"
+ *                message: "방명록 내용이 없습니다."
+ *      "401":
+ *        description: 로그인 없이 방명록 등록 시도
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                status:
+ *                  type: string
+ *                message:
+ *                  type: string
+ *                data:
+ *                  type: array
+ *                  items:
+ *                    type: object
+ *                    properties:
+ *                      content:
+ *                        type: string
+ *                      authorName:
+ *                        type: string
+ *              example:
+ *                status: "fail"
+ *                message: "로그인이 필요한 기능입니다."
+ *      "500":
+ *        description: 방명록 등록 중 서버에러
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                status:
+ *                  type: string
+ *                message:
+ *                  type: string
+ *                data:
+ *                  type: array
+ *                  items:
+ *                    type: object
+ *                    properties:
+ *                      content:
+ *                        type: string
+ *                      authorName:
+ *                        type: string
+ *              example:
+ *                status: "error"
+ *                message: "방명록 등록 중 서버에러"
  */

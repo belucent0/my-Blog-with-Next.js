@@ -93,64 +93,70 @@ export default function ListItem({ session, guestbookList }: ListItemProps) {
   );
 }
 
-/**
- * @swagger
- * paths:
- *  /api/guestbook/getList:
- *    get:
- *      summary: "방명록 페이지 조회"
- *      description: "서버에 데이터를 보내지 않고 Get방식으로 요청합니다"
- *      tags: [Guestbook]
- *      responses:
- *        "200":
- *          description: 전체 방명록 목록
- *          content:
- *            application/json:
- *              schema:
- *                type: object
- *                properties:
- *                    ok:
- *                      type: boolean
- *                    guestbook:
- *                      type: object
- *                      example:
- *                          [
- *                            { "_id": 1, "content": "반갑습니다", "authorName" : 유저1},
- *                            { "_id": 2, "content": "안녕하세요", "authorName" : 유저2},
- *                            { "_id": 3, "content": "하이요", "authorName" : 유저3},
- *                          ]
- */
-
+// 방명록 삭제 api. body값에 게시글 id를 보내준다. 응답은 200, 400, 500으로 나뉜다.
 /**
  * @swagger
  * /api/guestbook/delete:
  *   delete:
- *    summary: "특정 방명록 삭제"
- *    description: "요청 경로에 값을 담아 서버에 보냅니다."
- *    tags: [Guestbook]
- *    parameters:
- *      - in: query
- *        name: _id
- *        required: true
- *        description: 방명록 아이디
- *        schema:
- *          type: string
- *    responses:
- *      "200":
- *        description: 사용자가 서버로 전달하는 값에 따라 결과 값은 다릅니다. (방명록 삭제)
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                ok:
- *                  type: boolean
- *                guestbook:
- *                  type: object
- *                  example:
- *                    [
- *                      { "_id": 1, "content": "반갑습니다", "authorName" : 유저1},
- *                      { "_id": 2, "content": "안녕하세요", "authorName" : 유저2},
- *                      { "_id": 3, "content": "하이요", "authorName" : 유저3},
- *                    ]
+ *     summary: "방명록 삭제"
+ *     description: "서버에 Body 데이터를 보내 삭제할 게시글의 id를 보냅니다."
+ *     tags: [Guestbook]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               id:
+ *                 type: string
+ *             example:
+ *              id: "60f3e3e3e3e3e3e3e3e3e3e1"
+ *
+ *     responses:
+ *       "200":
+ *         description: 게시글 삭제 성공
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                  type: string
+ *                 message:
+ *                   type: string
+ *                   example: "게시글 삭제 성공"
+ *               example:
+ *                status: "success"
+ *                message: "게시글 삭제 성공"
+ *       "403":
+ *         description: 자신의 글만 삭제
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                  type: string
+ *                 message:
+ *                   type: string
+ *               example:
+ *                status: "fail"
+ *                message: "자신의 글만 삭제할 수 있습니다."
+ *       "500":
+ *         description: 서버 오류
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                 message:
+ *                   type: string
+ *               example:
+ *                status: "error"
+ *                message: "게시글 삭제 실패"
+ *
+ *
  */
