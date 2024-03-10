@@ -51,14 +51,14 @@ export default async function ProjectList({worksList}: ProjectListProps) {
                       <Link
                         className="text-base leading-relaxed text-indigo-800 hover:text-indigo-900"
                         href={card.etcLink}
-                        target="_blank"
+                        target="_blank"  rel="noreferrer noopener"
                       >
                         <span className="btn-link">자세히↗</span>
                       </Link>
                       <Link
                         className="text-base leading-relaxed text-indigo-800 hover:text-indigo-900"
                         href={card.github}
-                        target="_blank"
+                        target="_blank"  rel="noreferrer noopener"
                       >
                         <span className="btn-link">GITHUB↗</span>
                       </Link>

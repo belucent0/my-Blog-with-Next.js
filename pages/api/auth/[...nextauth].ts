@@ -6,6 +6,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import NaverProvider from "next-auth/providers/naver";
 import KakaoProvider from "next-auth/providers/kakao";
 import bcrypt from "bcrypt";
+import { NextApiRequest, NextApiResponse } from "next";
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -30,14 +31,12 @@ export const authOptions: AuthOptions = {
       },
 
       //로그인시 실행
-      async authorize(credentials: { email: string; password: string }, req) {
+      async authorize(credentials: { email: string; password: string }) {
         try {
           const { email, password } = credentials;
 
           const db = (await connectDB()).db("forum");
-          let user = await db
-            .collection("guest_credentials")
-            .findOne({ email });
+          const user = await db.collection("guest_credentials") .findOne({ email });
 
           if (!user) {
             throw new Error("해당 이메일로 가입된 유저가 없습니다.");
@@ -100,6 +99,6 @@ export const authOptions: AuthOptions = {
 };
 
 const authHandler = NextAuth(authOptions);
-export default async function handler(...params: any[]) {
+export default async function handler(...params: [NextApiRequest, NextApiResponse]) {
   await authHandler(...params);
 }

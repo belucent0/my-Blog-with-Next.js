@@ -7,90 +7,83 @@ import { ListItemProps } from "./guestbookTypes";
 import DeleteAccountModal from "./ui/DeleteAccount";
 
 export default function ListItem({ session, guestbookList }: ListItemProps) {
-  const router = useRouter();
+    const router = useRouter();
 
-  // 방명록 삭제
-  const handleDelete = async (id: string, index, e) => {
-    try {
-      const response = await fetch("/api/guestbook/delete", {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ id }),
-      });
+    // 방명록 삭제
+    const handleDelete = async (id: string, index, e) => {
+        try {
+            const response = await fetch("/api/guestbook/delete", {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ id }),
+            });
 
-      const data = await response.json();
+            const data = await response.json();
 
-      if (response.ok) {
-        const listItem = await e.target.closest(".listitem");
-        if (listItem) {
-          alert(data.message);
-          router.refresh();
+            if (response.ok) {
+                const listItem = await e.target.closest(".listitem");
+                if (listItem) {
+                    alert(data.message);
+                    router.refresh();
+                }
+            } else {
+                throw new Error(data.message);
+            }
+        } catch (error) {
+            console.error("삭제 중 오류 발생:", error);
+            alert(error.message);
         }
-      } else {
-        throw new Error(data.message);
-      }
-    } catch (error) {
-      console.error("삭제 중 오류 발생:", error);
-      alert(error.message);
-    }
-  };
+    };
 
-  let userName = session ? session?.user?.name : null;
+    const userName = session ? session?.user?.name : null;
 
-  let sessionBtn = (
-    <span>
-      {session && userName ? (
+    const sessionEmail = session ? session?.user?.email : null;
+
+    const sessionBtn = (
         <span>
-          <div className="flex">
-            <LogoutBtn />
-            <div className="flex grow" />
-            <DeleteAccountModal session={session} />
-          </div>
-          <WriteForm userName={userName} />
-        </span>
-      ) : (
-        <LoginModal />
-      )}
-    </span>
-  );
-
-  return (
-    <>
-      <div>{sessionBtn}</div>
-      <>
-        {guestbookList.length === 0 && (
-          <div className="my-20 text-center text-lg font-bold text-indigo-500 sm:text-xl">
-            방명록이 없습니다.
-          </div>
-        )}
-        {guestbookList.map((v, i) => (
-          <div
-            key={i}
-            className="listitem mb-2 flex items-center justify-between rounded-lg bg-gray-100 p-1.5 shadow-md dark:bg-gray-800 sm:mb-3 sm:p-3"
-          >
-            <div>
-              <h4 className="text-base font-bold sm:mb-1 sm:text-lg">
-                {guestbookList[i].content}
-              </h4>
-              <p className="text-sm text-gray-500 sm:mb-1 sm:text-base">
-                {guestbookList[i].authorName}
-              </p>
-            </div>
-            {session && userName === guestbookList[i].authorName && (
-              <button
-                className="text-sm sm:text-base"
-                onClick={(e) => handleDelete(guestbookList[i]._id, i, e)}
-              >
-                🗑삭제
-              </button>
+            {session && userName ? (
+                <span>
+                    <div className="flex">
+                        <LogoutBtn />
+                        <div className="flex grow" />
+                        <DeleteAccountModal sessionEmail={sessionEmail} />
+                    </div>
+                    <WriteForm userName={userName} />
+                </span>
+            ) : (
+                <LoginModal />
             )}
-          </div>
-        ))}
-      </>
-    </>
-  );
+        </span>
+    );
+
+    return (
+        <>
+            <div>{sessionBtn}</div>
+            <>
+                {guestbookList.length === 0 && (
+                    <div className="my-20 text-center text-lg font-bold text-indigo-500 sm:text-xl">방명록이 없습니다.</div>
+                )}
+                {guestbookList.map((v, i) => (
+                    <div
+                        key={i}
+                        className="listitem mb-2 flex items-center justify-between rounded-lg bg-gray-100 p-1.5 shadow-md dark:bg-gray-800 sm:mb-3 sm:p-3"
+                    >
+                        <div>
+                            <h4 className="text-base font-bold sm:mb-1 sm:text-lg">{guestbookList[i].content}</h4>
+                            <p className="text-sm text-gray-500 sm:mb-1 sm:text-base">{guestbookList[i].authorName}</p>
+                        </div>
+                        {session && userName === guestbookList[i].authorName && (
+                            <button className="text-sm sm:text-base" onClick={e => handleDelete(guestbookList[i]._id, i, e)}>
+                                🗑삭제
+                            </button>
+                        )}
+                    </div>
+                ))}
+            </>
+        </>
+    );
 }
 
 // 방명록 삭제 api. body값에 게시글 id를 보내준다. 응답은 200, 400, 500으로 나뉜다.

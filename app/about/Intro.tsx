@@ -42,8 +42,8 @@ export default function Intro() {
                     김재광
                   </div>
                   <div className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">
-                    <p className="text-base">"일신우일신(日新又日新)"</p>
-                    <p className="text-base">Node.js 기반한 웹개발에 관심</p>
+                    <p className="text-base">&quot;일신우일신(日新又日新)&quot;</p>
+                    <p className="text-base">Node.js 서버 개발자</p>
                   </div>
 
                   <div className="flex justify-center">
@@ -51,7 +51,7 @@ export default function Intro() {
                       <a
                         href="https://github.com/vividnow"
                         className="text-gray-900 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
-                        target="_blank"
+                        target="_blank"  rel="noreferrer noopener"
                       >
                         <svg
                           className="h-6 w-6"
@@ -69,7 +69,7 @@ export default function Intro() {
                       <a
                         href="https://veams.tistory.com/"
                         className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-                        target="_blank"
+                        target="_blank"  rel="noreferrer noopener"
                       >
                         <svg
                           className="h-6 w-6"
@@ -116,7 +116,7 @@ export default function Intro() {
                 <Link
                   href="https://veams.notion.site/c4a07422aaa24976808a1f80ead8aff2?pvs=4"
                   className="inline-flex items-center text-indigo-500"
-                  target="_blank"
+                  target="_blank"  rel="noreferrer noopener"
                 >
                   이력서 보기
                   <svg

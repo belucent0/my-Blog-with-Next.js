@@ -8,7 +8,7 @@ export default function DarkModeBtn() {
   const { theme, setTheme } = useTheme();
 
   // 채널톡 버튼 플롯팅
-  const channeltalk = useChannelTalk();
+  useChannelTalk();
 
   return (
     <>

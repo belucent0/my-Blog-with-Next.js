@@ -2,8 +2,9 @@
 
 import { ThemeProvider } from "next-themes";
 import {NextUIProvider} from "@nextui-org/react";
+import { Props } from "./layout";
 
-export function Providers({ children }) {
+export function Providers({ children } : Props) {
   return (
     <>
       <NextUIProvider>

@@ -17,7 +17,12 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-export default function RootLayout({ children }) {
+export type Props = {
+  children: React.ReactNode;
+};
+
+
+export default function RootLayout({ children } : Props) {
   return (
     <html lang="ko" suppressHydrationWarning className={inter.className}>
       <body>

@@ -77,8 +77,7 @@ export default function ExcalidrawPage() {
                       leaveTo="opacity-0 scale-95"
                     >
                       <Dialog.Panel className="w-full transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                        <div
-                          as="h3"
+                        <h3
                           className="flex justify-between text-lg font-medium leading-6 text-gray-900"
                         >
                           <div className="text-xs md:text-sm">
@@ -95,7 +94,7 @@ export default function ExcalidrawPage() {
                           >
                             닫기
                           </button>
-                        </div>
+                        </h3>
                         <div className="mt-2">
                           <p className="text-sm text-gray-500">
                             <div className="mx-auto h-full w-full px-5">

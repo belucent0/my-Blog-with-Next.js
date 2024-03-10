@@ -1,7 +1,7 @@
 "use client";
 
 //에러 페이지
-export default function Error({ error, reset }) {
+export default function Error({ reset }: { reset: () => void }) {
   return (
     <>
       <section className="container mx-auto min-h-screen bg-white px-5 py-24 dark:bg-gray-900 ">
