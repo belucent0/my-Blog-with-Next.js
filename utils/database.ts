@@ -11,7 +11,7 @@ const client = new MongoClient(uri!, {
 
 let cachedClient;
 
-async function connectDB() {
+export async function connectDB() {
   if (cachedClient) {
     return cachedClient;
   }
@@ -26,7 +26,13 @@ async function connectDB() {
   } catch (err) {
     console.error(err);
     throw new Error("DB 연결에 실패했습니다.");
+  } finally {
+    setTimeout(() => {
+      client.close();
+
+      cachedClient = null;
+
+      console.log("DB 연결이 해제되었습니다.");
+    }, 1000 * 30 * 1);
   }
 }
-
-export { connectDB };
