@@ -11,10 +11,9 @@ import {
   Button,
   useDisclosure,
 } from "@nextui-org/react";
-import { Input } from "../components/ui/input";
-import { Label } from "../components/ui/label";
-import { Button as Button2 } from "../components/ui/button";
-import { useRouter } from "next/navigation";
+import { Input } from "../../components/ui/input";
+import { Label } from "../../components/ui/label";
+import { Button as Button2 } from "../../components/ui/button";
 
 //로그아웃 버튼 작동
 export function LogoutBtn() {
@@ -30,10 +29,9 @@ export function LogoutBtn() {
   );
 }
 
+// 로그인 모달
 export function LoginModal() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
-  const router = useRouter();
 
   const handleSignIn = async (provider) => {
     await signIn(provider, { callbackUrl: "/guestbook" });
@@ -50,11 +48,13 @@ export function LoginModal() {
       const res = await signIn("credentials", {
         email,
         password,
+        // callbackUrl: "/guestbook",
         redirect: false,
       });
 
       if (res?.status === 200) {
-        router.refresh();
+        // router.refresh() 사용시 에러 발생
+        window.location.reload();
       } else if (res?.error) {
         alert(res.error);
       } else {
@@ -111,7 +111,7 @@ export function LoginModal() {
                             <Input
                               id="password"
                               name="password"
-                              // placeholder="테스트계정: qwer1234!"
+                              // placeholder="테스트계정: qweqwe123!"
                               type="password"
                               required
                             />

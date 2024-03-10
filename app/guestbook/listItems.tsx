@@ -1,15 +1,12 @@
 "use client";
 
-import { LoginModal, LogoutBtn } from "./LoginBtn";
+import { LoginModal, LogoutBtn } from "./ui/LoginBtn";
 import WriteForm from "./WriteForm";
 import { useRouter } from "next/navigation";
 import { ListItemProps } from "./guestbookTypes";
+import DeleteAccountModal from "./ui/DeleteAccount";
 
-export default function ListItem({
-  session,
-  userName,
-  guestbookList,
-}: ListItemProps) {
+export default function ListItem({ session, guestbookList }: ListItemProps) {
   const router = useRouter();
 
   // 방명록 삭제
@@ -40,11 +37,18 @@ export default function ListItem({
     }
   };
 
+  let userName = session ? session?.user?.name : null;
+
   let sessionBtn = (
     <span>
       {session && userName ? (
         <span>
-          <LogoutBtn /> <WriteForm userName={userName} />
+          <div className="flex">
+            <LogoutBtn />
+            <div className="flex grow" />
+            <DeleteAccountModal session={session} />
+          </div>
+          <WriteForm userName={userName} />
         </span>
       ) : (
         <LoginModal />
@@ -56,6 +60,11 @@ export default function ListItem({
     <>
       <div>{sessionBtn}</div>
       <>
+        {guestbookList.length === 0 && (
+          <div className="my-20 text-center text-lg font-bold text-indigo-500 sm:text-xl">
+            방명록이 없습니다.
+          </div>
+        )}
         {guestbookList.map((v, i) => (
           <div
             key={i}

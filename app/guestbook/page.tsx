@@ -1,8 +1,7 @@
 import { authOptions } from "../../pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import ListItem from "./listItems";
-import Popup from "./Popup";
-import { connectDB } from "../../utils/database";
+import Popup from "./ui/Popup";
 import { GuestbookList } from "./guestbookTypes";
 import { Session } from "next-auth";
 
@@ -13,11 +12,6 @@ export const metadata = {
 
 export default async function GuestbookPage() {
   let session: Session | null = await getServerSession(authOptions);
-  let userName: string | undefined | null;
-
-  if (session) {
-    userName = session?.user?.name;
-  }
 
   let guestbookList: GuestbookList[] = [];
 
@@ -42,11 +36,7 @@ export default async function GuestbookPage() {
       <section className="mx-auto my-10 flex min-h-screen justify-center px-0.5">
         <div className="mx-1.5 w-full max-w-[720px]">
           <h1 className="mb-4 text-center text-3xl font-bold">방명록</h1>
-          <ListItem
-            userName={userName}
-            session={session}
-            guestbookList={guestbookList}
-          />
+          <ListItem session={session} guestbookList={guestbookList} />
         </div>
       </section>
     </>

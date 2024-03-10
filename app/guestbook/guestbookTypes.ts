@@ -8,6 +8,5 @@ export interface GuestbookList {
 
 export interface ListItemProps {
   session: Session | null;
-  userName: string | undefined | null;
   guestbookList: GuestbookList[];
 }
