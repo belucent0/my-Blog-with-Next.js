@@ -1,11 +1,13 @@
+import { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "../../../utils/database";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]";
+import { ResponseData } from "../../api.interface";
 
 // 사용자 요청량 추적하는 객체
 const userRequests = {};
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<ResponseData<null>>) {
     if (req.method !== "POST") {
         return res.status(405).json({ status: "fail", message: "허용되지 않은 요청 방식입니다." });
     }
@@ -28,8 +30,8 @@ export default async function handler(req, res) {
         }
         userRequests[userEmail].push(Date.now());
 
-        // 5분 이내의 요청이 10개 초과시 요청 거부
-        if (userRequests[userEmail].length > 10) {
+        // 5분 이내의 요청이 5개 초과시 요청 거부
+        if (userRequests[userEmail].length > 5) {
             if (Date.now() - userRequests[userEmail][0] < 5 * 60 * 1000) {
                 return res.status(429).json({ status: "fail", message: "5분 동안의 요청이 너무 많습니다. 5분 후 다시 시도해주세요." });
             }
@@ -48,8 +50,13 @@ export default async function handler(req, res) {
             authorName: session.user?.name,
         };
 
-        const result = await db.collection("guestbook").insertOne(guestbook);
-        return res.status(200).json({ status: "success", message: "작성 완료!", result });
+        const data = await db.collection("guestbook").insertOne(guestbook);
+
+        if (!data.insertedId) {
+            return res.status(500).json({ status: "error", message: "방명록 작성 중 서버에러 발생" });
+        }
+
+        return res.status(200).json({ status: "success", message: "작성 완료!" });
     } catch (error) {
         console.error("방명록 작성 중 서버 에러 발생: ", error);
         return res.status(500).json({ status: "error", message: "방명록 작성 중 서버에러 발생" });
