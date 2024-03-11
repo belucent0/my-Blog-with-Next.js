@@ -3,16 +3,17 @@
 import { LoginModal, LogoutBtn } from "./ui/LoginBtn";
 import WriteForm from "./WriteForm";
 import { useRouter } from "next/navigation";
-import { ListItemProps } from "./guestbookTypes";
+import { ListItemProps } from "./interface/guestbookTypes";
 import DeleteAccountModal from "./ui/DeleteAccount";
+import { MouseEvent } from "react";
 
 export default function ListItem({ session, guestbookList }: ListItemProps) {
     const router = useRouter();
 
     // 방명록 삭제
-    const handleDelete = async (id: string, index, e) => {
+    const handleDelete = async (id: string, index: number, e: React.MouseEvent<HTMLButtonElement>) => {
         try {
-            const response = await fetch("/api/guestbook/delete", {
+            const response = await fetch("/api/guestbook/deletion", {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
@@ -20,26 +21,31 @@ export default function ListItem({ session, guestbookList }: ListItemProps) {
                 body: JSON.stringify({ id }),
             });
 
-            const data = await response.json();
+            const result = await response.json();
 
-            if (response.ok) {
-                const listItem = await e.target.closest(".listitem");
-                if (listItem) {
-                    alert(data.message);
-                    router.refresh();
-                }
-            } else {
-                throw new Error(data.message);
+            if (result.status === "fail") {
+                alert(result.message);
+            }
+
+            if (result.status === "error") {
+                throw new Error(result.message);
+            }
+
+            const listItem = (e.target as HTMLElement).closest(".listitem");
+
+            if (listItem) {
+                alert(result.message);
+                router.refresh();
             }
         } catch (error) {
             console.error("삭제 중 오류 발생:", error);
-            alert(error.message);
+            alert("삭제 중 오류 발생");
         }
     };
 
-    const userName = session ? session?.user?.name : null;
+    const userName: string = session ? session?.user?.name : null;
 
-    const sessionEmail = session ? session?.user?.email : null;
+    const sessionEmail: string = session ? session?.user?.email : null;
 
     const sessionBtn = (
         <span>

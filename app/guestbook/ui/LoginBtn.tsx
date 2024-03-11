@@ -39,17 +39,16 @@ export function LoginModal() {
             const res = await signIn("credentials", {
                 email,
                 password,
-                // callbackUrl: "/guestbook",
                 redirect: false,
             });
 
-            if (res?.status === 200) {
+            if (res?.error) {
+                alert(res.error);
+            } else if (res?.ok) {
                 // router.refresh() 사용시 에러 발생
                 window.location.reload();
-            } else if (res?.error) {
-                alert(res.error);
             } else {
-                throw new Error("로그인에 실패");
+                throw new Error("로그인이 정상적으로 작동하지 않고 있습니다.");
             }
         } catch (error) {
             console.error(error);
@@ -86,7 +85,7 @@ export function LoginModal() {
                                                         <Input
                                                             id="email"
                                                             name="email"
-                                                            // placeholder="테스트계정: test123@vividnow.com"
+                                                            placeholder="테스트계정: test123@vividnow.com"
                                                             type="text"
                                                             required
                                                         />
@@ -97,7 +96,7 @@ export function LoginModal() {
                                                         <Input
                                                             id="password"
                                                             name="password"
-                                                            // placeholder="테스트계정: qweqwe123!"
+                                                            placeholder="테스트계정: qweqwe123!"
                                                             type="password"
                                                             required
                                                         />

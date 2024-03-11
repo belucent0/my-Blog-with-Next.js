@@ -43,20 +43,18 @@ export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalP
                 body: JSON.stringify({ email: sessionEmail, password }),
             });
 
-            const data = await response.json();
+            const result = await response.json();
 
-            if (response.ok) {
-                await setIsDisable(false);
-                await setIsAble(true);
-            } else {
-                if (response.status === 404) {
-                    alert(data.message);
-                } else if (response.status === 401) {
-                    alert(data.message);
-                } else {
-                    alert("계정 삭제 중 서버에러 발생");
-                }
+            if (result.status === "fail") {
+                alert(result.message);
             }
+
+            if (result.status === "error") {
+                throw new Error(result.message);
+            }
+
+            await setIsDisable(false);
+            await setIsAble(true);
         } catch (error) {
             console.error(error);
             alert("계정 삭제에 실패했습니다.");

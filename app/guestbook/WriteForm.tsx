@@ -25,12 +25,19 @@ export default function WriteForm({ userName }: WriteFormProps) {
                 body: JSON.stringify({ authorName: userName, content }),
             });
 
-            if (!response.ok) throw new Error("서버 오류");
+            const result = await response.json();
 
-            const data = await response.json();
+            if (result.status === "fail") {
+                alert(result.message);
+                return;
+            }
 
-            if (data.message) {
-                alert(data.message);
+            if (result.status === "error") {
+                throw new Error(result.message);
+            }
+
+            if (result.message) {
+                alert(result.message);
                 setText("");
                 router.refresh();
             }

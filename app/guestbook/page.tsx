@@ -2,8 +2,8 @@ import { authOptions } from "../../pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import ListItem from "./listItems";
 import Popup from "./ui/Popup";
-import { GuestbookList } from "./guestbookTypes";
 import { Session } from "next-auth";
+import { GuestbookList } from "../../pages/api.interface";
 
 export const metadata = {
     title: "[방명록]|VIVIDNOW의 블로그",
@@ -19,13 +19,23 @@ export default async function GuestbookPage() {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/guestbook/list`);
 
         if (!response.ok) {
-            throw new Error("서버 오류");
+            throw new Error("방명록 조회 중 오류 발생");
         }
+
         const result = await response.json();
+
+        if (result.status === "fail") {
+            alert(result.message);
+        }
+
+        if (result.status === "error") {
+            throw new Error(result.message);
+        }
 
         guestbookList = result.data;
     } catch (error) {
         console.error("방명록 조회 중 오류 발생:", error);
+        throw new Error("방명록 조회 중 오류 발생");
     }
 
     return (
