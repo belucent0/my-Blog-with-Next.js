@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "../../../utils/database";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]";
-import { ResponseData } from "../../api.interface";
+import { ResponseData } from "../../../app/interface/api.interface";
 
 // 사용자 요청량 추적하는 객체
 const userRequests = {};

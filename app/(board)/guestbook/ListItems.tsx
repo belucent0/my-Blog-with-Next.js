@@ -3,9 +3,19 @@
 import { LoginModal, LogoutBtn } from "./ui/LoginBtn";
 import WriteForm from "./WriteForm";
 import { useRouter } from "next/navigation";
-import { ListItemProps } from "./interface/guestbookTypes";
 import DeleteAccountModal from "./ui/DeleteAccount";
-import { MouseEvent } from "react";
+import { Session } from "next-auth";
+
+export interface ListItemProps {
+    session: Session | null;
+    guestbookList: GuestbookList[];
+}
+
+export interface GuestbookList {
+    _id: string;
+    content: string;
+    authorName: string;
+}
 
 export default function ListItem({ session, guestbookList }: ListItemProps) {
     const router = useRouter();

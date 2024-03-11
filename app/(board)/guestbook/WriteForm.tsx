@@ -176,7 +176,7 @@ export default function WriteForm({ userName }: WriteFormProps) {
  *                        type: string
  *              example:
  *                status: "fail"
- *                message: "
+ *                message: "로그인 정보가 없습니다."
  *      "500":
  *        description: 방명록 등록 중 서버에러
  *        content:

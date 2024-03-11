@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "../../../utils/database";
-import { GuestbookList, ResponseData } from "../../api.interface";
+import { ResponseData } from "../../../app/interface/api.interface";
+import { GuestbookList } from "../../../app/(board)/guestbook/ListItems";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<ResponseData<GuestbookList[]>>) {
     if (req.method !== "GET") {

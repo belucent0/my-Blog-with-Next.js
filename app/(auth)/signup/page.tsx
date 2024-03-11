@@ -1,11 +1,11 @@
 "use client";
 
-import { CardTitle, CardDescription, CardHeader, CardContent, CardFooter, CardContainer, Card } from "../components/ui/card";
-import { Label } from "../components/ui/label";
-import { Input } from "../components/ui/input";
+import { CardTitle, CardDescription, CardHeader, CardContent, CardFooter, CardContainer, Card } from "../../components/ui/card";
+import { Label } from "../../components/ui/label";
+import { Input } from "../../components/ui/input";
 import { SyntheticEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Button } from "../components/ui/button";
+import { Button } from "../../components/ui/button";
 
 export default function signupPage() {
     const [email, setEmail] = useState("");
@@ -47,8 +47,10 @@ export default function signupPage() {
                 throw new Error(result.message);
             }
 
-            alert(result.message);
-            router.push("/guestbook");
+            if (result.status === "success") {
+                alert(result.message);
+                router.push("/guestbook");
+            }
         } catch (error) {
             console.error("회원가입 실패:", error);
             alert("회원가입에 실패했습니다.");

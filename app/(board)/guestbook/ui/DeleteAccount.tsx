@@ -2,9 +2,8 @@
 
 import { Button, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from "@nextui-org/react";
 import { Label } from "@radix-ui/react-label";
-import { Button as Button2 } from "../../components/ui/button";
+import { Button as Button2 } from "../../../components/ui/button";
 import { signOut } from "next-auth/react";
-import DeleteAlertDialog from "./DeleteAlertDialog";
 import { useEffect, useState } from "react";
 
 interface DeleteAccountModalProps {
@@ -40,7 +39,7 @@ export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalP
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email: sessionEmail, password }),
+                body: JSON.stringify({ password }),
             });
 
             const result = await response.json();
@@ -53,8 +52,10 @@ export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalP
                 throw new Error(result.message);
             }
 
-            await setIsDisable(false);
-            await setIsAble(true);
+            if (result.status === "success") {
+                await setIsDisable(false);
+                await setIsAble(true);
+            }
         } catch (error) {
             console.error(error);
             alert("계정 삭제에 실패했습니다.");
@@ -69,34 +70,28 @@ export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalP
                 return alert("비밀번호를 입력해주세요.");
             }
 
-            await DeleteAlertDialog();
-
             const response = await fetch("/api/auth/withdrawal", {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email: sessionEmail, password }),
+                body: JSON.stringify({ password }),
             });
 
-            const data = await response.json();
+            const result = await response.json();
 
-            if (response.ok) {
-                alert(data.message);
+            if (result.status === "fail") {
+                alert(result.message);
+            }
+
+            if (result.status === "error") {
+                throw new Error(result.message);
+            }
+
+            if (result.status === "success") {
+                alert(result.message);
                 await signOut();
                 window.location.reload();
-            } else {
-                if (response.status === 404) {
-                    alert(data.message);
-                } else if (response.status === 401) {
-                    alert(data.message);
-                } else if (response.status === 403) {
-                    alert("삭제할 수 없는 계정입니다.");
-                } else if (response.status === 400) {
-                    alert(data.message);
-                } else {
-                    alert("계정 삭제 중 서버에러 발생");
-                }
             }
         } catch (error) {
             console.error(error);

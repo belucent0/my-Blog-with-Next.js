@@ -3,14 +3,14 @@ import { connectDB } from "../../../utils/database";
 import bcrypt from "bcrypt";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./[...nextauth]";
-import { ResponseData } from "../../api.interface";
+import { ResponseData } from "../../../app/interface/api.interface";
 
 export default async function withdrawalHandler(req: NextApiRequest, res: NextApiResponse<ResponseData<null>>) {
     if (req.method !== "DELETE") {
         return res.status(405).json({ status: "fail", message: "허용되지 않은 요청 방식입니다." });
     }
 
-    const { email, password } = req.body;
+    const { password } = req.body;
 
     try {
         const session = await getServerSession(req, res, authOptions);
@@ -19,9 +19,12 @@ export default async function withdrawalHandler(req: NextApiRequest, res: NextAp
             return res.status(401).json({ status: "fail", message: "로그인 정보가 없습니다." });
         }
 
+        const email = session?.user.email;
+
         if (!email || !password) {
             return res.status(400).json({ status: "fail", message: "정상적인 요청이 아닙니다." });
         }
+
         const db = (await connectDB()).db("forum");
         const result = await db.collection("guest_credentials").findOne({ email });
 

@@ -2,9 +2,9 @@
 
 import { signIn, signOut } from "next-auth/react";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
-import { Input } from "../../components/ui/input";
-import { Label } from "../../components/ui/label";
-import { Button as Button2 } from "../../components/ui/button";
+import { Input } from "../../../components/ui/input";
+import { Label } from "../../../components/ui/label";
+import { Button as Button2 } from "../../../components/ui/button";
 
 //로그아웃 버튼 작동
 export function LogoutBtn() {

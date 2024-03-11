@@ -3,7 +3,15 @@ import { connectDB } from "../../../utils/database";
 import bcrypt from "bcrypt";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./[...nextauth]";
-import { PasswordValidation, ResponseData } from "../../api.interface";
+import { ResponseData } from "../../../app/interface/api.interface";
+
+export interface PasswordValidation {
+    _id: string;
+    email: string;
+    password: string;
+    name: string;
+    role: string;
+}
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<ResponseData<PasswordValidation>>) {
     if (req.method !== "POST") {
@@ -17,12 +25,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             return res.status(401).json({ status: "fail", message: "로그인 정보가 없습니다." });
         }
 
-        const { email, password } = req.body;
+        const email = session?.user.email;
+
+        const { password } = req.body;
 
         const db = (await connectDB()).db("forum");
         const data = await db.collection("guest_credentials").findOne({ email });
 
-        console.log(data, "data");
         if (!data) {
             return res.status(404).json({ status: "fail", message: "존재하지 않는 계정입니다." });
         }
