@@ -36,7 +36,7 @@ export const authOptions: AuthOptions = {
           const { email, password } = credentials;
 
           const db = (await connectDB()).db("forum");
-          const user = await db.collection("guest_credentials") .findOne({ email });
+          const user = await db.collection("guest_credentials").findOne({ email });
 
           if (!user) {
             throw new Error("해당 이메일로 가입된 유저가 없습니다.");

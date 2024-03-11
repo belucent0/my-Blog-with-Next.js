@@ -1,9 +1,11 @@
+import type { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "../../../utils/database";
 import bcrypt from "bcrypt";
+import { ResponseData } from "../../api.interface";
 
-export default async function handler(req, res) {
-    if (req.method == "POST") {
-        return res.status(405).end();
+export default async function handler(req: NextApiRequest, res: NextApiResponse<ResponseData<null>>) {
+    if (req.method !== "POST") {
+        return res.status(405).json({ status: "fail", message: "허용되지 않은 요청 방식입니다." });
     }
     try {
         const { email, password } = req.body;
@@ -12,7 +14,7 @@ export default async function handler(req, res) {
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
         if (!emailRegex.test(email)) {
-            return res.status(400).json({ message: "이메일 형식이 올바르지 않습니다." });
+            return res.status(400).json({ status: "fail", message: "이메일 형식이 올바르지 않습니다." });
         }
 
         // password 8~15자리, 영문과 숫자, 특수문자 조합

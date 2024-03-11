@@ -37,20 +37,20 @@ export default function signupPage() {
                 body: JSON.stringify({ email, password, name, role: "guest" }),
             });
 
-            if (response.status === 400) {
-                const data = await response.json();
-                alert(data.message);
-                return;
+            const result = await response.json();
+
+            if (result.status === "fail") {
+                alert(result.message);
             }
 
-            if (!response.ok) throw new Error("서버 오류");
+            if (result.status === "error") {
+                throw new Error(result.message);
+            }
 
-            const data = await response.json();
-
-            alert(data.message);
+            alert(result.message);
             router.push("/guestbook");
         } catch (error) {
-            console.error(error);
+            console.error("회원가입 실패:", error);
             alert("회원가입에 실패했습니다.");
         }
     };
