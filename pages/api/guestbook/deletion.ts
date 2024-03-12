@@ -3,7 +3,7 @@ import { connectDB } from "../../../utils/database";
 import { ObjectId } from "mongodb";
 import { authOptions } from "../auth/[...nextauth]";
 import { getServerSession } from "next-auth";
-import { ResponseData } from "../../api.interface";
+import { ResponseData } from "../../../app/interface/api.interface";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<ResponseData<null>>) {
     if (req.method !== "DELETE") {

@@ -29,7 +29,9 @@ export default function Popup() {
         setIsOpen(false);
     };
 
-    if (!isOpen) return false;
+    if (!isOpen) {
+        return null;
+    }
 
     return (
         <div className="fixed bottom-0 left-0 right-0 flex items-center justify-center p-7">

@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "../../../utils/database";
 import bcrypt from "bcrypt";
-import { ResponseData } from "../../api.interface";
+import { ResponseData } from "../../../app/interface/api.interface";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<ResponseData<null>>) {
     if (req.method !== "POST") {

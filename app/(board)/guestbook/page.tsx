@@ -1,9 +1,8 @@
-import { authOptions } from "../../pages/api/auth/[...nextauth]";
+import { authOptions } from "../../../pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
-import ListItem from "./listItems";
+import ListItem, { GuestbookList } from "./ListItems";
 import Popup from "./ui/Popup";
 import { Session } from "next-auth";
-import { GuestbookList } from "../../pages/api.interface";
 
 export const metadata = {
     title: "[방명록]|VIVIDNOW의 블로그",
