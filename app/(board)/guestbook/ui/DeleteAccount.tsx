@@ -20,7 +20,7 @@ export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalP
 
     useEffect(() => {
         setEmail(sessionEmail);
-    }, []);
+    }, [sessionEmail]);
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
@@ -53,8 +53,8 @@ export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalP
             }
 
             if (result.status === "success") {
-                await setIsDisable(false);
-                await setIsAble(true);
+                setIsDisable(false);
+                setIsAble(true);
             }
         } catch (error) {
             console.error(error);

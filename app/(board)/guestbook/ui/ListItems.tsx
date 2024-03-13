@@ -1,9 +1,9 @@
 "use client";
 
-import { LoginModal, LogoutBtn } from "./ui/LoginBtn";
+import { LoginModal, LogoutBtn } from "./LoginBtn";
 import WriteForm from "./WriteForm";
 import { useRouter } from "next/navigation";
-import DeleteAccountModal from "./ui/DeleteAccount";
+import DeleteAccountModal from "./DeleteAccount";
 import { Session } from "next-auth";
 
 export interface ListItemProps {
