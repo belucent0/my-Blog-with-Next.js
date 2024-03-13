@@ -1,6 +1,6 @@
 import { authOptions } from "../../../pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
-import ListItem, { GuestbookList } from "./ListItems";
+import ListItem, { GuestbookList } from "./ui/ListItems";
 import Popup from "./ui/Popup";
 import { Session } from "next-auth";
 

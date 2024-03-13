@@ -5,6 +5,7 @@ import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDi
 import { Input } from "../../../components/ui/input";
 import { Label } from "../../../components/ui/label";
 import { Button as Button2 } from "../../../components/ui/button";
+import Image from "next/image";
 
 //로그아웃 버튼 작동
 export function LogoutBtn() {
@@ -44,11 +45,10 @@ export function LoginModal() {
 
             if (res?.error) {
                 alert(res.error);
-            } else if (res?.ok) {
-                // router.refresh() 사용시 에러 발생
+            }
+
+            if (res?.ok) {
                 window.location.reload();
-            } else {
-                throw new Error("로그인이 정상적으로 작동하지 않고 있습니다.");
             }
         } catch (error) {
             console.error(error);
@@ -122,7 +122,9 @@ export function LoginModal() {
                                                 className="group relative flex h-11 items-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-green-500 before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 disabled:before:scale-100 disabled:before:bg-gray-300 dark:before:border-gray-600 dark:before:bg-gray-700"
                                             >
                                                 <span className="relative flex w-full items-center justify-center gap-3 text-base font-medium text-white dark:text-gray-200">
-                                                    <img
+                                                    <Image
+                                                        width={24}
+                                                        height={24}
                                                         src="https://blog.kakaocdn.net/dn/bU1uVm/btqGsLHK8Ha/ndkom6FPH3Ld5BXtGd7pt0/img.png"
                                                         className="absolute left-0 w-6"
                                                         alt="네이버"
@@ -135,7 +137,9 @@ export function LoginModal() {
                                                 className="group relative flex h-11 items-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-gray-200 before:bg-yellow-400 before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 disabled:before:scale-100 disabled:before:bg-gray-300 dark:before:border-gray-600 dark:before:bg-gray-700"
                                             >
                                                 <span className="relative flex w-full items-center justify-center gap-3 text-base font-medium text-white dark:text-gray-200">
-                                                    <img
+                                                    <Image
+                                                        width={24}
+                                                        height={24}
                                                         src="https://cdn.imweb.me/upload/S20210304872ba49a108a8/6285350df01af.png"
                                                         className="absolute left-0 w-6"
                                                         alt="카카오"

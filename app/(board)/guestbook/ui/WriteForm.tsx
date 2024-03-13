@@ -16,13 +16,11 @@ export default function WriteForm({ userName }: WriteFormProps) {
     const handleSubmit = async event => {
         event.preventDefault(); // 폼 제출에 따른 페이지 새로 고침 방지
 
-        const content = event.target.elements.content.value;
-
         try {
             const response = await fetch("/api/guestbook/new", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ authorName: userName, content }),
+                body: JSON.stringify({ authorName: userName, content: text }),
             });
 
             const result = await response.json();
@@ -46,11 +44,6 @@ export default function WriteForm({ userName }: WriteFormProps) {
         }
     };
 
-    //방명록 input 태그, event 발생한 DOM의 value 값을 event.target이 가리키게 함. 그것으로 상태저장
-    const onChange = event => {
-        setText(event.target.value);
-    };
-
     return (
         <form onSubmit={handleSubmit}>
             <div className="mb-3 flex">
@@ -60,7 +53,7 @@ export default function WriteForm({ userName }: WriteFormProps) {
 
                 <div className="relative w-full">
                     <input
-                        onChange={onChange}
+                        onChange={e => setText(e.target.value)}
                         value={text}
                         type="text"
                         name="content"

@@ -30,10 +30,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         }
         userRequests[userEmail].push(Date.now());
 
-        // 5분 이내의 요청이 5개 초과시 요청 거부
-        if (userRequests[userEmail].length > 5) {
-            if (Date.now() - userRequests[userEmail][0] < 5 * 60 * 1000) {
-                return res.status(429).json({ status: "fail", message: "5분 동안의 요청이 너무 많습니다. 5분 후 다시 시도해주세요." });
+        // 1분 이내의 요청이 1개 초과시 요청 거부
+        if (userRequests[userEmail].length > 10) {
+            if (Date.now() - userRequests[userEmail][0] < 1 * 60 * 1000) {
+                return res.status(429).json({ status: "fail", message: "1분 동안의 요청이 너무 많습니다. 1분 후 다시 시도해주세요." });
             }
             userRequests[userEmail].shift();
         }

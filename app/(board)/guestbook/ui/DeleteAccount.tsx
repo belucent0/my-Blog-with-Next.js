@@ -20,7 +20,7 @@ export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalP
 
     useEffect(() => {
         setEmail(sessionEmail);
-    }, []);
+    }, [sessionEmail]);
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
@@ -53,8 +53,8 @@ export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalP
             }
 
             if (result.status === "success") {
-                await setIsDisable(false);
-                await setIsAble(true);
+                setIsDisable(false);
+                setIsAble(true);
             }
         } catch (error) {
             console.error(error);
@@ -123,16 +123,6 @@ export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalP
                                             </h2>
                                             <div>
                                                 <form onSubmit={handleSubmit}>
-                                                    {/* <div className="flex flex-col space-y-1.5">
-                            <Label htmlFor="email">이메일</Label>
-                            <Input
-                              id="email"
-                              name="email"
-                              // placeholder="테스트계정: test123@vividnow.com"
-                              type="email"
-                              required
-                            />
-                          </div> */}
                                                     <div className="my-3" />
                                                     <div className="flex flex-col space-y-1.5">
                                                         <Label htmlFor="password">비밀번호</Label>
@@ -220,14 +210,10 @@ export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalP
  *          schema:
  *            type: object
  *            properties:
- *              email:
- *                type: string
- *                description: "로그인 이메일"
  *              password:
  *                type: string
  *                description: "로그인 비밀번호"
  *            example:
- *             email: "test123@vividnow.com"
  *             password: "qwer1234!"
  *    responses:
  *      "200":
@@ -310,7 +296,6 @@ export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalP
  *              password:
  *                type: string
  *            example:
- *             email: "test123@vividnow.com"
  *             password: "qwer1234!"
  *    responses:
  *      "200":
