@@ -15,6 +15,7 @@ export interface GuestbookList {
     _id: string;
     content: string;
     authorName: string;
+    authorEmail: string;
 }
 
 export default function ListItem({ session, guestbookList }: ListItemProps) {
@@ -90,7 +91,7 @@ export default function ListItem({ session, guestbookList }: ListItemProps) {
                             <h4 className="text-base font-bold sm:mb-1 sm:text-lg">{guestbookList[i].content}</h4>
                             <p className="text-sm text-gray-500 sm:mb-1 sm:text-base">{guestbookList[i].authorName}</p>
                         </div>
-                        {session && userName === guestbookList[i].authorName && (
+                        {session && sessionEmail === guestbookList[i].authorEmail && (
                             <button className="text-sm sm:text-base" onClick={e => handleDelete(guestbookList[i]._id, i, e)}>
                                 🗑삭제
                             </button>
