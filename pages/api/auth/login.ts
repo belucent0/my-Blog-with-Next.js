@@ -1,8 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "../../../utils/database";
 import bcrypt from "bcrypt";
-import { getServerSession } from "next-auth";
-import { authOptions } from "./[...nextauth]";
 import { ResponseData } from "../../../app/interface/api.interface";
 
 export interface PasswordValidation {
@@ -19,36 +17,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     }
 
     try {
-        const session = await getServerSession(req, res, authOptions);
-
-        if (!session) {
-            return res.status(401).json({ status: "fail", message: "로그인 정보가 없습니다." });
-        }
-
-        const email = session?.user.email;
-
-        const { password } = req.body;
+        const { email, password } = req.body;
 
         const db = (await connectDB()).db("forum");
         const data = await db.collection("guest_credentials").findOne({ email });
 
         if (!data) {
-            return res.status(404).json({ status: "fail", message: "존재하지 않는 계정입니다." });
+            return res.status(404).json({ status: "fail", message: "이메일 또는 비밀번호가 일치하지 않습니다." });
         }
 
         // 비밀번호 확인
-        const isMatched = await bcrypt.compare(password, data.password);
+        const isPasswordVaild = await bcrypt.compare(password, data.password);
 
-        if (!isMatched) {
-            return res.status(401).json({ status: "fail", message: "비밀번호가 일치하지 않습니다." });
+        if (!isPasswordVaild) {
+            return res.status(401).json({ status: "fail", message: "이메일 또는 비밀번호가 일치하지 않습니다." });
         }
 
-        return res.status(200).json({ status: "success", message: "비밀번호 확인", data });
+        return res.status(200).json({ status: "success", message: "로그인 성공", data });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({
-            status: "error",
-            message: "비밀번호 확인이 정상 처리되지 않았습니다.",
-        });
+        throw new Error("로그인 서버에서 에러가 발생했습니다.");
     }
 }
