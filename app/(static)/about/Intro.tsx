@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { AnimationAbout } from "../../components/Animation";
 import Link from "next/link";
 
@@ -25,7 +26,9 @@ export default function Intro() {
                         <div className="text-center sm:w-1/3 sm:py-8 sm:pr-8">
                             <div className="flex flex-col items-center rounded-lg bg-gray-100 p-4 dark:bg-gray-800 lg:p-8">
                                 <div className="mb-2 h-24 w-24 overflow-hidden rounded-full bg-gray-200 shadow-lg md:mb-4 md:h-32 md:w-32">
-                                    <img
+                                    <Image
+                                        width={100}
+                                        height={100}
                                         src="https://blog.kakaocdn.net/dn/b20Vnn/btsivR5Nmv7/0IgIIMi8N9DWB830D62NcK/img.png"
                                         loading="lazy"
                                         alt="Photo by christian ferrer"

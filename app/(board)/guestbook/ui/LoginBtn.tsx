@@ -49,6 +49,8 @@ export function LoginModal() {
 
             if (res?.ok) {
                 window.location.reload();
+            } else {
+                throw new Error("로그인에 실패했습니다.");
             }
         } catch (error) {
             console.error(error);
