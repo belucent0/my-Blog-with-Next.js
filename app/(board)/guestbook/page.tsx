@@ -3,35 +3,20 @@ import { getServerSession } from "next-auth";
 import ListItem, { GuestbookList } from "./ui/ListItems";
 import Popup from "./ui/Popup";
 import { Session } from "next-auth";
+import getMessages from "../../../pages/api/guestbook/message";
 
 export const metadata = {
     title: "[방명록]|VIVIDNOW의 블로그",
     description: "마음을 읽는 개발자 김재광입니다",
 };
 
-export default async function GuestbookPage() {
+export default async function GuestbookPage(): Promise<JSX.Element> {
     const session: Session | null = await getServerSession(authOptions);
 
     let guestbookList: GuestbookList[] = [];
 
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/guestbook/list`);
-
-        if (!response.ok) {
-            throw new Error("방명록 조회 중 오류 발생");
-        }
-
-        const result = await response.json();
-
-        if (result.status === "fail") {
-            alert(result.message);
-        }
-
-        if (result.status === "error") {
-            throw new Error(result.message);
-        }
-
-        guestbookList = result.data;
+        guestbookList = await getMessages();
     } catch (error) {
         console.error("방명록 조회 중 오류 발생:", error);
         throw new Error("방명록 조회 중 오류 발생");
