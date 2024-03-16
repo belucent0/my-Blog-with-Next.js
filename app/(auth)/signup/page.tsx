@@ -5,7 +5,7 @@ export const metadata = {
     description: "마음을 읽는 개발자 김재광입니다",
 };
 
-export default function signupPage() {
+export default function signupPage(): JSX.Element {
     return (
         <>
             <div>

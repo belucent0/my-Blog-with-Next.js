@@ -2,7 +2,7 @@ import { getApiDocs } from "../../../utils/swagger";
 import ReactSwagger from "./react-swagger";
 
 //Swagger - api-docs
-export default async function IndexPage() {
+export default async function IndexPage(): Promise<JSX.Element> {
     try {
         const spec = await getApiDocs();
         return (

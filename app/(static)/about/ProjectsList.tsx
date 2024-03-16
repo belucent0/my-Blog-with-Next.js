@@ -17,7 +17,7 @@ type ProjectListProps = {
 };
 
 // 프로젝트- 작업이력란
-export default async function ProjectList({ worksList }: ProjectListProps) {
+export default function ProjectList({ worksList }: ProjectListProps): JSX.Element {
     return (
         <>
             <div className="m-auto text-gray-600 xl:container">

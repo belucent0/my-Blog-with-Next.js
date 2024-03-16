@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import getPostMetadata from "../getPostMetadata";
 
 import type { Metadata } from "next";
+import { PostMetadata } from "../postTypes";
 
 type Props = {
     params: { id: string; slug: string };
@@ -36,7 +37,7 @@ export const generateStaticParams = async () => {
 };
 
 //블로그 게시글 상세 페이지
-export default function postDetail(props) {
+export default function postDetail(props: PostMetadata): JSX.Element {
     const slug = props.params.slug;
     const post = getPostContent(slug);
 

@@ -18,7 +18,7 @@ export interface GuestbookList {
     authorEmail: string;
 }
 
-export default function ListItem({ session, guestbookList }: ListItemProps) {
+export default function ListItem({ session, guestbookList }: ListItemProps): JSX.Element {
     const router = useRouter();
 
     // 방명록 삭제

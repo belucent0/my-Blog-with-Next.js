@@ -8,7 +8,7 @@ type WriteFormProps = {
 };
 
 // 방명록 페이지 내 방명록 작성폼
-export default function WriteForm({ userName }: WriteFormProps) {
+export default function WriteForm({ userName }: WriteFormProps): JSX.Element {
     const [text, setText] = useState<string>("");
     const router = useRouter();
 

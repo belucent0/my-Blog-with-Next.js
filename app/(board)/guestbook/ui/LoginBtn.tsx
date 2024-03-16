@@ -8,7 +8,7 @@ import { Button as Button2 } from "../../../components/ui/button";
 import Image from "next/image";
 
 //로그아웃 버튼 작동
-export function LogoutBtn() {
+export function LogoutBtn(): JSX.Element {
     return (
         <button
             className="mb-2 inline-block rounded-lg bg-indigo-700 px-3 py-2 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-500 focus-visible:ring active:bg-indigo-500 md:text-base"
@@ -22,7 +22,7 @@ export function LogoutBtn() {
 }
 
 // 로그인 모달
-export function LoginModal() {
+export function LoginModal(): JSX.Element {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
     const handleSignIn = async provider => {
@@ -49,12 +49,9 @@ export function LoginModal() {
 
             if (res?.ok) {
                 window.location.reload();
-            } else {
-                throw new Error("로그인에 실패했습니다.");
             }
         } catch (error) {
-            console.error(error);
-            alert("로그인에 실패했습니다.");
+            throw new Error("로그인에 실패했습니다.");
         }
     };
 

@@ -11,7 +11,7 @@ interface DeleteAccountModalProps {
 }
 
 // 계정 삭제창 작동
-export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalProps) {
+export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalProps): JSX.Element {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const [isDisable, setIsDisable] = useState(true);
     const [isAble, setIsAble] = useState(false);
@@ -31,7 +31,7 @@ export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalP
             setPassword(password);
 
             if (!password) {
-                return alert("비밀번호를 입력해주세요.");
+                alert("비밀번호를 입력해주세요.");
             }
 
             const response = await fetch("/api/auth/password", {
@@ -57,7 +57,6 @@ export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalP
                 setIsAble(true);
             }
         } catch (error) {
-            console.error(error);
             alert("계정 삭제에 실패했습니다.");
         }
     };
@@ -94,7 +93,6 @@ export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalP
                 window.location.reload();
             }
         } catch (error) {
-            console.error(error);
             alert("계정 삭제에 실패했습니다.");
         }
     };
@@ -131,6 +129,7 @@ export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalP
                                                             name="password"
                                                             placeholder="비밀번호를 입력해주세요"
                                                             type="password"
+                                                            autoComplete="off"
                                                             minLength={8}
                                                             required
                                                             disabled={isAble}

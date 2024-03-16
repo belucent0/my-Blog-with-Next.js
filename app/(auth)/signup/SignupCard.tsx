@@ -7,7 +7,7 @@ import { SyntheticEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "../../components/ui/button";
 
-export default function SignupCard() {
+export default function SignupCard(): JSX.Element {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [checkingPassword, setCheckingPassword] = useState("");
@@ -56,8 +56,7 @@ export default function SignupCard() {
                 router.push("/guestbook");
             }
         } catch (error) {
-            console.error("회원가입 실패:", error);
-            alert("회원가입에 실패했습니다.");
+            throw new Error("로그인 중 오류 발생");
         }
     };
 

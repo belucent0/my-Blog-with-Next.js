@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-export default function Popup() {
+export default function Popup(): JSX.Element {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
@@ -30,7 +30,7 @@ export default function Popup() {
     };
 
     if (!isOpen) {
-        return null;
+        return <div></div>;
     }
 
     return (

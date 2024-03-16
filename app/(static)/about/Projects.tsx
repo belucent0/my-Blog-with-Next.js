@@ -2,7 +2,7 @@ import { connectDB } from "../../../utils/database";
 import ProjectList from "./ProjectsList";
 
 // 프로젝트- 작업이력란
-export default async function Projects() {
+export default async function Projects(): Promise<JSX.Element> {
     const db = (await connectDB()).db("forum");
     let worksList = await db.collection("projects").find().toArray();
     worksList = worksList.map(value => {

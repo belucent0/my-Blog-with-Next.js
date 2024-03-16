@@ -3,7 +3,7 @@ import { AnimationAbout } from "../../components/Animation";
 import Link from "next/link";
 
 // about 페이지 소개란
-export default function Intro() {
+export default function Intro(): JSX.Element {
     return (
         <>
             <section className="body-font text-gray-700">
