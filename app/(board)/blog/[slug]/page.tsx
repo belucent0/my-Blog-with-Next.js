@@ -3,6 +3,21 @@ import ReactMarkdown from "react-markdown";
 import matter from "gray-matter";
 import getPostMetadata from "../getPostMetadata";
 
+import type { Metadata } from "next";
+
+type Props = {
+    params: { id: string; slug: string };
+};
+
+//동적 라우팅을 위한 메타데이터 생성
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const post = await getPostContent(params.slug);
+
+    return {
+        title: post.data.title,
+    };
+}
+
 // 마크다운 게시글 내용 불러오기
 function getPostContent(slug) {
     const folder = "contents/";
