@@ -18,7 +18,6 @@ export default async function GuestbookPage(): Promise<JSX.Element> {
     try {
         guestbookList = await getMessages();
     } catch (error) {
-        console.error("방명록 조회 중 오류 발생:", error);
         throw new Error("방명록 조회 중 오류 발생");
     }
 

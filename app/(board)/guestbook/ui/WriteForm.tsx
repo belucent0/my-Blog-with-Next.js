@@ -27,7 +27,6 @@ export default function WriteForm({ userName }: WriteFormProps): JSX.Element {
 
             if (result.status === "fail") {
                 alert(result.message);
-                return;
             }
 
             if (result.status === "error") {

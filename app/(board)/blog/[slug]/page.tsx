@@ -2,17 +2,16 @@ import fs from "fs";
 import ReactMarkdown from "react-markdown";
 import matter from "gray-matter";
 import getPostMetadata from "../getPostMetadata";
-
 import type { Metadata } from "next";
-import { PostMetadata } from "../postTypes";
 
 type Props = {
     params: { id: string; slug: string };
+    searchParams: { [key: string]: string | string[] | undefined };
 };
 
 //동적 라우팅을 위한 메타데이터 생성
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const post = await getPostContent(params.slug);
+    const post = await getPostContent(params?.slug);
 
     return {
         title: post.data.title,
@@ -37,7 +36,7 @@ export const generateStaticParams = async () => {
 };
 
 //블로그 게시글 상세 페이지
-export default function postDetail(props: PostMetadata): JSX.Element {
+export default function postDetailPage(props: Props): JSX.Element {
     const slug = props.params.slug;
     const post = getPostContent(slug);
 

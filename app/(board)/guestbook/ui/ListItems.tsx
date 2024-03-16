@@ -49,7 +49,6 @@ export default function ListItem({ session, guestbookList }: ListItemProps): JSX
                 router.refresh();
             }
         } catch (error) {
-            console.error("삭제 중 오류 발생:", error);
             alert("삭제 중 오류 발생");
         }
     };

@@ -8,7 +8,7 @@ export const metadata = {
 };
 
 //블로그 목록 정보
-export default function postMain(): JSX.Element {
+export default function blogMainPage(): JSX.Element {
     const postMetadata: PostMetadata[] = getPostMetadata();
 
     const PostPreview = (props: PostMetadata) => {
