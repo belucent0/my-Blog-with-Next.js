@@ -5,7 +5,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "./[...nextauth]";
 import { ResponseData } from "../../../app/interface/api.interface";
 
-export default async function withdrawalHandler(req: NextApiRequest, res: NextApiResponse<ResponseData<null>>) {
+export default async function withdrawalHandler(req: NextApiRequest, res: NextApiResponse<ResponseData<void>>) {
     if (req.method !== "DELETE") {
         return res.status(405).json({ status: "fail", message: "허용되지 않은 요청 방식입니다." });
     }
