@@ -2,14 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "../../../utils/database";
 import bcrypt from "bcrypt";
 import { ResponseData } from "../../../app/interface/api.interface";
-
-export interface PasswordValidation {
-    _id: string;
-    email: string;
-    password: string;
-    name: string;
-    role: string;
-}
+import { PasswordValidation } from "./password";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<ResponseData<PasswordValidation>>) {
     if (req.method !== "POST") {

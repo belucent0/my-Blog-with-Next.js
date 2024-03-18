@@ -74,7 +74,6 @@ export default function DeleteAccountModal({ sessionEmail }: DeleteAccountModalP
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ password }),
             });
 
             const result = await response.json();

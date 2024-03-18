@@ -10,4 +10,10 @@ declare module "next-auth" {
             role?: string;
         } & Session["user"];
     }
+
+    export interface User {
+        email: string;
+        name: string;
+        role: string;
+    }
 }

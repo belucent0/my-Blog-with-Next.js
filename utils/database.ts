@@ -19,6 +19,7 @@ export async function connectDB() {
     try {
         await client.connect();
         await client.db("admin").command({ ping: 1 });
+        console.log("=====DB 연결 성공=====");
 
         cachedClient = client;
 
@@ -35,7 +36,7 @@ export async function connectDB() {
 
                 console.log("DB 연결이 해제되었습니다.");
             },
-            1000 * 15 * 1,
+            1000 * 3 * 1,
         );
     }
 }

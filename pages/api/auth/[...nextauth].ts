@@ -6,6 +6,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import NaverProvider from "next-auth/providers/naver";
 import KakaoProvider from "next-auth/providers/kakao";
 import { NextApiRequest, NextApiResponse } from "next";
+
 export const authOptions: AuthOptions = {
     providers: [
         GithubProvider({
@@ -84,6 +85,7 @@ export const authOptions: AuthOptions = {
                     email: user.email,
                     name: user.name,
                     image: user.image,
+                    role: user.role,
                 };
             }
             return token;
@@ -98,6 +100,7 @@ export const authOptions: AuthOptions = {
                       role?: string;
                   }
                 | undefined;
+
             return session;
         },
     },
