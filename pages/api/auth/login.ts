@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         const data = await db.collection("guest_credentials").findOne({ email });
 
         if (!data) {
-            return res.status(404).json({ status: "fail", message: "이메일 또는 비밀번호가 일치하지 않습니다." });
+            return res.status(401).json({ status: "fail", message: "이메일 또는 비밀번호가 일치하지 않습니다." });
         }
 
         // 비밀번호 확인

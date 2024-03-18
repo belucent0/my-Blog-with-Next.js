@@ -2,13 +2,13 @@ import { createSwaggerSpec } from "next-swagger-doc";
 
 export const getApiDocs = async () => {
     const spec = createSwaggerSpec({
-        apiFolder: "app", // define api folder under app folder
+        apiFolder: "app",
         definition: {
             openapi: "3.0.0",
             info: {
                 title: "VIVIDNOW with Swagger API Docs",
-                description: "블로그 API docs, 현재 방명록 페이지만 기재되었습니다.",
-                version: "1.0",
+                description: "블로그 API docs, 계정 및 방명록 관련 api",
+                version: "2.0",
             },
             components: {
                 securitySchemes: {
