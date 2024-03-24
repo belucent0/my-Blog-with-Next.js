@@ -40,7 +40,7 @@ export default function Intro(): JSX.Element {
                                     <div className="text-center font-bold text-indigo-500 md:text-lg">김재광</div>
                                     <div className="mb-3 text-center text-sm text-gray-500 md:mb-4 md:text-base">
                                         <p className="text-base">&quot;일신우일신(日新又日新)&quot;</p>
-                                        <p className="text-base">Node.js 서버 개발자</p>
+                                        <p className="text-base">Node.js 웹 개발자</p>
                                     </div>
 
                                     <div className="flex justify-center">
@@ -97,7 +97,7 @@ export default function Intro(): JSX.Element {
                             </p>
                             <div className="flex justify-around">
                                 <Link
-                                    href="https://veams.notion.site/c4a07422aaa24976808a1f80ead8aff2?pvs=4"
+                                    href="https://docs.google.com/document/d/16yYn-viFnMSobl4aWCil-Jp3EEr4sw5XqhC7duhw8YY/edit?usp=sharing"
                                     className="inline-flex items-center text-indigo-500"
                                     target="_blank"
                                     rel="noreferrer noopener"
